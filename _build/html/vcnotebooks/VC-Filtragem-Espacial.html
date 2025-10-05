@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visão Computacional &#8212; Visão Computacional</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcnotebooks/VC-Filtragem-Espacial';</script>
+    <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Filtragem-Espacial.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visão Computacional" href="VC-Processamento-Imagens-Coloridas.html" />
+    <link rel="prev" title="Visão Computacional" href="VC-Fundamentos-Imagens-Digitais.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Visão Computacional - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Visão Computacional - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/denmartins/visao-computacional-book/blob/master/vcnotebooks/VC-Filtragem-Espacial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/edit/main/vcnotebooks/VC-Filtragem-Espacial.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/issues/new?title=Issue%20on%20page%20%2Fvcnotebooks/VC-Filtragem-Espacial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/vcnotebooks/VC-Filtragem-Espacial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visão Computacional</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtragem-espacial">Filtragem Espacial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entendendo-convolucao">Entendendo Convolução</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d">Caso 1D: https://antoinebrl.github.io/blog/conv1d/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">Caso 2D: https://objetos.github.io/docs/demos/image_conv_vis/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propriedades-da-convolucao">Propriedades da Convolução</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-e-preparacao">Imports e Preparação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground-testando-filtros-imagem-binaria">Playground: Testando filtros imagem binária</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carregamento-de-imagem">Carregamento de Imagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media">Filtro de Média</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media-aplicacao">Filtro de Média: Aplicação</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media-kernels-de-diferentes-tamanhos">Filtro de Média: Kernels de diferentes tamanhos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media-diferentes-valores-de-kernel">Filtro de Média: Diferentes valores de Kernel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-gaussiano">Filtro Gaussiano</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-gaussiano-aplicacao">Filtro Gaussiano: Aplicação</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-gaussiano-testando-diferentes-valores-de-sigma">Filtro Gaussiano: Testando diferentes valores de <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-filtro-de-media-versus-filtro-gaussiano">Comparação: Filtro de Média versus Filtro Gaussiano</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana">Filtro Mediana</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana-aplicacao">Filtro Mediana: Aplicação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper">Filtro de Mediana: Removendo Ruído Salt-and-Pepper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel">Filtro Sobel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-exemplo">Filtro Sobel: Exemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-aplicacao">Filtro Sobel: Aplicação</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-laplaciano">Filtro Laplaciano</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-laplaciano-aplicacao">Filtro Laplaciano: Aplicação</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-filtros">Outros Filtros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-filtros-cont">Outros Filtros (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
+<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
+<section id="filtragem-espacial">
+<h2>Filtragem Espacial<a class="headerlink" href="#filtragem-espacial" title="Link to this heading">#</a></h2>
+<section id="prof-dr-denis-mayr-lima-martins">
+<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
+</section>
+<section id="pontificia-universidade-catolica-de-campinas">
+<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
+<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
+</section>
+</section>
+<section id="entendendo-convolucao">
+<h2>Entendendo Convolução<a class="headerlink" href="#entendendo-convolucao" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>“<strong>Convolução</strong> é um operador linear que, a partir de duas funções dadas, resulta numa terceira que mede a soma do produto dessas funções ao longo da região subentendida pela superposição delas em função do deslocamento existente entre elas.” - <a class="reference external" href="https://pt.wikipedia.org/wiki/Convolu%C3%A7%C3%A3o">Wikipedia</a>.</p>
+</div></blockquote>
+<section id="caso-1d-https-antoinebrl-github-io-blog-conv1d">
+<h3>Caso 1D: <a class="reference external" href="https://antoinebrl.github.io/blog/conv1d/">https://antoinebrl.github.io/blog/conv1d/</a><a class="headerlink" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d" title="Link to this heading">#</a></h3>
+<p><img alt="equação convolução 1D" src="vcnotebooks/attachment:2a6abc52-b053-48e0-8905-5587715032a0.png" /></p>
+<!-- ![image.png](attachment:62971758-83f0-453c-bd5f-48a85645695d.png)!-->
+<p><img alt="animação convolução 1D" src="https://notes.lesleylai.info/assets/discrete_convolution_visualization.gif" /></p>
+</section>
+<section id="caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">
+<h3>Caso 2D: <a class="reference external" href="https://objetos.github.io/docs/demos/image_conv_vis/">https://objetos.github.io/docs/demos/image_conv_vis/</a><a class="headerlink" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis" title="Link to this heading">#</a></h3>
+<p><strong>Kernel</strong>: matriz de pesos <span class="math notranslate nohighlight">\((w_{mn})\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(g(x,y) = w(x,y)*f(x,y) = \sum_{s=-a}^{a}\sum_{t=-b}^{b} w(s,t)f(x-s,y-t)\)</span></p>
+<ol class="arabic simple">
+<li><p>Coloque o centro do kernel sobre o pixel que você está analisando.</p></li>
+<li><p>Multiplique cada elemento do kernel pelo valor do pixel correspondente na imagem (a região coberta).</p></li>
+<li><p>Some todos esses produtos para obter um único número, que se torna o novo valor desse pixel na saída.</p></li>
+</ol>
+<center>
+    <img src="https://sdsdkkk.github.io/images/posts/2d-convolution.gif" width="300px"/>
+</center>
+<p>Assim, a convolução é simplesmente “deslizar um pequeno molde de números sobre a imagem e calcular uma soma ponderada” em cada posição, produzindo efeitos variados dependendo do padrão escolhido para o kernel.</p>
+</section>
+<section id="propriedades-da-convolucao">
+<h3>Propriedades da Convolução<a class="headerlink" href="#propriedades-da-convolucao" title="Link to this heading">#</a></h3>
+<p><strong>Comutatividade</strong></p>
+<p><a class="reference external" href="https://pt.wikipedia.org/wiki/Convolu%C3%A7%C3%A3o"><img alt="" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e32bc0c35fdae66282fafef861d719a2fdff9c3" /></a></p>
+<p><strong>Associatividade</strong></p>
+<p><a class="reference external" href="https://pt.wikipedia.org/wiki/Convolu%C3%A7%C3%A3o"><img alt="" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a2e334496bc382f7a604c31930898333400d2404" /></a></p>
+<p><strong>Distributividade</strong></p>
+<p><a class="reference external" href="https://pt.wikipedia.org/wiki/Convolu%C3%A7%C3%A3o"><img alt="" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/66ccb6c5d02aaadacb39e68625e99e9c0ad5e544" /></a></p>
+<p><strong>Associatividade com multiplicação escalar</strong></p>
+<p><a class="reference external" href="https://pt.wikipedia.org/wiki/Convolu%C3%A7%C3%A3o"><img alt="" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5b752b7aa7db6b6238d4f09a7d2055cb8adc528" /></a></p>
+</section>
+</section>
+<section id="imports-e-preparacao">
+<h2>Imports e Preparação<a class="headerlink" href="#imports-e-preparacao" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">cv2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;cv2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_images_playground</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">convolved</span><span class="p">,</span> <span class="n">img_size</span><span class="p">):</span>
+    <span class="c1"># Mostra as imagens original o resultado da convolução</span>
+    <span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">convolved</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+        <span class="c1"># Configura major ticks</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="c1"># Configura minor ticks</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Configura gridlines baseadas nos minor ticks</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Remove minor ticks</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">show_images</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">convolved</span><span class="p">):</span>
+    <span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">convolved</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Remove plt grid e ticks</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="playground-testando-filtros-imagem-binaria">
+<h2>Playground: Testando filtros imagem binária<a class="headerlink" href="#playground-testando-filtros-imagem-binaria" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cria imagem aletória</span>
+<span class="n">img_size</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">rnd_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">img_size</span><span class="p">,</span><span class="n">img_size</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="c1"># Define um kernel</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">resultado_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">rnd_img</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span> <span class="c1"># Convolução</span>
+<span class="n">show_images_playground</span><span class="p">(</span><span class="n">rnd_img</span><span class="p">,</span> <span class="n">resultado_img</span><span class="p">,</span> <span class="n">img_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bba22054aa5226706c4ec6c8142c9df23240f70bfecc29e348edb197023abd95.png" src="../_images/bba22054aa5226706c4ec6c8142c9df23240f70bfecc29e348edb197023abd95.png" />
+</div>
+</div>
+</section>
+<section id="carregamento-de-imagem">
+<h2>Carregamento de Imagem<a class="headerlink" href="#carregamento-de-imagem" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">url_to_image</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">readFlag</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">):</span>
+    <span class="c1"># download the image, convert it to a NumPy array, and then read</span>
+    <span class="c1"># it into OpenCV format</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">read</span><span class="p">()),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">readFlag</span><span class="p">)</span>
+    <span class="c1"># return the image</span>
+    <span class="k">return</span> <span class="n">image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://www.flickr.com/photo_download.gne?id=16504233985&amp;secret=9f1060624e&amp;size=q&amp;source=photoPageEngagement&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/586380c22a2cd6447d709f951ec0bebe9b1b2124a9b00302c3802b3716ba101c.png" src="../_images/586380c22a2cd6447d709f951ec0bebe9b1b2124a9b00302c3802b3716ba101c.png" />
+</div>
+</div>
+</section>
+<section id="filtro-de-media">
+<h2>Filtro de Média<a class="headerlink" href="#filtro-de-media" title="Link to this heading">#</a></h2>
+<p>Utilizado para <strong>suavização</strong> da imagem.</p>
+<p><strong>Diminui a nitidez</strong> pela redução de fortes transições de intensidade entre os pixels.</p>
+<img src="https://pic3.zhimg.com/v2-735cda50ca616740c4b14b6b82d42bc2_r.jpg" width="600px"/>
+<section id="filtro-de-media-aplicacao">
+<h3>Filtro de Média: Aplicação<a class="headerlink" href="#filtro-de-media-aplicacao" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define um kernel de suavização (média)</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mi">9</span>
+
+<span class="c1"># Aplica a convolução com o kernel</span>
+<span class="n">media_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+
+<span class="c1"># Mostra as imagens original e suavizada</span>
+<span class="n">show_images</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">media_img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/585a67914c7c3ac7a854649c032d725c6fc9b87e47d30486ef86b6247bb243bb.png" src="../_images/585a67914c7c3ac7a854649c032d725c6fc9b87e47d30486ef86b6247bb243bb.png" />
+</div>
+</div>
+</section>
+<section id="filtro-de-media-kernels-de-diferentes-tamanhos">
+<h3>Filtro de Média: Kernels de diferentes tamanhos<a class="headerlink" href="#filtro-de-media-kernels-de-diferentes-tamanhos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cria a estrutura de plots para as imagens</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">]):</span>
+  <span class="c1"># Define um kernel de suavização (média)</span>
+  <span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">size</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="c1"># Aplica a convolução com o kernel</span>
+  <span class="n">imagem_suavizada</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+  <span class="c1"># Mostra as imagens original e suavizada</span>
+  <span class="n">axarr</span><span class="p">[</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imagem_suavizada</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">axarr</span><span class="p">[</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kernel (</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="c1"># Remove plt grid e ticks</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a2b705fcfd8ccd25232529acb227e9ae11995c1ed3ede8017cfeb3677f53b83b.png" src="../_images/a2b705fcfd8ccd25232529acb227e9ae11995c1ed3ede8017cfeb3677f53b83b.png" />
+</div>
+</div>
+</section>
+<section id="filtro-de-media-diferentes-valores-de-kernel">
+<h3>Filtro de Média: Diferentes valores de Kernel<a class="headerlink" href="#filtro-de-media-diferentes-valores-de-kernel" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_media</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+<span class="n">kernel_media</span> <span class="o">/=</span> <span class="n">kernel_media</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">imagem_suavizada</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_media</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imagem_suavizada</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/669df52762fa18d635e8e11c6effceb26f87623505f6c36d614314f7647205ce.png" src="../_images/669df52762fa18d635e8e11c6effceb26f87623505f6c36d614314f7647205ce.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="filtro-gaussiano">
+<h2>Filtro Gaussiano<a class="headerlink" href="#filtro-gaussiano" title="Link to this heading">#</a></h2>
+<p><strong>Suavização</strong>: Filtro de média ponderada, mas com seus pesos seguindo uma aproximação da <strong>distribuição gaussiana</strong>.</p>
+<p><span class="math notranslate nohighlight">\(G(x,y;\sigma)=\frac{1}{2\pi\sigma^{2}}\exp\!\left(-\,\frac{x^{2}+y^{2}}{2\sigma^{2}}\right)\)</span></p>
+<p>Note que o valor resultante para o elemento central pode ser um valor não existente na imagem original.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:875/1*Nf8jVYj2zhPPOjJSQrY9Ug.png" width="300"/><img src="https://miro.medium.com/v2/resize:fit:1250/1*Ra4DG6PT0hxnvH2aW2OUKw.gif" width="300"/></p>
+<p>Fonte da Imagem: <a class="reference external" href="https://towardsai.net/p/machine-learning/gaussian-blurring-a-gentle-introduction">Towards AI</a>.</p>
+<section id="filtro-gaussiano-aplicacao">
+<h3>Filtro Gaussiano: Aplicação<a class="headerlink" href="#filtro-gaussiano-aplicacao" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suavização Gaussiana (Filtro Gaussiano)</span>
+<span class="n">kernel_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="c1"># Aplica o filtro Gaussiano</span>
+<span class="n">blurred</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">sigmaX</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="c1"># Remove plt grid e ticks</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8a0b7eddb8cab5c83f263829957cd240d5f8000ce812c8c453e0e796169dca92.png" src="../_images/8a0b7eddb8cab5c83f263829957cd240d5f8000ce812c8c453e0e796169dca92.png" />
+</div>
+</div>
+</section>
+<section id="filtro-gaussiano-testando-diferentes-valores-de-sigma">
+<h3>Filtro Gaussiano: Testando diferentes valores de <span class="math notranslate nohighlight">\(\sigma\)</span><a class="headerlink" href="#filtro-gaussiano-testando-diferentes-valores-de-sigma" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cria a estrutura de plots para as imagens</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cnt</span><span class="p">,</span> <span class="n">sigma</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]):</span>
+  <span class="c1"># Aplica o filtro Gaussiano</span>
+  <span class="n">gauss_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">sigmaX</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+  <span class="c1"># Mostra as imagens original e suavizada</span>
+  <span class="n">axarr</span><span class="p">[</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gauss_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+  <span class="n">axarr</span><span class="p">[</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sigma: </span><span class="si">{</span><span class="n">sigma</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="c1"># Remove plt grid e ticks</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2feabcca080e6e125ab16f11607fb9853770221768dbbce15f06aa6710a44918.png" src="../_images/2feabcca080e6e125ab16f11607fb9853770221768dbbce15f06aa6710a44918.png" />
+</div>
+</div>
+</section>
+<section id="comparacao-filtro-de-media-versus-filtro-gaussiano">
+<h3>Comparação: Filtro de Média versus Filtro Gaussiano<a class="headerlink" href="#comparacao-filtro-de-media-versus-filtro-gaussiano" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">avg_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">)</span>
+<span class="n">gaussian_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">sigmaX</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">avg_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtro Média </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; x &#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gaussian_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtro de Gaussiano </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; x &#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b6e40ea1809f81f73db4535690e429df9d42a75a8348cc42f3c79af97a67a257.png" src="../_images/b6e40ea1809f81f73db4535690e429df9d42a75a8348cc42f3c79af97a67a257.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="filtro-mediana">
+<h1>Filtro Mediana<a class="headerlink" href="#filtro-mediana" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Elimina <strong>picos isolados</strong> (outliers).</p></li>
+<li><p>Substitui o valor de um pixel pela <strong>mediana</strong> dos valores de intensidade na vizinhança desse pixel.</p></li>
+</ul>
+<img src="https://www.researchgate.net/publication/281499535/figure/fig17/AS:614347470540833@1523483259905/Concept-of-median-filtering-in-image-processing.png" width="400px"/>
+<p>Fonte da Imagem: <a class="reference external" href="https://www.researchgate.net/figure/Concept-of-median-filtering-in-image-processing_fig17_281499535">ResearchGate</a>.</p>
+<section id="filtro-mediana-aplicacao">
+<h2>Filtro Mediana: Aplicação<a class="headerlink" href="#filtro-mediana-aplicacao" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplica filtro de mediana</span>
+<span class="n">median_filtered</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">medianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">median_filtered</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Filtrada pela Mediana&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/33282367ecd5cb5e461b572ee1222d1ddba3db85acd978c593655f8dcde291c6.png" src="../_images/33282367ecd5cb5e461b572ee1222d1ddba3db85acd978c593655f8dcde291c6.png" />
+</div>
+</div>
+</section>
+<section id="filtro-de-mediana-removendo-ruido-salt-and-pepper">
+<h2>Filtro de Mediana: Removendo Ruído Salt-and-Pepper<a class="headerlink" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_salt_and_pepper_noise</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">noise_ratio</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
+    <span class="n">noisy_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">noisy_image</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">noisy_pixels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">noise_ratio</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">noisy_pixels</span><span class="p">):</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">noisy_image</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">noisy_image</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+    <span class="k">return</span> <span class="n">noisy_image</span>
+    
+<span class="n">ruido_img</span> <span class="o">=</span> <span class="n">add_salt_and_pepper_noise</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mediana_filtrada_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">medianBlur</span><span class="p">(</span><span class="n">ruido_img</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ruido_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Ruidosa (Salt and Pepper)&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mediana_filtrada_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Filtrada pela Mediana&quot;</span><span class="p">)</span>
+<span class="c1"># Remove plt grid e ticks</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f3e1cd3c4a478cb8adbe802e1e9ed3362eedcf2f74c0a45657392aaf9970900f.png" src="../_images/f3e1cd3c4a478cb8adbe802e1e9ed3362eedcf2f74c0a45657392aaf9970900f.png" />
+</div>
+</div>
+</section>
+<section id="filtro-sobel">
+<h2>Filtro Sobel<a class="headerlink" href="#filtro-sobel" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>O filtro de Sobel é um operador discreto de derivação, projetado para estimar a magnitude do gradiente de intensidade em imagens digitais. <span class="math notranslate nohighlight">\(\rightarrow\)</span> Combina duas convoluções separadas: uma kernel <span class="math notranslate nohighlight">\(h_x\)</span> que responde à variação horizontal e outra <span class="math notranslate nohighlight">\(h_y\)</span> que captura a variação vertical.</p></li>
+<li><p>A combinação das respostas <span class="math notranslate nohighlight">\(\sqrt{(I * h_x)^2 + (I * h_y)^2}\)</span> fornece uma aproximação robusta da magnitude do gradiente, enquanto o sinal de cada componente indica a direção local do aumento ou diminuição de intensidade.</p></li>
+<li><p>Eficaz na detecção de bordas: Enfatiza regiões com transições rápidas de luminância. Suaviza ruídos graças à integração de ponderações gaussiana-like nos kernels.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://blog.paperspace.com/content/images/2022/06/sobel.png' alt='Espectro Eletromagnético' style="width:330px;"/>
+    <span style='display:block;'>Filtro Sobel. Fonte: <a href="https://www.digitalocean.com/community/tutorials/filters-in-convolutional-neural-networks" target="_blank">Digital Ocean</a>.</span>
+    <br/>
+</div><section id="filtro-sobel-exemplo">
+<h3>Filtro Sobel: Exemplo<a class="headerlink" href="#filtro-sobel-exemplo" title="Link to this heading">#</a></h3>
+<div style='align: left; text-align:center;'>
+    <img src='https://miro.medium.com/v2/resize:fit:720/format:webp/1*G5_NQk-1X4rNExvJCQ3T1A.gif' alt='Espectro Eletromagnético' style="width:600px;"/>
+    <span style='display:block;'>Exemplo de aplicação de Filtro Sobel. Fonte: <a href="https://medium.com/turing-talks/detec%C3%A7%C3%A3o-de-bordas-e-transforma%C3%A7%C3%B5es-morfol%C3%B3gicas-em-imagens-com-opencv-8aecf8c8ba2f" target="_blank">Luísa Mendes Heise @Turing Talks</a>.</span>
+    <br/>
+</div></section>
+<section id="filtro-sobel-aplicacao">
+<h3>Filtro Sobel: Aplicação<a class="headerlink" href="#filtro-sobel-aplicacao" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sobel_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sobel_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Filtro Sobel&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/27e9322a34df542f33022397676d830c4465eb1cf3339ba288149e5a97e4579c.png" src="../_images/27e9322a34df542f33022397676d830c4465eb1cf3339ba288149e5a97e4579c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="filtro-laplaciano">
+<h2>Filtro Laplaciano<a class="headerlink" href="#filtro-laplaciano" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>O operador laplaciano é uma segunda derivada discreta que mede a divergência do gradiente de intensidade de uma imagem.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Laplace(f) = \dfrac{\partial^{2} f}{\partial x^{2}} + \dfrac{\partial^{2} f}{\partial y^{2}}\)</span></p></li>
+<li><p>Captura a divergência do gradiente de intensidade de uma imagem, ou seja, quantifica as regiões onde a curvatura da luminância muda drasticamente.</p></li>
+<li><p>Soma ponderada dos vizinhos diretos do pixel central, subtraindo quatro vezes seu valor.</p></li>
+<li><p>Destaca pontos de mudança abrupta — bordas e cantos — mas não indica a direção dessas transições.</p></li>
+<li><p>Kernels laplacianos geralmente incluem valores negativos na vizinhança e um valor igual à soma destes valores negativos no centro, mas
+com sinal invertido:
+$<span class="math notranslate nohighlight">\(K = \begin{bmatrix}0 &amp; -1 &amp; 0\\ -1 &amp; 4 &amp; -1\\ 0 &amp; -1 &amp; 0\end{bmatrix}\)</span>$</p></li>
+</ul>
+<section id="filtro-laplaciano-aplicacao">
+<h3>Filtro Laplaciano: Aplicação<a class="headerlink" href="#filtro-laplaciano-aplicacao" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">laplacean_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Laplacian</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ddepth</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">laplacean_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Filtro Laplaciano&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f677c8be41aec3dcdedc435eb81e9c71ee2426c361c900bbdff388b8f7d706a4.png" src="../_images/f677c8be41aec3dcdedc435eb81e9c71ee2426c361c900bbdff388b8f7d706a4.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="outros-filtros">
+<h2>Outros Filtros<a class="headerlink" href="#outros-filtros" title="Link to this heading">#</a></h2>
+<p><strong>Prewitt</strong></p>
+<ul class="simple">
+<li><p>Operador linear de 3×3 usado para detecção de bordas.</p></li>
+<li><p>Calcula aproximações das derivadas parciais ∂I/∂x e ∂I/∂y.<br />
+$<span class="math notranslate nohighlight">\(
+G_x=\begin{bmatrix}-1&amp;0&amp;1\\-1&amp;0&amp;1\\-1&amp;0&amp;1\end{bmatrix},\quad
+G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
+\)</span>$</p></li>
+<li><p>Resultado: imagem com bordas destacadas; suaviza ruído moderado, porém menos sensível que Sobel.</p></li>
+</ul>
+</section>
+<section id="outros-filtros-cont">
+<h2>Outros Filtros (cont.)<a class="headerlink" href="#outros-filtros-cont" title="Link to this heading">#</a></h2>
+<p><strong>Max (Filtro de Maxima)</strong></p>
+<ul class="simple">
+<li><p>Operador não linear que substitui cada pixel pelo maior valor dentro do vizinho definido.</p></li>
+<li><p>Reduz ruído impulsivo “salt &amp; pepper”, preservando detalhes mais claros.</p></li>
+<li><p>Resultado: imagem com regiões saturadas ampliadas; pode gerar bordas suavizadas em áreas escuras.</p></li>
+</ul>
+<p><strong>Min (Filtro de Minima)</strong></p>
+<ul class="simple">
+<li><p>Operador não linear que substitui cada pixel pelo menor valor dentro do vizinho.</p></li>
+<li><p>Útil para eliminar ruído impulsivo salt and pepper nas áreas claras.</p></li>
+<li><p>Resultado: diminuição de brilho local, bordas mais suaves em regiões escuras.</p></li>
+</ul>
+</section>
+<section id="resumo">
+<h2>Resumo<a class="headerlink" href="#resumo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:55%;">
+<ul class="simple">
+<li><p><strong>Convolução</strong>: ferramenta matemática central.</p></li>
+<li><p><strong>Filtros lineares</strong> (média, Gaussiano) oferecem suavização controlada; a separabilidade do kernel pode reduzir drasticamente o custo computacional.</p></li>
+<li><p><strong>Filtros não‑lineares</strong> (mediana, adaptativos) são essenciais para robustez contra ruído impulsivo e preservação de bordas em cenários adversos.</p></li>
+<li><p>A escolha entre <strong>suavização</strong> e <strong>realce</strong> depende da aplicação: imagens médicas, visão robótica ou processamento de vídeo em tempo real.</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:45%;">
+<img src="https://staticbv.bvirtual.com.br/publicacoes/2608/thumbs/thumbnail_397_x_595.jpg" width="200px">
+<p><b>Leitura Recomendada</b>: Seções 3.4 a 3.7.</p>
+</td>
+</tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./vcnotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VC-Fundamentos-Imagens-Digitais.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VC-Processamento-Imagens-Coloridas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtragem-espacial">Filtragem Espacial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entendendo-convolucao">Entendendo Convolução</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d">Caso 1D: https://antoinebrl.github.io/blog/conv1d/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">Caso 2D: https://objetos.github.io/docs/demos/image_conv_vis/</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propriedades-da-convolucao">Propriedades da Convolução</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports-e-preparacao">Imports e Preparação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#playground-testando-filtros-imagem-binaria">Playground: Testando filtros imagem binária</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carregamento-de-imagem">Carregamento de Imagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media">Filtro de Média</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media-aplicacao">Filtro de Média: Aplicação</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media-kernels-de-diferentes-tamanhos">Filtro de Média: Kernels de diferentes tamanhos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-media-diferentes-valores-de-kernel">Filtro de Média: Diferentes valores de Kernel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-gaussiano">Filtro Gaussiano</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-gaussiano-aplicacao">Filtro Gaussiano: Aplicação</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-gaussiano-testando-diferentes-valores-de-sigma">Filtro Gaussiano: Testando diferentes valores de <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-filtro-de-media-versus-filtro-gaussiano">Comparação: Filtro de Média versus Filtro Gaussiano</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana">Filtro Mediana</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana-aplicacao">Filtro Mediana: Aplicação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper">Filtro de Mediana: Removendo Ruído Salt-and-Pepper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel">Filtro Sobel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-exemplo">Filtro Sobel: Exemplo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-aplicacao">Filtro Sobel: Aplicação</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-laplaciano">Filtro Laplaciano</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-laplaciano-aplicacao">Filtro Laplaciano: Aplicação</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-filtros">Outros Filtros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-filtros-cont">Outros Filtros (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Dr. Denis M. L. Martins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: vcnotebooks/VC-Fundamentos-Imagens-Digitais
+- file: vcnotebooks/VC-Filtragem-Espacial
+- file: vcnotebooks/VC-Processamento-Imagens-Coloridas
+- file: vcnotebooks/VC-Redes-Neurais-MNIST
+- file: vcnotebooks/VC-Redes-Neurais-Convolucionais
+

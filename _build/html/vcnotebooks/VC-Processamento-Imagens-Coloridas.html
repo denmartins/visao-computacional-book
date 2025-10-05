@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visão Computacional &#8212; Visão Computacional</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcnotebooks/VC-Processamento-Imagens-Coloridas';</script>
+    <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Processamento-Imagens-Coloridas.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visão Computacional" href="VC-Redes-Neurais-MNIST.html" />
+    <link rel="prev" title="Visão Computacional" href="VC-Filtragem-Espacial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Visão Computacional - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Visão Computacional - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/denmartins/visao-computacional-book/blob/master/vcnotebooks/VC-Processamento-Imagens-Coloridas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/edit/main/vcnotebooks/VC-Processamento-Imagens-Coloridas.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/issues/new?title=Issue%20on%20page%20%2Fvcnotebooks/VC-Processamento-Imagens-Coloridas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/vcnotebooks/VC-Processamento-Imagens-Coloridas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visão Computacional</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processamento-de-imagens-coloridas">Processamento de Imagens Coloridas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-cores">Fundamento de Cores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-colorida">Imagem Colorida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor">Modelos de Cor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-rgb">Modelos de Cor: RGB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-rgb-cont">Modelos de Cor: RGB (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-hsv">Modelos de Cor: HSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-hsv-cont">Modelos de Cor: HSV (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacao">Implementação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-scikit-image">Usando Scikit-Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observando-canais">Observando canais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograma-dos-canais-rgb">Histograma dos Canais RGB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-hsv-aplicacao">Modelo HSV: Aplicação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-hsv-aplicacao-cont">Modelo HSV: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Modelo HSV: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Modelo HSV: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-hsv-removendo-parcialmente-a-sombra">Modelo HSV: Removendo parcialmente a sombra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-histogram-matching">Alinhamento de Histogramas (Histogram Matching)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-aplicacao">Alinhamento de Histogramas: Aplicação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-aplicacao-cont">Alinhamento de Histogramas: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-plot-dos-histogramas">Alinhamento de Histogramas: Plot dos histogramas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinting-imagens-em-grayscale-cont">Tinting imagens em Grayscale (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Tinting imagens em Grayscale (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinting-imagens-em-grayscale-modelo-hsv">Tinting imagens em Grayscale: Modelo HSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinting-imagens-em-grayscale-modelo-hsv-cont">Tinting imagens em Grayscale: Modelo HSV (cont.)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagens-coloridas">Convolução de Imagens Coloridas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Convolução de Imagens Coloridas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagens-coloridas-cont">Convolução de Imagens Coloridas (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagem-colorida-cont">Convolução de Imagem Colorida (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Convolução de Imagem Colorida (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagem-colorida-exemplo">Convolução de Imagem Colorida: Exemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
+<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
+<section id="processamento-de-imagens-coloridas">
+<h2>Processamento de Imagens Coloridas<a class="headerlink" href="#processamento-de-imagens-coloridas" title="Link to this heading">#</a></h2>
+<section id="prof-dr-denis-mayr-lima-martins">
+<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
+</section>
+<section id="pontificia-universidade-catolica-de-campinas">
+<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
+<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
+</section>
+</section>
+<section id="objetivos-de-aprendizagem">
+<h2>Objetivos de Aprendizagem<a class="headerlink" href="#objetivos-de-aprendizagem" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Compreender os diferentes modelos de cores.</p></li>
+<li><p>Explicar como o espaço RGB descreve cada pixel por meio dos componentes R, G e B, incluindo suas limitações em relação à percepção humana.</p></li>
+<li><p>Realizar operações lineares e não‑lineares sobre canais/componentes individuais.</p></li>
+<li><p>Desenvolver habilidades práticas com ferramentas como OpenCV ou scikit‑image para converter espaços de cor.</p></li>
+</ul>
+</section>
+<section id="fundamento-de-cores">
+<h2>Fundamento de Cores<a class="headerlink" href="#fundamento-de-cores" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Cor</strong>: percepção visual resultante da interação entre <strong>luz</strong>, <strong>objeto</strong> e <strong>observador</strong>.</p></li>
+<li><p><strong>Modelo físico</strong>: a luz é uma onda eletromagnética.</p></li>
+<li><p><strong>Faixa visível</strong>: 400 nm (violeta) – 700 nm (vermelho).</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://www.infoescola.com/wp-content/uploads/2007/12/espectro-visivel-da-luz.jpg' alt='Espectro Eletromagnético' style="width:500px;"/>
+    <span style='display:block;'>Espectro Eletromagnético. Fonte: <a href="https://www.infoescola.com/fisica/espectro-eletromagnetico/" target="_blank">DataHackers.rs</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="imagem-colorida">
+<h2>Imagem Colorida<a class="headerlink" href="#imagem-colorida" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:40%;">
+<p><strong>Canal / Banda</strong>: Subconjunto da imagem que contém intensidades de um componente específico do espaço colorido.</p>
+<p>Uma imagem colorida é representada por três componentes de intensidade em cada pixel:  <span class="math notranslate nohighlight">\(f(x,y) = [R(x,y), G(x,y), B(x,y)]\)</span></p>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Pixel.jpg" width="600">
+ <span style='display:block;'>Canais RGB. Fonte: <a href="https://media.geeksforgeeks.org/wp-content/uploads/Pixel.jpg" target="_blank">Geeks for Geeks</a>.</span>
+    <br/>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="modelos-de-cor">
+<h2>Modelos de Cor<a class="headerlink" href="#modelos-de-cor" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:40%;">
+<ul class="simple">
+<li><p><strong>Espaço Colorido</strong>: Modelo matemático que descreve como combinações de componentes formam todas as cores perceptíveis (ex.: RGB, HSV, CIELAB).</p></li>
+<li><p><strong>RGB (Red, Green, Blue):</strong> aditivo, usado em telas.</p></li>
+<li><p><strong>CMY/CMYK (Cyan, Magenta, Yellow, Black):</strong> subtrativo, usado em impressão.</p></li>
+<li><p><strong>HSI (Hue, Saturation, Intensity):</strong> alinhado à percepção humana.</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="https://www.color-meanings.com/wp-content/uploads/2022/02/chart-differences-cmyk-rgb-color-models.png" width="600">
+ <span style='display:block;'>Canais RGB. Fonte: <a href="https://www.color-meanings.com/cmyk-color-model/" target="_blank">Color Meanings</a>.</span>
+    <br/>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="modelos-de-cor-rgb">
+<h2>Modelos de Cor: RGB<a class="headerlink" href="#modelos-de-cor-rgb" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Cada pixel é descrito por três componentes de intensidade: <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(G\)</span> e <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>Os valores são normalmente discretizados em <span class="math notranslate nohighlight">\(b_R,b_G,b_B\)</span> bits, resultando num intervalo <span class="math notranslate nohighlight">\([0,2^{b}-1]\)</span>.</p></li>
+<li><p><strong>Representação Geométrica</strong>: O conjunto de todas as combinações possíveis forma um <em>cubo</em> tridimensional no espaço <span class="math notranslate nohighlight">\((R,G,B)\)</span>.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://3.bp.blogspot.com/-oAzhSyk4eYY/TVagGWKhEVI/AAAAAAAAAAs/ZPAPMyx1CY0/s1600/Representa%25C3%25A7%25C3%25A3o%2Bdo%2Bcubo.jpg' alt='Cubo do Modelo RGB' style="width:800px;"/>
+    <span style='display:block;'>Cubo do Modelo RGB. Fonte: <a href="https://tudosobreacor.blogspot.com/2011/02/representacao-de-um-cubo-com-as-cores.html" target="_blank">Tudo sobre a cor</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="modelos-de-cor-rgb-cont">
+<h2>Modelos de Cor: RGB (cont.)<a class="headerlink" href="#modelos-de-cor-rgb-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Cada vértice do cubo corresponde a uma das oito cores extremas:</p>
+<ul class="simple">
+<li><p><strong>Linearidade:</strong> Combinações lineares de cores (ex.: mistura de vermelho e verde) são pontos ao longo das arestas.</p></li>
+<li><p><strong>Percepção luminosa:</strong> A distância euclidiana entre dois pontos não reflete necessariamente a diferença perceptual.</p></li>
+<li><p>A luminância <span class="math notranslate nohighlight">\(L = 0,2126R+0,7152G+0,0722B\)</span> (para sRGB) descreve melhor o brilho percebido.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/RGB_Cube_Show_lowgamma_cutout_b.png" width="300">
+ <span style='display:block;'>Cubo do Modelo RGB. Fonte: <a href="https://en.wikipedia.org/wiki/Color_model" target="_blank">Wikipedia</a>.</span>
+</div>
+</section>
+<section id="modelos-de-cor-hsv">
+<h2>Modelos de Cor: HSV<a class="headerlink" href="#modelos-de-cor-hsv" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Cada pixel é descrito por três componentes:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(H \in [0^\circ,360^\circ)\)</span> (matiz)</p></li>
+<li><p><span class="math notranslate nohighlight">\(S \in [0,1]\)</span> (saturação)</p></li>
+<li><p><span class="math notranslate nohighlight">\(V \in [0,1]\)</span> (valor / luminância)</p></li>
+</ul>
+</li>
+<li><p><strong>Representação Geométrica</strong>: O conjunto de todas as combinações forma um <strong>cilindro</strong> no espaço tridimensional <span class="math notranslate nohighlight">\((H,S,V)\)</span>. A base circular corresponde a <span class="math notranslate nohighlight">\(V=1\)</span> (nível máximo de luminância); cada raio da base representa um matiz com saturação máxima; a altura do cilindro é dada por <span class="math notranslate nohighlight">\(V\)</span>.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/HSV_color_solid_cylinder_saturation_gray.png" width="300">
+ <span style='display:block;'>Cilindro do Modelo HSV. Fonte: <a href="https://en.wikipedia.org/wiki/Color_model" target="_blank">Wikipedia</a>.</span>
+</div>
+</section>
+<section id="modelos-de-cor-hsv-cont">
+<h2>Modelos de Cor: HSV (cont.)<a class="headerlink" href="#modelos-de-cor-hsv-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>O modelo é projetado para refletir a percepção humana de cor:</p>
+<ul>
+<li><p><em>Matiz</em> determina a cor propriamente dita (vermelho, verde, azul…);</p></li>
+<li><p><em>Saturação</em> indica quão “pura” essa cor está;</p></li>
+<li><p><em>Valor</em> controla o brilho.</p></li>
+</ul>
+</li>
+<li><p>Pontos na borda do cilindro (<span class="math notranslate nohighlight">\(S=1\)</span>) correspondem a cores “puras” (sem mistura de branco).</p></li>
+<li><p>À medida que <span class="math notranslate nohighlight">\(V\)</span> diminui, os pontos se movem em direção ao centro do cilindro, representando tons mais escuros ou cinzentos.</p></li>
+<li><p>Alterações apenas no componente <span class="math notranslate nohighlight">\(H\)</span> giram o ponto ao redor da base circular, mudando a cor sem alterar saturação nem brilho.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src="https://www.researchgate.net/publication/358828469/figure/fig14/AS:11431281097188603@1668490261247/Cube-shaped-RGB-colour-space-left-and-cone-shaped-HSV-colour-space-right.jpg" width="320">
+ <span style='display:block;'>RGB (esquerda) e HSV (direita). Fonte: <a href="https://www.researchgate.net/figure/Cube-shaped-RGB-colour-space-left-and-cone-shaped-HSV-colour-space-right_fig14_358828469" target="_blank">ResearchGate</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="implementacao">
+<h2>Implementação<a class="headerlink" href="#implementacao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">cv2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;cv2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_images</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">transformed</span><span class="p">):</span>
+    <span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Remove plt grid e ticks</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="usando-scikit-image">
+<h2>Usando Scikit-Image<a class="headerlink" href="#usando-scikit-image" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">skimage.color</span> <span class="kn">import</span> <span class="n">rgb2gray</span><span class="p">,</span><span class="n">rgb2hsv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astronaut</span><span class="p">()</span>
+<span class="n">grayscale</span> <span class="o">=</span> <span class="n">rgb2gray</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+<span class="n">show_images</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">grayscale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7e5c34a945ba3322d9887763f97e923329410d3fbf3303fc02bab8a462ac0f29.png" src="../_images/7e5c34a945ba3322d9887763f97e923329410d3fbf3303fc02bab8a462ac0f29.png" />
+</div>
+</div>
+</section>
+<section id="observando-canais">
+<h2>Observando canais<a class="headerlink" href="#observando-canais" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Greens&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2ea328d0e60410f0b5099d7e8a86f0629bc0d4d2d8822d67b2c3b9f17bfad816.png" src="../_images/2ea328d0e60410f0b5099d7e8a86f0629bc0d4d2d8822d67b2c3b9f17bfad816.png" />
+</div>
+</div>
+</section>
+<section id="histograma-dos-canais-rgb">
+<h2>Histograma dos Canais RGB<a class="headerlink" href="#histograma-dos-canais-rgb" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="n">histr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">calcHist</span><span class="p">([</span><span class="n">original</span><span class="p">],[</span><span class="n">i</span><span class="p">],</span><span class="kc">None</span><span class="p">,[</span><span class="mi">256</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">histr</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="n">col</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Intensidade de pixel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Quantidade&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/69a5f1fe02a6060124450d86097a77711e379f65862fd2dd37a850e2bcc02308.png" src="../_images/69a5f1fe02a6060124450d86097a77711e379f65862fd2dd37a850e2bcc02308.png" />
+</div>
+</div>
+</section>
+<section id="modelo-hsv-aplicacao">
+<h2>Modelo HSV: Aplicação<a class="headerlink" href="#modelo-hsv-aplicacao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Em geral, os objetos presentes em uma cena digital exibem tonalidades (tons) e níveis de luminosidade distintos. No espaço de cores RGB, tanto o tom quanto a luminosidade são obtidos como combinações lineares dos três canais primários R, G e B.</p></li>
+<li><p>Ao converter para o modelo HSV (Hue–Saturation–Value), esses atributos se tornam atributos independentes: o canal <strong>H</strong> representa exclusivamente o tom, enquanto o canal <strong>V</strong> encapsula a luminosidade.</p></li>
+<li><p>Aplicando um limiar ao canal <strong>H</strong> (ou ao canal <strong>V</strong>, conforme a aplicação), podemos separar uma região de interesse.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carrega a imagem de exemplo (café)</span>
+<span class="n">rgb_img</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">coffee</span><span class="p">()</span>
+<span class="c1"># Converte a representação RGB para HSV.</span>
+<span class="n">hsv_img</span> <span class="o">=</span> <span class="n">rgb2hsv</span><span class="p">(</span><span class="n">rgb_img</span><span class="p">)</span>
+<span class="c1"># Canal de tom (primeiro eixo na matriz HSV)</span>
+<span class="n">hue_img</span> <span class="o">=</span> <span class="n">hsv_img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Canal de luminosidade (terceiro eixo)</span>
+<span class="n">value_img</span> <span class="o">=</span> <span class="n">hsv_img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modelo-hsv-aplicacao-cont">
+<h2>Modelo HSV: Aplicação (cont.)<a class="headerlink" href="#modelo-hsv-aplicacao-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rgb_img</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem RGB&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> 
+<span class="c1"># cmap &#39;hsv&#39; permite observar o ciclo angular das tonalidades</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hue_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hsv&#39;</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Canal Hue (matiz)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="c1"># Exibe o canal Value (luminosidade)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">value_img</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Canal Value (luminosidade)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5516000e9116d5c8a3a7268a335bf9f271b4ce161267b00193a357bf4befbeab.png" src="../_images/5516000e9116d5c8a3a7268a335bf9f271b4ce161267b00193a357bf4befbeab.png" />
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Modelo HSV: Aplicação (cont.)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Separa e visualiza os componentes de cor mais relevantes para tarefas de segmentação baseada em tom ou luminosidade.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definição do limiar de tom (hue)</span>
+<span class="n">hue_threshold</span> <span class="o">=</span> <span class="mf">0.04</span>
+<span class="c1"># Criação de uma imagem binária</span>
+<span class="n">binary_img</span> <span class="o">=</span> <span class="n">hue_img</span> <span class="o">&gt;</span> <span class="n">hue_threshold</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Modelo HSV: Aplicação (cont.)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Separa e visualiza os componentes de cor mais relevantes para tarefas de segmentação baseada em tom ou luminosidade.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1"># `hue_img.ravel()` converte a matriz 2D em um vetor 1D</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hue_img</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histograma do canal Hue (threshold em vermelho)&quot;</span><span class="p">)</span>
+<span class="c1"># Linha vermelha pontilhada indica o ponto do limiar</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">hue_threshold</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="c1"># Evita que valores fora de interesse distorçam a escala</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_xbound</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_img</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Binarizada (Hue-thresholded)&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/29dd59fd24dbe8b69fd144e658d9f5206f62a723a09e07b6445f0d9f868c7f1c.png" src="../_images/29dd59fd24dbe8b69fd144e658d9f5206f62a723a09e07b6445f0d9f868c7f1c.png" />
+</div>
+</div>
+</section>
+<section id="modelo-hsv-removendo-parcialmente-a-sombra">
+<h2>Modelo HSV: Removendo parcialmente a sombra<a class="headerlink" href="#modelo-hsv-removendo-parcialmente-a-sombra" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">value_threshold</span> <span class="o">=</span> <span class="mf">0.10</span>
+<span class="c1"># Construção da máscara binária que combina duas condições:</span>
+<span class="c1"># hue_img &gt; hue_threshold: pixels cujo tom excede o limite.</span>
+<span class="c1"># value_img &lt; value_threshold: pixels com brilho inferior ao limiar.</span>
+<span class="c1"># Considera cor dominante e contraste de luminosidade</span>
+<span class="n">binary_img</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue_img</span> <span class="o">&gt;</span> <span class="n">hue_threshold</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">value_img</span> <span class="o">&lt;</span> <span class="n">value_threshold</span><span class="p">)</span> 
+<span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_img</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem binarizada</span><span class="se">\n</span><span class="s2"> com limiar em Hue e Value&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4925698c5cab01991c733c26dd2f447051a7b2ffe278800dac921cf9ca3d0fea.png" src="../_images/4925698c5cab01991c733c26dd2f447051a7b2ffe278800dac921cf9ca3d0fea.png" />
+</div>
+</div>
+</section>
+<section id="alinhamento-de-histogramas-histogram-matching">
+<h2>Alinhamento de Histogramas (Histogram Matching)<a class="headerlink" href="#alinhamento-de-histogramas-histogram-matching" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Objetivo</strong>: Transformar a distribuição de intensidades (histograma) de uma imagem‑fonte para coincidir com a de uma imagem‑referência.</p></li>
+<li><p>Se as imagens possuírem múltiplos canais, o alinhamento é feito independentemente para cada canal, contanto que o número de canais seja igual em ambas.</p></li>
+<li><p><strong>Resultado</strong>: A imagem ajustada mantém a mesma estrutura espacial (textura, bordas) mas com tonalidade e contraste semelhantes ao alvo.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://oil-mcut.github.io/img/Chapter4/output_41_1.png' alt='Convolução em Imagem RGB' style="width:500px;"/>
+    <span style='display:block;'>Exemplo de Alinhamento de Histograma. Fonte: <a href="https://oil-mcut.github.io/img/Chapter4/output_41_1.png" target="_blank">OIL MCUT - Digital Image Processing</a>.</span>
+    <br/>
+</div></section>
+<section id="alinhamento-de-histogramas-aplicacao">
+<h2>Alinhamento de Histogramas: Aplicação<a class="headerlink" href="#alinhamento-de-histogramas-aplicacao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p><strong>Procedimento</strong>:</p>
+<ol class="arabic simple">
+<li><p>Calcula o histograma acumulativo (CDF) da fonte e da referência.</p></li>
+<li><p>Para cada nível de intensidade na fonte, encontra o valor correspondente que possui o mesmo CDF na referência.</p></li>
+<li><p>Substitui os pixels da fonte pelos valores mapeados, preservando a ordem dos intensidades.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">exposure</span>
+<span class="kn">from</span> <span class="nn">skimage.exposure</span> <span class="kn">import</span> <span class="n">match_histograms</span>
+
+<span class="n">reference</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">coffee</span><span class="p">()</span>  
+<span class="n">image</span>     <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">chelsea</span><span class="p">()</span>
+<span class="c1"># Alinhamento de histogramas: cada canal RGB é tratado separadamente</span>
+<span class="n">matched</span> <span class="o">=</span> <span class="n">match_histograms</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">channel_axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="alinhamento-de-histogramas-aplicacao-cont">
+<h2>Alinhamento de Histogramas: Aplicação (cont.)<a class="headerlink" href="#alinhamento-de-histogramas-aplicacao-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Pode ser usado como normalização leve em processamento de imagens, especialmente quando as imagens foram capturadas de fontes diferentes ou sob condições distintas (ex.: iluminação).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fonte&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Referência&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matched</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ajustado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a035b0305fad6aeb3cc4ddf189834d1de51e0cc357a3119ba74359f695aad700.png" src="../_images/a035b0305fad6aeb3cc4ddf189834d1de51e0cc357a3119ba74359f695aad700.png" />
+</div>
+</div>
+</section>
+<section id="alinhamento-de-histogramas-plot-dos-histogramas">
+<h2>Alinhamento de Histogramas: Plot dos histogramas<a class="headerlink" href="#alinhamento-de-histogramas-plot-dos-histogramas" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Para ilustrar o efeito do alinhamento, plotamos para cada canal RGB tanto o histograma quanto a distribuição cumulativa (CDF). Note que a imagem ajustada tem a mesma CDF da referência em cada canal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="n">image</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">matched</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">c_color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)):</span>
+        <span class="c1"># Histograma (normalizado)</span>
+        <span class="n">img_hist</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">exposure</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="n">source_range</span><span class="o">=</span><span class="s1">&#39;dtype&#39;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">img_hist</span> <span class="o">/</span> <span class="n">img_hist</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>        
+        <span class="c1"># Distribuição cumulativa</span>
+        <span class="n">img_cdf</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">exposure</span><span class="o">.</span><span class="n">cumulative_distribution</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">c</span><span class="p">])</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">img_cdf</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># rótulo do eixo Y apenas na primeira coluna</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">c_color</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Fonte&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Referência&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ajustado&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4c7e43d44954b9e1027c5256a434f3e33cecffc7a6b10b21f53e04c87d5f1d2a.png" src="../_images/4c7e43d44954b9e1027c5256a434f3e33cecffc7a6b10b21f53e04c87d5f1d2a.png" />
+</div>
+</div>
+</section>
+<section id="tinting-imagens-em-grayscale-cont">
+<h2>Tinting imagens em Grayscale (cont.)<a class="headerlink" href="#tinting-imagens-em-grayscale-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Já vimos que manipulação de cores pode ser útil em tarefas de realce de regiões de interesse.</p></li>
+<li><p>Podemos manipular cores artificialmente uma imagem em grayscale para destacar alguma região. Um processo conhecido como <strong>tinting</strong>.</p></li>
+<li><p>A maneira mais simples de obter uma imagem tintada é definir cada canal RGB como a imagem em escala de cinza multiplicada por um fator diferente para cada canal.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">color</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">img_as_float</span>
+
+<span class="c1"># Carrega a imagem de câmera do exemplo (reduzida em 2× para acelerar)</span>
+<span class="n">grayscale_image</span> <span class="o">=</span> <span class="n">img_as_float</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">camera</span><span class="p">()[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">::</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># Converte para RGB (três canais iguais)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">gray2rgb</span><span class="p">(</span><span class="n">grayscale_image</span><span class="p">)</span>
+<span class="c1"># Fatores de multiplicação para os canais R, G e B</span>
+<span class="n">red_multiplier</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># apenas vermelho</span>
+<span class="n">yellow_multiplier</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># vermelho + verde → amarelo</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>Tinting imagens em Grayscale (cont.)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">grayscale_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">red_multiplier</span> <span class="o">*</span> <span class="n">image</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">yellow_multiplier</span> <span class="o">*</span> <span class="n">image</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f72fde9ac1f5d955cc36fcf47f212ed7de816fecae54c986cce85240eec2dee7.png" src="../_images/f72fde9ac1f5d955cc36fcf47f212ed7de816fecae54c986cce85240eec2dee7.png" />
+</div>
+</div>
+</section>
+<section id="tinting-imagens-em-grayscale-modelo-hsv">
+<h2>Tinting imagens em Grayscale: Modelo HSV<a class="headerlink" href="#tinting-imagens-em-grayscale-modelo-hsv" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Em muitos casos, lidar com valores RGB pode não ser ideal.</p></li>
+<li><p>Vamos usar o modelo HSV para tintar a imagem.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">colorize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adiciona a cor da matiz fornecida a uma imagem RGB.</span>
+
+<span class="sd">    Por padrão, define a saturação como 1 para que as cores “explodam”.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hsv</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb2hsv</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="c1"># Converte a imagem RGB para HSV</span>
+    <span class="n">hsv</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">saturation</span> <span class="c1"># Define a matiz e saturação desejadas</span>
+    <span class="n">hsv</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">hue</span>
+    <span class="k">return</span> <span class="n">color</span><span class="o">.</span><span class="n">hsv2rgb</span><span class="p">(</span><span class="n">hsv</span><span class="p">)</span> <span class="c1"># Converte de volta para RGB</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tinting-imagens-em-grayscale-modelo-hsv-cont">
+<h2>Tinting imagens em Grayscale: Modelo HSV (cont.)<a class="headerlink" href="#tinting-imagens-em-grayscale-modelo-hsv-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hue_rotations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">hue</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">hue_rotations</span><span class="p">):</span>
+    <span class="c1"># Reduzimos a saturação para dar um visual “vintage”.</span>
+    <span class="n">tinted_image</span> <span class="o">=</span> <span class="n">colorize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">tinted_image</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2e1835052d189c91fcb0d4e64eaee0250ee38eb1f42797ecb2b711705fa64755.png" src="../_images/2e1835052d189c91fcb0d4e64eaee0250ee38eb1f42797ecb2b711705fa64755.png" />
+</div>
+</div>
+<center>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="convolucao-de-imagens-coloridas">
+<h1>Convolução de Imagens Coloridas<a class="headerlink" href="#convolucao-de-imagens-coloridas" title="Link to this heading">#</a></h1>
+</center><section id="id4">
+<h2>Convolução de Imagens Coloridas<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>A convolução é aplicada de forma independente em cada canal:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\((I * K)_c(x,y) = \sum_{m}\sum_{n} I_c(x-m,\;y-n)\,K(m,n)\)</span>, onde <span class="math notranslate nohighlight">\(c \in \{R,G,B\}\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://amaarora.github.io/images/cnn.gif' alt='Convolução em Imagem RGB' style="width:800px;"/>
+    <span style='display:block;'>Convolução em Imagem RGB. Fonte: <a href="https://amaarora.github.io/fastexplain/2020/07/24/SeNet.html" target="_blank">Amaarora</a>.</span>
+    <br/>
+</div>
+<ul class="simple">
+<li><p>Implementação em Excel por <a class="reference external" href="https://medium.com/apache-mxnet/multi-channel-convolutions-explained-with-ms-excel-9bbf8eb77108">Thom Lane</a>: <a class="reference external" href="https://docs.google.com/spreadsheets/d/14UTFIgsWlsj3j8TojT7ES18b8oCyN_pSZaMknqLa9kQ/edit?gid=347924595#gid=347924595">link para o Google Sheets</a>.</p></li>
+</ul>
+</section>
+<section id="convolucao-de-imagens-coloridas-cont">
+<h2>Convolução de Imagens Coloridas (cont.)<a class="headerlink" href="#convolucao-de-imagens-coloridas-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<p>Na terminologia de Visão Computacional, um <strong>feature map</strong> é gerado por canal e, então, somado para formar o resultado final da operação de convolução.</p>
+</center>
+<div style='align: left; text-align:center;'>
+    <img src='https://amaarora.github.io/images/output.gif' alt='Resultado da Convolução em Imagem RGB' style="width:800px;"/>
+    <span style='display:block;'>Resultado da Convolução em Imagem RGB. Fonte: <a href="https://amaarora.github.io/fastexplain/2020/07/24/SeNet.html" target="_blank">Amaarora</a>.</span>
+    <br/>
+</div></section>
+<section id="convolucao-de-imagem-colorida-cont">
+<h2>Convolução de Imagem Colorida (cont.)<a class="headerlink" href="#convolucao-de-imagem-colorida-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<p>Explore o CNN Explainer: <a class="reference external" href="https://poloclub.github.io/cnn-explainer/">https://poloclub.github.io/cnn-explainer/</a></p>
+</center>
+<div style='align: left; text-align:center;'>
+    <img src='https://media5.datahacker.rs/2018/11/06_06.png' alt='Convolução em Imagem RGB' style="width:800px;"/>
+    <span style='display:block;'>Convolução em Imagem RGB. Fonte: <a href="https://datahacker.rs/convolution-rgb-image/" target="_blank">DataHackers.rs</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="id5">
+<h2>Convolução de Imagem Colorida (cont.)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://miro.medium.com/v2/resize:fit:1400/format:webp/0*1FIYBBMDsTRkiGus.png' alt='Convolução em Imagem RGB' style="width:600px;"/>
+    <span style='display:block;'>Convolução em Imagem RGB. Fonte: <a href="https://medium.com/data-science/convolutional-neural-network-ii-a11303f807dc" target="_blank">DataHackers.rs</a>.</span>
+    <br/>
+</div></section>
+<section id="convolucao-de-imagem-colorida-exemplo">
+<h2>Convolução de Imagem Colorida: Exemplo<a class="headerlink" href="#convolucao-de-imagem-colorida-exemplo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astronaut</span><span class="p">()</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mi">25</span> <span class="c1"># Filtro de média </span>
+<span class="n">media_img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span> <span class="c1"># Convolução</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Original&quot;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">media_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Imagem Suavizada&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axarr</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fcd6a2132cf07f212aecda3f07b54ada3ef70e4b8e1f1811d09ca85c666dcf41.png" src="../_images/fcd6a2132cf07f212aecda3f07b54ada3ef70e4b8e1f1811d09ca85c666dcf41.png" />
+</div>
+</div>
+</section>
+<section id="resumo">
+<h2>Resumo<a class="headerlink" href="#resumo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:55%;">
+<ul class="simple">
+<li><p><strong>Fundamentos de Cores</strong>: Espaços coloridos, canais, percepções visuais.</p></li>
+<li><p><strong>Representação RGB</strong>: Cada pixel possui três componentes lineares <span class="math notranslate nohighlight">\((R,G,B)\)</span>.</p></li>
+<li><p><strong>Convolução</strong>:</p>
+<ul>
+<li><p>Operações separadas por canal.</p></li>
+<li><p>O resultado final combina as respostas dos três canais em uma imagem RGB coerente.</p></li>
+<li><p>Base para as <a class="reference external" href="https://poloclub.github.io/cnn-explainer/">Redes Neurais Convolucionais</a>.</p></li>
+</ul>
+</li>
+</ul>
+<!-- * **Exercícios**:
+    * Implemente a conversão RGB → HSV em Python usando NumPy.
+    * Aplique equalização de histograma apenas no canal V (modelo HSV) e observe o efeito nas cores.
+     -->
+<ul class="simple">
+<li><p><strong>Leitura adicional</strong>: <a class="reference external" href="https://arxiv.org/abs/2004.15004">CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualization</a>, por Wang, Zijie J., Robert Turko, Omar Shaikh, Haekyu Park, Nilaksh Das, Fred Hohman, Minsuk Kahng, and Duen Horng Chau. <em>IEEE Transactions on Visualization and Computer Graphics (TVCG), 2020.</em></p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:45%;">
+<img src="https://staticbv.bvirtual.com.br/publicacoes/2608/thumbs/thumbnail_397_x_595.jpg" width="200px">
+<p><b>Leitura Recomendada</b>: Capítulo 6.</p>
+</td>
+</tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./vcnotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VC-Filtragem-Espacial.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VC-Redes-Neurais-MNIST.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processamento-de-imagens-coloridas">Processamento de Imagens Coloridas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-cores">Fundamento de Cores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-colorida">Imagem Colorida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor">Modelos de Cor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-rgb">Modelos de Cor: RGB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-rgb-cont">Modelos de Cor: RGB (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-hsv">Modelos de Cor: HSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-cor-hsv-cont">Modelos de Cor: HSV (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacao">Implementação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-scikit-image">Usando Scikit-Image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observando-canais">Observando canais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograma-dos-canais-rgb">Histograma dos Canais RGB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-hsv-aplicacao">Modelo HSV: Aplicação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-hsv-aplicacao-cont">Modelo HSV: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Modelo HSV: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Modelo HSV: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-hsv-removendo-parcialmente-a-sombra">Modelo HSV: Removendo parcialmente a sombra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-histogram-matching">Alinhamento de Histogramas (Histogram Matching)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-aplicacao">Alinhamento de Histogramas: Aplicação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-aplicacao-cont">Alinhamento de Histogramas: Aplicação (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alinhamento-de-histogramas-plot-dos-histogramas">Alinhamento de Histogramas: Plot dos histogramas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinting-imagens-em-grayscale-cont">Tinting imagens em Grayscale (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Tinting imagens em Grayscale (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinting-imagens-em-grayscale-modelo-hsv">Tinting imagens em Grayscale: Modelo HSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinting-imagens-em-grayscale-modelo-hsv-cont">Tinting imagens em Grayscale: Modelo HSV (cont.)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagens-coloridas">Convolução de Imagens Coloridas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Convolução de Imagens Coloridas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagens-coloridas-cont">Convolução de Imagens Coloridas (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagem-colorida-cont">Convolução de Imagem Colorida (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Convolução de Imagem Colorida (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-de-imagem-colorida-exemplo">Convolução de Imagem Colorida: Exemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Dr. Denis M. L. Martins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
