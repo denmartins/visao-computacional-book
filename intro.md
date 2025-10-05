@@ -2,19 +2,12 @@
 
 A disciplina de Visão Computacional oferece uma imersão nos fundamentos teóricos e práticos do reconhecimento de padrões em imagens utilizando técnicas de deep learning. A ênfase na aplicação prática, combinada com uma base sólida em aprendizado de máquina, prepara os futuros profissionais para atuarem no crescente mercado de sistemas inteligentes e visão computacional. 
 
-# O que vamos estudar?
-
 Neste material, vamos aprofundar os seguintes tópicos:
 
 *   **Aquisição e Pré-processamento de Imagens:** Como capturamos, representamos e preparamos imagens para análise.
 *   **Extração de Características:** Identificação de padrões relevantes em imagens.
 *   **Reconhecimento de Objetos/Padrões:** Classificar e identificar objetos em uma imagem.
 *   **Segmentação:** Dividir uma imagem em regiões significativas.
-
-# O que esperar do curso?
-- Aulas dinâmicas combinando teoria e prática.
-- Exercícios de programação para consolidar o aprendizado.
-- Projetos práticos.
 
 # Bibliografia
  
