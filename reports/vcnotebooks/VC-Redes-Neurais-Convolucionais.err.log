@@ -30,15 +30,15 @@ class SimpleCNN(nn.Module):
         super(SimpleCNN, self).__init__()
         self.sequential = nn.Sequential(
             # Primeira camada convolucional
-            # Input: 1 canal (grayscale). Output: 32 filtros. Kernel: 3x3.
-            nn.Conv2d(in_channels=1, out_channels=32, kernel_size=2, padding=1),
+            nn.Conv2d(in_channels=1, out_channels=32, 
+                      kernel_size=2, padding=1),
             nn.ReLU(),
             # Segunda camada convolucional
-            # Input: 32 canais. Output: 64 filtros.
-            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=2, padding=1),
+            nn.Conv2d(in_channels=32, out_channels=64, 
+                      kernel_size=2, padding=1),
             # Pooling Max: 2x2
-            nn.MaxPool2d(kernel_size = 2, stride = 2),
-            # Camada FC será definida após o cálculo do tamanho de flatten.
+            nn.MaxPool2d(kernel_size=2, stride=2),
+            # Flatten de matriz para vetor.
             nn.Flatten(),
             # Definindo as camadas FC
             # Camada Totalmente Conectada 1
