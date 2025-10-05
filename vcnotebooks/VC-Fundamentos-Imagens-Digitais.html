@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Fundamentos de Imagens Digitais em Python &#8212; Visão Computacional</title>
+    <title>Fundamentos de Imagens Digitais em Python (Demo) &#8212; Visão Computacional</title>
   
   
   
@@ -173,15 +173,8 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos de Imagens Digitais em Python</a></li>
-
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
@@ -419,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fundamentos de Imagens Digitais em Python</h1>
+    <h1>Fundamentos de Imagens Digitais em Python (Demo)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,15 +422,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fundamentos de Imagens Digitais em Python</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -448,8 +439,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-de-imagens-digitais-em-python">
-<h1>Fundamentos de Imagens Digitais em Python<a class="headerlink" href="#fundamentos-de-imagens-digitais-em-python" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-de-imagens-digitais-em-python-demo">
+<h1>Fundamentos de Imagens Digitais em Python (Demo)<a class="headerlink" href="#fundamentos-de-imagens-digitais-em-python-demo" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -519,9 +510,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plotando-canais">
-<h1>Plotando canais<a class="headerlink" href="#plotando-canais" title="Link to this heading">#</a></h1>
+<section id="plotando-canais">
+<h2>Plotando canais<a class="headerlink" href="#plotando-canais" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
@@ -572,8 +562,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="zerando-canais">
-<h1>Zerando canais<a class="headerlink" href="#zerando-canais" title="Link to this heading">#</a></h1>
+<section id="zerando-canais">
+<h2>Zerando canais<a class="headerlink" href="#zerando-canais" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
@@ -594,8 +584,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="zerando-pixels-especificos-na-imagem">
-<h1>Zerando pixels específicos na imagem<a class="headerlink" href="#zerando-pixels-especificos-na-imagem" title="Link to this heading">#</a></h1>
+<section id="zerando-pixels-especificos-na-imagem">
+<h2>Zerando pixels específicos na imagem<a class="headerlink" href="#zerando-pixels-especificos-na-imagem" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -618,8 +608,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="imagem-negativa">
-<h1>Imagem Negativa<a class="headerlink" href="#imagem-negativa" title="Link to this heading">#</a></h1>
+<section id="imagem-negativa">
+<h2>Imagem Negativa<a class="headerlink" href="#imagem-negativa" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -638,8 +628,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="modificando-partes-da-imagem">
-<h1>Modificando partes da imagem<a class="headerlink" href="#modificando-partes-da-imagem" title="Link to this heading">#</a></h1>
+<section id="modificando-partes-da-imagem">
+<h2>Modificando partes da imagem<a class="headerlink" href="#modificando-partes-da-imagem" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imagem</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -663,8 +653,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="crop">
-<h1>Crop<a class="headerlink" href="#crop" title="Link to this heading">#</a></h1>
+<section id="crop">
+<h2>Crop<a class="headerlink" href="#crop" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -691,6 +681,7 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -757,15 +748,13 @@ Min pixel: 3 | Max pixel: 255
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fundamentos de Imagens Digitais em Python</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

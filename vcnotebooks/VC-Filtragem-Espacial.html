@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Processamento de Imagens Coloridas" href="VC-Processamento-Imagens-Coloridas.html" />
-    <link rel="prev" title="Fundamentos de Imagens Digitais em Python" href="VC-Fundamentos-Imagens-Digitais.html" />
+    <link rel="prev" title="Fundamentos de Imagens Digitais em Python (Demo)" href="VC-Fundamentos-Imagens-Digitais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,15 +175,8 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python</a></li>
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Filtragem Espacial</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
@@ -431,7 +424,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Filtragem Espacial</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entendendo-convolucao">Entendendo Convolução</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d">Caso 1D: https://antoinebrl.github.io/blog/conv1d/</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">Caso 2D: https://objetos.github.io/docs/demos/image_conv_vis/</a></li>
@@ -453,11 +445,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-filtro-de-media-versus-filtro-gaussiano">Comparação: Filtro de Média versus Filtro Gaussiano</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana">Filtro Mediana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana-aplicacao">Filtro Mediana: Aplicação</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper">Filtro de Mediana: Removendo Ruído Salt-and-Pepper</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana">Filtro Mediana</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana-aplicacao">Filtro Mediana: Aplicação</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper">Filtro de Mediana: Removendo Ruído Salt-and-Pepper</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel">Filtro Sobel</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-exemplo">Filtro Sobel: Exemplo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-aplicacao">Filtro Sobel: Aplicação</a></li>
@@ -471,9 +463,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-filtros-cont">Outros Filtros (cont.)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -810,9 +799,8 @@ document.write(`
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="filtro-mediana">
-<h1>Filtro Mediana<a class="headerlink" href="#filtro-mediana" title="Link to this heading">#</a></h1>
+<section id="filtro-mediana">
+<h2>Filtro Mediana<a class="headerlink" href="#filtro-mediana" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Elimina <strong>picos isolados</strong> (outliers).</p></li>
 <li><p>Substitui o valor de um pixel pela <strong>mediana</strong> dos valores de intensidade na vizinhança desse pixel.</p></li>
@@ -820,7 +808,7 @@ document.write(`
 <img src="https://www.researchgate.net/publication/281499535/figure/fig17/AS:614347470540833@1523483259905/Concept-of-median-filtering-in-image-processing.png" width="400px"/>
 <p>Fonte da Imagem: <a class="reference external" href="https://www.researchgate.net/figure/Concept-of-median-filtering-in-image-processing_fig17_281499535">ResearchGate</a>.</p>
 <section id="filtro-mediana-aplicacao">
-<h2>Filtro Mediana: Aplicação<a class="headerlink" href="#filtro-mediana-aplicacao" title="Link to this heading">#</a></h2>
+<h3>Filtro Mediana: Aplicação<a class="headerlink" href="#filtro-mediana-aplicacao" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplica filtro de mediana</span>
@@ -842,7 +830,7 @@ document.write(`
 </div>
 </section>
 <section id="filtro-de-mediana-removendo-ruido-salt-and-pepper">
-<h2>Filtro de Mediana: Removendo Ruído Salt-and-Pepper<a class="headerlink" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper" title="Link to this heading">#</a></h2>
+<h3>Filtro de Mediana: Removendo Ruído Salt-and-Pepper<a class="headerlink" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_salt_and_pepper_noise</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">noise_ratio</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
@@ -883,6 +871,7 @@ document.write(`
 <img alt="../_images/f3e1cd3c4a478cb8adbe802e1e9ed3362eedcf2f74c0a45657392aaf9970900f.png" src="../_images/f3e1cd3c4a478cb8adbe802e1e9ed3362eedcf2f74c0a45657392aaf9970900f.png" />
 </div>
 </div>
+</section>
 </section>
 <section id="filtro-sobel">
 <h2>Filtro Sobel<a class="headerlink" href="#filtro-sobel" title="Link to this heading">#</a></h2>
@@ -1045,7 +1034,7 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Fundamentos de Imagens Digitais em Python</p>
+        <p class="prev-next-title">Fundamentos de Imagens Digitais em Python (Demo)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1073,7 +1062,6 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Filtragem Espacial</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entendendo-convolucao">Entendendo Convolução</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d">Caso 1D: https://antoinebrl.github.io/blog/conv1d/</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">Caso 2D: https://objetos.github.io/docs/demos/image_conv_vis/</a></li>
@@ -1095,11 +1083,11 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-filtro-de-media-versus-filtro-gaussiano">Comparação: Filtro de Média versus Filtro Gaussiano</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana">Filtro Mediana</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana-aplicacao">Filtro Mediana: Aplicação</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper">Filtro de Mediana: Removendo Ruído Salt-and-Pepper</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana">Filtro Mediana</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-mediana-aplicacao">Filtro Mediana: Aplicação</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-de-mediana-removendo-ruido-salt-and-pepper">Filtro de Mediana: Removendo Ruído Salt-and-Pepper</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel">Filtro Sobel</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-exemplo">Filtro Sobel: Exemplo</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtro-sobel-aplicacao">Filtro Sobel: Aplicação</a></li>
@@ -1113,9 +1101,6 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outros-filtros-cont">Outros Filtros (cont.)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
