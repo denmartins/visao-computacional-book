@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Visão Computacional &#8212; Visão Computacional</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcnotebooks/VC-Redes-Neurais-Convolucionais';</script>
+    <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Redes-Neurais-Convolucionais.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Visão Computacional" href="VC-Redes-Neurais-MNIST.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Visão Computacional - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Visão Computacional - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/denmartins/visao-computacional-book/blob/master/vcnotebooks/VC-Redes-Neurais-Convolucionais.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/edit/main/vcnotebooks/VC-Redes-Neurais-Convolucionais.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/issues/new?title=Issue%20on%20page%20%2Fvcnotebooks/VC-Redes-Neurais-Convolucionais.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/vcnotebooks/VC-Redes-Neurais-Convolucionais.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visão Computacional</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-convolucionais-cnns">Redes Neurais Convolucionais (CNNs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-mlp-para-o-mnist-dataset">Recap: MLP para o MNIST dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronio-da-camada-escondida">Neurônio da Camada Escondida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Neurônio da Camada Escondida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Neurônio da Camada Escondida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitacoes-da-rede-mlp">Limitações da Rede MLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Limitações da Rede MLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-convolucionais">Redes Neurais Convolucionais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-de-cnn-para-o-mnist">Demo de CNN para o MNIST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-em-pytorch-demo">CNN em Pytorch: Demo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-em-cnns">Convolução em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Convolução em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Convolução em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-3d">Convolução 3D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparametros-da-convolucao">Hyperparâmetros da Convolução</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-de-ativacao">Mapa de Ativação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compartilhamento-de-parametros">Compartilhamento de Parâmetros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-ativacao-relu">Função de Ativação (ReLU)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling-subamostragem">Pooling (Subamostragem)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling-exemplo-numerico">Pooling: Exemplo numérico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-connected-fc">Fully Connected (FC)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitetura-cnn">Arquitetura CNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treinamento">Treinamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perguntas-e-discussao">Perguntas e Discussão</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
+<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
+<section id="redes-neurais-convolucionais-cnns">
+<h2>Redes Neurais Convolucionais (CNNs)<a class="headerlink" href="#redes-neurais-convolucionais-cnns" title="Link to this heading">#</a></h2>
+<section id="prof-dr-denis-mayr-lima-martins">
+<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
+</section>
+<section id="pontificia-universidade-catolica-de-campinas">
+<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
+<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
+</section>
+</section>
+<section id="recap-mlp-para-o-mnist-dataset">
+<h2>Recap: MLP para o MNIST dataset<a class="headerlink" href="#recap-mlp-para-o-mnist-dataset" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://editor.analyticsvidhya.com/uploads/95577cnn2.gif' alt='MLP para MNIST dataset.' style="width:600px;"/>
+    <span style='display:block;'>MLP para MNIST dataset. Fonte: <a href="https://editor.analyticsvidhya.com/uploads/95577cnn2.gif" target="_blank"> Analytics Vidhya</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="neuronio-da-camada-escondida">
+<h2>Neurônio da Camada Escondida<a class="headerlink" href="#neuronio-da-camada-escondida" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:center;border:none;">
+    <img src='https://ml4a.github.io/images/figures/mnist_1layer.png' style="width:100%;"/>
+    <span style='display:block;'>Rede de 1 camada para o MNIST dataset. Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank">ML4a</a>.</span>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+    <img src='https://ml4a.github.io/images/figures/weights_analogy_1.png' style="width:100%;"/>
+    <span style='display:block;'>Net input de um neurônio na camada escondida. Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank">ML4a</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="id1">
+<h2>Neurônio da Camada Escondida<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='
+    https://ml4a.github.io/images/figures/rolled_weights_mnist_0.png' alt='Representação em Imagem de um Neurônio da Camada Escondida de uma MLP para o MNIST dataset.' style="width:800px;"/>
+    <span style='display:block;'>Representação em Imagem de um Neurônio da Camada Escondida de uma MLP para o MNIST dataset. Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank"> ML4a</a>.</span>
+    <br/>
+</div></section>
+<section id="id2">
+<h2>Neurônio da Camada Escondida<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='
+    https://ml4a.github.io/images/figures/rolled_weights_mnist.png' alt='Visualização dos Neurônios da Camada de Saída de uma MLP para o MNIST dataset.' style="width:800px;"/>
+    <span style='display:block;'>Visualização dos Neurônios da Camada de Saída de uma MLP para o MNIST dataset.. Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank"> ML4a</a>.</span>
+    <br/>
+</div></section>
+<section id="limitacoes-da-rede-mlp">
+<h2>Limitações da Rede MLP<a class="headerlink" href="#limitacoes-da-rede-mlp" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Dimensionalidade Alta:</strong> Uma imagem 224x244x3 tem 150.528 pixels/entradas. Cada neurônio na primeira camada oculta de um MLP precisaria de 150.528 pesos, levando a bilhões de parâmetros treináveis em uma rede profunda.</p></li>
+<li><p>O grande número de parâmetros torna o modelo propenso a <strong>overfitting</strong> (superajuste).</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='
+    https://learnopencv.com/wp-content/uploads/2023/01/tensorflow-keras-mlp-parameters-1024x414.png' alt='MLPs têm alta dimensionalidade.' style="width:800px;"/>
+    <span style='display:block;'>Alta dimensionalidade das MLPs para imagens. Frequentemente levando a overfitting. Fonte: <a href="https://learnopencv.com/understanding-convolutional-neural-networks-cnn/" target="_blank"> LearnOpenCV</a>.</span>
+    <br/>
+</div>
+<div style='align: left; text-align:center;'>
+    <img src='https://media.datacamp.com/legacy/v1700044100/image3_93b1b7c0d9.png' alt='Underfitting versus Overfitting.' style="width:800px;"/>
+    <span style='display:block;'>Underfitting versus Overfitting. Fonte: <a href="https://www.datacamp.com/pt/tutorial/introduction-to-convolutional-neural-networks-cnns" target="_blank"> DataCamp</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="id3">
+<h2>Limitações da Rede MLP<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Perda de Estrutura Espacial:</strong> MLPs exigem que a imagem 2D/3D seja “achatada” (flattened) em um vetor 1D.</p></li>
+<li><p>Isso destrói a informação de localidade: pixels próximos (semânticos) são tratados da mesma forma que pixels distantes.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://learnopencv.com/wp-content/uploads/2023/01/tensorflow-keras-mlp-image-translation.png' alt='MLPs não são invariantes à translação' style="width:800px;"/>
+    <span style='display:block;'>MLPs não são invariantes à translação. Fonte: <a href="https://learnopencv.com/understanding-convolutional-neural-networks-cnn/" target="_blank"> LearnOpenCV</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="objetivos-de-aprendizagem">
+<h2>Objetivos de Aprendizagem<a class="headerlink" href="#objetivos-de-aprendizagem" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Explicar por que CNNs são adequadas para dados de imagem.</p></li>
+<li><p>Descrever os blocos fundamentais (convolução, padding, stride, pooling, ativação).</p></li>
+<li><p>Esboçar uma arquitetura simples de CNN e justificar cada componente.</p></li>
+<li><p>Implementar um CNN mínimo em PyTorch que classifica dígitos MNIST.</p></li>
+</ul>
+</section>
+<section id="redes-neurais-convolucionais">
+<h2>Redes Neurais Convolucionais<a class="headerlink" href="#redes-neurais-convolucionais" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Convolutional Neural Nets (<strong>CNNs</strong> ou ConvNets) são arquiteturas de redes neurais otimizadas para dados com estrutura de grade, como imagens.</p></li>
+<li><p>CNN aplica uma série de transformações na imagem original (veja esquema abaixo) com três tipos de camadas (<strong>convolution, pooling e fully connected</strong>).</p></li>
+<li><p>A sequência de camadas antes da camada fully connected é chamada de extrator de características.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://wiki.pathmind.com/images/wiki/convnet.png' alt='Exemplo de CNN' style="width:800px;"/>
+    <span style='display:block;'>Estrutura geral de uma CNN. Fonte: <a href="https://wiki.pathmind.com/convolutional-network" target="_blank"> pathmind</a>.</span>
+    <br/>
+</div></section>
+<section id="demo-de-cnn-para-o-mnist">
+<h2>Demo de CNN para o MNIST<a class="headerlink" href="#demo-de-cnn-para-o-mnist" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://www.popsci.com/wp-content/uploads/2019/03/18/YJNDG7MQQDINTOGCDUJGTHZ4N4.png' alt='Demonstração de CNN para MNIST' style="width:400px;"/>
+    <span style='display:block;'>Estrutura geral de uma CNN. Fonte: <a href="https://adamharley.com/nn_vis/cnn/3d.html" target="_blank"> Adam W. Harley</a>.</span>
+    <br/>
+</div>
+<center>
+</center></section>
+<section id="cnn-em-pytorch-demo">
+<h2>CNN em Pytorch: Demo<a class="headerlink" href="#cnn-em-pytorch-demo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleCNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleCNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sequential</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># Primeira camada convolucional</span>
+            <span class="c1"># Input: 1 canal (grayscale). Output: 32 filtros. Kernel: 3x3.</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="c1"># Segunda camada convolucional</span>
+            <span class="c1"># Input: 32 canais. Output: 64 filtros.</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="c1"># Pooling Max: 2x2</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">stride</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="c1"># Camada FC será definida após o cálculo do tamanho de flatten.</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+            <span class="c1"># Definindo as camadas FC</span>
+            <span class="c1"># Camada Totalmente Conectada 1</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">14400</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="c1"># Camada de Saída (10 classes para MNIST)</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequential</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">class</span><span class="w"> </span><span class="nc">SimpleCNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;torch&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision.transforms</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">transforms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Número de processos para o dataloader</span>
+<span class="n">NUM_WORKERS</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Quantas amostras (imagens) por batch</span>
+<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="c1"># Converte dados em tensores</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()</span>
+
+<span class="c1"># Carrega dados de treino e teste</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+
+<span class="c1"># Cria dataset de validação</span>
+<span class="n">VALIDATION_SIZE</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">n_train_examples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span> <span class="o">*</span> <span class="n">VALIDATION_SIZE</span><span class="p">)</span>
+<span class="n">n_valid_examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_train_examples</span>
+
+<span class="n">train_data</span><span class="p">,</span> <span class="n">valid_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">random_split</span><span class="p">(</span>
+    <span class="n">train_data</span><span class="p">,</span> <span class="p">[</span><span class="n">n_train_examples</span><span class="p">,</span> <span class="n">n_valid_examples</span><span class="p">])</span>
+
+<span class="c1"># Data Loaders</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+   <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">NUM_WORKERS</span><span class="p">)</span>
+<span class="n">valid_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">valid_data</span><span class="p">,</span>
+   <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">NUM_WORKERS</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> 
+  <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">NUM_WORKERS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_device</span><span class="p">(</span><span class="n">on_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">has_mps</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+    <span class="n">has_cuda</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;mps&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">has_mps</span> <span class="ow">and</span> <span class="n">on_gpu</span><span class="p">)</span> \
+            <span class="k">else</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">has_cuda</span> <span class="ow">and</span> <span class="n">on_gpu</span><span class="p">)</span> \
+            <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">(</span><span class="n">on_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleCNN</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">loss_function</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+
+<span class="n">num_parameters</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Num. Parâmetros no modelo:&quot;</span><span class="p">,</span> <span class="n">num_parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num. Parâmetros no modelo: 1853034
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">predicted_digits</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                            <span class="c1"># Posição com maior valor da saída</span>
+    <span class="n">correct_ones</span> <span class="o">=</span> <span class="p">(</span><span class="n">predicted_digits</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>  <span class="c1"># 1.0 se acertou, 0.0 caso contrário</span>
+    <span class="k">return</span> <span class="n">correct_ones</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>                               <span class="c1"># Conta o número de acertos</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">train_model_mini_batch_with_validation</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">valid_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">tr_loss</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">epochs</span>
+    <span class="n">val_loss</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">epochs</span>
+
+    <span class="k">with</span> <span class="n">trange</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tepoch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+            <span class="n">train_total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">total_correct</span> <span class="o">=</span> <span class="mf">0.0</span>
+           
+
+            <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+                <span class="c1"># Copia dados para o device (ex.: GPU)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                
+                <span class="c1"># Forward pass</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                
+                <span class="c1"># Calcula loss</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+                <span class="n">train_total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                <span class="c1"># Conta acertos</span>
+                <span class="n">total_correct</span> <span class="o">+=</span> <span class="n">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+                
+                <span class="c1"># Backward pass: Backpropagation</span>
+                <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="n">avg_tr_loss</span> <span class="o">=</span> <span class="n">train_total_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+            <span class="n">tr_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_tr_loss</span>
+            <span class="n">training_accuracy</span> <span class="o">=</span> <span class="n">total_correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            
+            <span class="c1"># Validation phase</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># Set the model to evaluation mode</span>
+            <span class="n">val_total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">val_total_correct</span> <span class="o">=</span> <span class="mi">0</span>
+            
+
+            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">valid_loader</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                    <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                    
+                    <span class="c1"># Forward pass</span>
+                    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                    
+                    <span class="c1"># Calcula loss</span>
+                    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+                    <span class="n">val_total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                    <span class="c1"># Conta acertos</span>
+                    <span class="n">val_total_correct</span> <span class="o">+=</span> <span class="n">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+            <span class="n">avg_val_loss</span> <span class="o">=</span> <span class="n">val_total_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_loader</span><span class="p">)</span>
+            <span class="n">val_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_val_loss</span>
+            <span class="n">validation_accuracy</span> <span class="o">=</span> <span class="n">val_total_correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">tepoch</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="n">train_loss</span><span class="o">=</span><span class="n">avg_tr_loss</span><span class="p">,</span> <span class="n">train_acc</span><span class="o">=</span><span class="n">training_accuracy</span><span class="p">,</span> <span class="n">val_loss</span><span class="o">=</span><span class="n">avg_val_loss</span><span class="p">,</span> <span class="n">val_acc</span><span class="o">=</span><span class="n">validation_accuracy</span><span class="p">)</span>
+            <span class="n">tepoch</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">epoch_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">epoch_ticks</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">tr_loss</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train. Loss&quot;</span> <span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">epoch_ticks</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">val_loss</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valid. Loss&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Comportamento da Loss&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_model_mini_batch_with_validation</span><span class="p">(</span>
+    <span class="n">EPOCHS</span><span class="p">,</span> 
+    <span class="n">train_loader</span><span class="p">,</span> 
+    <span class="n">valid_loader</span><span class="p">,</span> 
+    <span class="n">model</span><span class="p">,</span> 
+    <span class="n">loss_function</span><span class="p">,</span> 
+    <span class="n">optimizer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ac315596bd7f44a09c8efdb37d2dee1d", "version_major": 2, "version_minor": 0}</script><img alt="../_images/8df96d4a3f7a11ff0314192b19acacc767b9041b7505ccd75dd04e1d286f4e0c.png" src="../_images/8df96d4a3f7a11ff0314192b19acacc767b9041b7505ccd75dd04e1d286f4e0c.png" />
+</div>
+</div>
+</section>
+<section id="convolucao-em-cnns">
+<h2>Convolução em CNNs<a class="headerlink" href="#convolucao-em-cnns" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;">
+<ul class="simple">
+<li><p>O bloco fundamental de uma CNN é a <strong>Camada Convolucional</strong>.</p></li>
+<li><p>A convolução é uma busca por padrões: o filtro desliza sobre a imagem, procurando por uma característica específica.</p></li>
+<li><p>Se o padrão do filtro corresponder à região da imagem, o resultado será um valor alto (ativação).</p></li>
+<li><p><strong>Conectividade Local:</strong> Os neurônios da CNN se conectam apenas a uma pequena região local do volume de entrada, chamada <strong>campo receptivo</strong>.</p></li>
+<li><p>Isso explora a correlação local, pois as características importantes (bordas, curvas) são localizadas.</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="http://neuralnetworksanddeeplearning.com/images/tikz43.png"/>
+ <span style='display:block;'>Convolução na camada escondida. Fonte: <a href="http://neuralnetworksanddeeplearning.com/chap6.html" target="_blank">Michael Nielsen</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="id4">
+<h2>Convolução em CNNs<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:40%;">
+<ul class="simple">
+<li><p>Cada filtro na camada convolucional aprende a detectar um tipo de característica (<strong>feature</strong>).</p></li>
+<li><p>Nas camadas iniciais, os filtros detectam características de baixo nível, como bordas horizontais, verticais e curvas.</p></li>
+<li><p><strong>O filtro em si é uma matriz de pesos (parâmetros) cujos valores são aprendidos durante o treinamento via backpropagation.</strong></p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="http://neuralnetworksanddeeplearning.com/images/tikz44.png" width="600">
+ <span style='display:block;'>Convolução no primeiro neurônio da camada escondida. Fonte: <a href="http://neuralnetworksanddeeplearning.com/chap6.html" target="_blank">Michael Nielsen</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="id5">
+<h2>Convolução em CNNs<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>A operação de convolução (para fins de CNN) é o <strong>produto escalar</strong> (multiplicação elemento a elemento seguida por soma) entre o filtro e a região de entrada correspondente.
+$<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\text{Input}_{i, j} \times \text{Filter}_{i, j}) + \text{Bias} \)</span>$</p></li>
+<li><p>O resultado é um único número que mede o grau de correspondência do filtro com a região de entrada.</p></li>
+<li><p>Esse processo é repetido para cada localização onde o filtro desliza.</p></li>
+<li><p>Os resultados são colocados em uma matriz de saída chamada <strong>Mapa de Ativação</strong> (Activation Map) ou <strong>Mapa de Características</strong> (Feature Map).</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://poloclub.github.io/cnn-explainer/assets/figures/convlayer_detailedview_demo.gif' alt='Convolução CNN' style="width:400px;"/>
+    <span style='display:block;'>Convolução e Feature Map. Fonte: <a href="https://poloclub.github.io/cnn-explainer/" target="_blank"> CNN Explainer</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="convolucao-3d">
+<h2>Convolução 3D<a class="headerlink" href="#convolucao-3d" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://framerusercontent.com/images/ZS9Atu2axnCtVjlj1gKbXMLAA78.png' alt='Convolução CNN' style="width:600px;"/>
+    <span style='display:block;'>Convolução e Volume. Fonte: <a href="https://www.v7labs.com/blog/convolutional-neural-networks-guide" target="_blank"> V7 Labs</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="hyperparametros-da-convolucao">
+<h2>Hyperparâmetros da Convolução<a class="headerlink" href="#hyperparametros-da-convolucao" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Kernel Size (<span class="math notranslate nohighlight">\(F\)</span>):</strong> Tamanhos comuns são <span class="math notranslate nohighlight">\(3 \times 3\)</span> ou <span class="math notranslate nohighlight">\(5 \times 5\)</span>. Tamanhos menores são frequentemente melhores para expressar características mais fortes com menos parâmetros.</p></li>
+<li><p><strong>Número de Filtros:</strong> Aumenta com a profundidade; geralmente começa em 32 e dobra (64, 128, etc.).</p></li>
+<li><p><strong>Stride (<span class="math notranslate nohighlight">\(S\)</span>):</strong> É o número de pixels que o filtro se move (desloca) sobre a entrada a cada iteração.</p>
+<ul>
+<li><p><strong>Stride = 1:</strong> O filtro se move um pixel por vez, resultando em sobreposição de campos receptivos e um mapa de ativação grande.</p></li>
+<li><p><strong>Stride &gt; 1:</strong> Causa um “salto” maior do filtro, resultando em menos etapas e um mapa de ativação espacialmente menor.</p></li>
+<li><p>Um <em>stride</em> maior reduz a dimensionalidade e o custo computacional.</p></li>
+</ul>
+</li>
+<li><p><strong>Padding</strong>: É a adição de pixels extras (geralmente com valor zero, <strong>Zero-Padding</strong>) em torno das bordas da imagem de entrada.</p>
+<ul>
+<li><p><strong>Problema de Redução:</strong> Sem padding, a convolução geralmente reduz o tamanho espacial da saída. Padding garante que os pixels de borda (que seriam pouco usados) participem do campo receptivo.</p></li>
+<li><p><strong>Padding “Same” (Igual):</strong> Adiciona zeros o suficiente para que a dimensão espacial da saída seja a mesma da entrada (assumindo <span class="math notranslate nohighlight">\(S=1\)</span>).</p></li>
+<li><p><strong>Padding “Valid” (Válido):</strong> Não usa padding, resultando em uma saída menor que a entrada.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="mapa-de-ativacao">
+<h2>Mapa de Ativação<a class="headerlink" href="#mapa-de-ativacao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p><strong>Determinando o Tamanho do Mapa de Ativação</strong>:</p>
+<ul class="simple">
+<li><p>O tamanho espacial de saída <span class="math notranslate nohighlight">\(O\)</span> de uma camada convolucional é determinado pela dimensão de entrada (<span class="math notranslate nohighlight">\(N\)</span>), tamanho do kernel (<span class="math notranslate nohighlight">\(F\)</span>), Padding (<span class="math notranslate nohighlight">\(P\)</span>) e Stride (<span class="math notranslate nohighlight">\(S\)</span>).</p></li>
+<li><p>Para que o resultado seja um inteiro, a fórmula abaixo deve ser satisfeita.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ O = \lfloor \frac{N - F + 2P}{S} \rfloor + 1 \]</div>
+<p><strong>Exemplo</strong>: Imagem de entrada <span class="math notranslate nohighlight">\(32 \times 32\)</span> (<span class="math notranslate nohighlight">\(N=32\)</span>), Kernel <span class="math notranslate nohighlight">\(5 \times 5\)</span> (<span class="math notranslate nohighlight">\(F=5\)</span>).</p>
+<ul class="simple">
+<li><p><strong>Cenário 1 (Stride e Padding):</strong> Stride <span class="math notranslate nohighlight">\(S=1\)</span>. Para obter <em>Same Padding</em> (preservar 32x32), <span class="math notranslate nohighlight">\(P\)</span> deve ser: <span class="math notranslate nohighlight">\(P = (F-1)/2 = (5-1)/2 = 2\)</span>.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(O = \frac{32 - 5 + 2(2)}{1} + 1 = \frac{31}{1} + 1 = 32\)</span></p></li>
+<li><p>A saída é <span class="math notranslate nohighlight">\(32 \times 32\)</span> (tamanho preservado).</p></li>
+</ul>
+</li>
+<li><p><strong>Cenário 2 (Sem Padding, Stride 1):</strong> <span class="math notranslate nohighlight">\(P=0, S=1\)</span>.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(O = \frac{32 - 5 + 0}{1} + 1 = 27 + 1 = 28 \)</span></p></li>
+<li><p>A saída é <span class="math notranslate nohighlight">\(28 \times 28\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="compartilhamento-de-parametros">
+<h2>Compartilhamento de Parâmetros<a class="headerlink" href="#compartilhamento-de-parametros" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>O <strong>Compartilhamento de Parâmetros</strong> é uma característica distintiva das CNNs.</p></li>
+<li><p>O mesmo filtro (conjunto de pesos) é usado em todas as posições espaciais da camada de entrada.</p></li>
+<li><p>Para um filtro 5x5: <span class="math notranslate nohighlight">\(\sigma\left(b + \sum_{l=0}^4 \sum_{m=0}^4  w_{l,m} a_{j+l, k+m} \right)\)</span></p></li>
+<li><p><strong>Vantagem I: Redução de Parâmetros:</strong> Em vez de cada neurônio ter seu próprio conjunto de pesos, muitos neurônios compartilham o mesmo filtro.</p></li>
+<li><p><strong>Vantagem II: Equivariância à Translação:</strong> Se uma característica (ex: uma linha) for útil em uma parte da imagem, ela será útil em qualquer outra parte.</p></li>
+<li><p>O filtro aprende a detectar a característica independentemente da sua localização exata.</p></li>
+</ul>
+</section>
+<section id="funcao-de-ativacao-relu">
+<h2>Função de Ativação (ReLU)<a class="headerlink" href="#funcao-de-ativacao-relu" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Após a operação de convolução (que é linear), uma função de ativação é aplicada ao mapa de ativação para introduzir não-linearidade.</p></li>
+<li><p><strong>ReLU</strong> é a função mais comum: <span class="math notranslate nohighlight">\(f(x) = \max(0, x)\)</span>.</p></li>
+<li><p>Ela remove valores negativos, ajustando-os para zero, o que pode ser visto como uma função de limiar (thresholding).</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://www.bouvet.no/bouvet-deler/understanding-convolutional-neural-networks-part-1/_/attachment/inline/8dd1e76d-a5bc-4a55-8f8d-b5fc2085a148:046fe87f48f07020b5cf6e8198a97a233faa78a9/Screenshot%202019-07-01%20at%2013.17.12.png' alt='Efeito da ReLU' style="width:600px;"/>
+    <span style='display:block;'>Efeito da ReLU. Fonte: <a href="https://www.bouvet.no/bouvet-deler/understanding-convolutional-neural-networks-part-1" target="_blank"> Bouvet</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="pooling-subamostragem">
+<h2>Pooling (Subamostragem)<a class="headerlink" href="#pooling-subamostragem" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>O <strong>Pooling</strong> é uma forma de subamostragem (downsampling) não linear, geralmente inserida periodicamente entre camadas convolucionais.</p></li>
+<li><p><strong>Objetivos Principais:</strong></p>
+<ul>
+<li><p>Reduzir a dimensionalidade espacial (Altura e Largura).</p></li>
+<li><p>Reduzir o número de parâmetros e a quantidade de computação.</p></li>
+<li><p>Ajudar a controlar o overfitting.</p></li>
+<li><p>Conceder um grau de <strong>invariância local à translação</strong>.</p></li>
+</ul>
+</li>
+<li><p>O filtro de pooling <strong>não tem parâmetros treináveis</strong> (não tem pesos).</p></li>
+<li><p>Um <span class="math notranslate nohighlight">\(2 \times 2\)</span> Max Pooling com <span class="math notranslate nohighlight">\(S=2\)</span> descarta 75% das ativações espaciais</p></li>
+</ul>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="https://stanford.edu/~shervine/teaching/cs-230/illustrations/max-pooling-a.png?711b14799d07f9306864695e2713ae07" width="400">
+ <span style='display:block;'>Max pooling. Fonte: <a href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks" target="_blank">Stanford.edu</a>.</span>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="https://stanford.edu/~shervine/teaching/cs-230/illustrations/average-pooling-a.png?58f9ab6d61248c3ec8d526ef65763d2f" width="400">
+<span style='display:block;'>Average pooling. Fonte: <a href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks" target="_blank">Stanford.edu</a>.</span>
+</td>
+</tr>
+</table></section>
+<section id="pooling-exemplo-numerico">
+<h2>Pooling: Exemplo numérico<a class="headerlink" href="#pooling-exemplo-numerico" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src="https://github.com/rasbt/machine-learning-book/blob/main/ch14/figures/14_08.png?raw=true" width="600">
+ <span style='display:block;'>Pooling. Fonte: <a href="https://github.com/rasbt/machine-learning-book/blob/main/ch14/figures/14_08.png" target="_blank">Sebastian Raschka</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="fully-connected-fc">
+<h2>Fully Connected (FC)<a class="headerlink" href="#fully-connected-fc" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Após uma série de camadas Convolucionais e de Pooling, o volume de dados contém características de alto nível.</p></li>
+<li><p>A última etapa é a classificação, realizada por camadas <strong>Totalmente Conectadas (FC)</strong> (ou densas).</p></li>
+<li><p><strong>Flattening (Achatamento):</strong> O volume 3D final do extrator de características deve ser convertido em um vetor 1D antes de entrar na primeira camada FC.</p></li>
+<li><p>As camadas FC mapeiam as características extraídas para as probabilidades de classe.</p></li>
+<li><p>O número de neurônios na camada de saída é igual ao número de classes (e.g., 10 para MNIST).</p></li>
+<li><p>Para classificação de imagens: A camada de saída do classificador FC tipicamente usa a função de ativação <strong>Softmax</strong> para converter os valores brutos de saída da rede em probabilidades normalizadas.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src="https://stanford.edu/~shervine/teaching/cs-230/illustrations/fully-connected-ltr.png?32caf9e07c79d652faa292812579d063" width="400">
+ <span style='display:block;'>Camada FC. Fonte: <a href="https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks" target="_blank">Stanford.edu</a>.</span>
+    <br/>
+</div></section>
+<section id="arquitetura-cnn">
+<h2>Arquitetura CNN<a class="headerlink" href="#arquitetura-cnn" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Uma CNN de classificação é dividida em duas partes principais:</p>
+<ol class="arabic simple">
+<li><p><strong>Extrator de Características (Feature Extractor):</strong> Composto por blocos Conv + ReLU + Pooling (ou ConvBlocks). É comum empilhar 2 ou 3 camadas Conv/ReLU consecutivas antes de uma camada Pooling.</p></li>
+<li><p><strong>Classificador (Classifier):</strong> Composto por camadas Fully Connected (FC) + Softmax.</p></li>
+</ol>
+</li>
+<li><p>O fluxo de dados transforma o volume de entrada, tipicamente reduzindo as dimensões espaciais (H, W) e aumentando a profundidade (Canais/Filtros).</p></li>
+<li><p><strong>Hierarquia de Características:</strong></p>
+<ul>
+<li><p>Camadas iniciais aprendem elementos simples (bordas, cores).</p></li>
+<li><p>Camadas médias combinam elementos simples em formas mais complexas (e.g., olhos, rodas).</p></li>
+<li><p>Camadas profundas aprendem conceitos abstratos de alto nível (e.g., faces, objetos inteiros).</p></li>
+</ul>
+</li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src="https://learnopencv.com/wp-content/uploads/2023/01/tensorflow-keras-convolutional-blocks-summary-1024x299.png" width="600">
+ <span style='display:block;'>Exemplo de Arquitetura de uma CNN. Fonte: <a href="https://learnopencv.com/understanding-convolutional-neural-networks-cnn/" target="_blank">LearnOpenCV</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="treinamento">
+<h2>Treinamento<a class="headerlink" href="#treinamento" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>As CNNs são tipicamente treinadas usando <strong>Aprendizado Supervisionado</strong>.</p></li>
+<li><p>Os pesos iniciais (elementos dos filtros) são definidos aleatoriamente.</p></li>
+<li><p>O processo de aprendizagem utiliza o <strong>Backpropagation</strong> e o <strong>Gradiente Descendente</strong>.</p></li>
+<li><p><strong>Loss Function (Função de Perda):</strong> Mede o erro entre a previsão da rede e o rótulo verdadeiro (Ground Truth).</p></li>
+<li><p><strong>Otimização:</strong> O algoritmo ajusta iterativamente os pesos (filtros e FC) para minimizar a perda.</p></li>
+</ul>
+</section>
+<section id="resumo">
+<h2>Resumo<a class="headerlink" href="#resumo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:65%;">
+<ul class="simple">
+<li><p>As CNNs são inerentemente adequadas para processar imagens devido a três propriedades principais:</p>
+<ol class="arabic simple">
+<li><p><strong>Conectividade Local:</strong> Foca na correlação espacial, que é forte em imagens.</p></li>
+<li><p><strong>Compartilhamento de Pesos:</strong> Reduz drasticamente os parâmetros, mitigando o overfitting e tornando o modelo escalável.</p></li>
+<li><p><strong>Pooling:</strong> Introduz downsampling, que reduz a complexidade e a memória, e concede invariância local a pequenas variações de posição.</p></li>
+</ol>
+</li>
+<li><p>A capacidade de aprender características (filtros) automaticamente elimina a necessidade de definir manualmente os recursos visuais.</p></li>
+<li><p><strong>Arquitetura:</strong> CNNs são formadas por um Extrator de Características (Conv/Pooling) seguido por um Classificador (FC/Softmax).</p></li>
+<li><p><strong>Leitura Recomendada</strong>:</p>
+<ul>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1511.08458">An Introduction to Convolutional Neural Networks</a>.</p></li>
+<li><p><a class="reference external" href="https://poloclub.github.io/cnn-explainer/">CNN Explainer</a></p></li>
+<li><p><a class="reference external" href="https://cs231n.github.io/convolutional-networks/">ConvNets by Stanford</a></p></li>
+</ul>
+</li>
+<li><p><strong>Mateiral adicional</strong>: <a class="reference external" href="https://www.youtube.com/watch?v=jDe5BAsT2-Y">Convolutional Neural Networks from Scratch</a></p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:35%;">
+<div style='align:center; text-align:center;'>
+    <img src='https://hadrienj.github.io/assets/images/deep-learning-book-goodfellow-cover.jpg' style="width:200px;"/>
+    <span style='display:block;'><b>Leitura Recomendada</b>: Capítulo 6.</span>
+</div> 
+</td>
+</tr>
+</table></section>
+<section id="perguntas-e-discussao">
+<h2>Perguntas e Discussão<a class="headerlink" href="#perguntas-e-discussao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>O Perceptron Multicamadas (MLP) é a arquitetura básica de redes neurais. Por que os MLPs são inerentemente inadequados para processar imagens de alta resolução, e como a CNN supera a principal limitação de dimensionalidade do MLP?</p></li>
+<li><p>As três principais operações em um extrator de características de CNN são <strong>Convolução</strong>, <strong>ReLU</strong> e <strong>Pooling</strong>. Qual é a contribuição fundamental de cada uma dessas operações para a capacidade de uma CNN aprender e generalizar, especialmente no contexto de downsampling?</p></li>
+<li><p>O treinamento de uma CNN envolve o aprendizado automático de filtros (pesos). Descreva a natureza hierárquica das características aprendidas em CNNs profundas. O que um filtro (kernel) típico nas camadas iniciais detecta em comparação com as características detectadas nas camadas mais profundas?</p></li>
+<li><p>Qual é o objetivo do <strong>Zero-Padding</strong> e qual o valor de padding (<span class="math notranslate nohighlight">\(P\)</span>) deve ser escolhido para um filtro de tamanho <span class="math notranslate nohighlight">\(F\)</span> se quisermos garantir que a saída espacial (<span class="math notranslate nohighlight">\(O\)</span>) seja exatamente a mesma que a entrada espacial (<span class="math notranslate nohighlight">\(N\)</span>), assumindo um Stride (<span class="math notranslate nohighlight">\(S\)</span>) de 1? Demonstre usando a fórmula do tamanho de saída.</p></li>
+<li><p>Vimos que os filtros não são pré-definidos manualmente, mas sim aprendidos. Na fase de treinamento, como o algoritmo de Backpropagation (Retropropagação) “sabe” qual filtro deve ser ajustado para detectar uma curva ou uma linha, se os pesos são inicializados aleatoriamente? Por que esse processo não é considerado “sorte” ou aleatório?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./vcnotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VC-Redes-Neurais-MNIST.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-convolucionais-cnns">Redes Neurais Convolucionais (CNNs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-mlp-para-o-mnist-dataset">Recap: MLP para o MNIST dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronio-da-camada-escondida">Neurônio da Camada Escondida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Neurônio da Camada Escondida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Neurônio da Camada Escondida</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitacoes-da-rede-mlp">Limitações da Rede MLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Limitações da Rede MLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-convolucionais">Redes Neurais Convolucionais</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-de-cnn-para-o-mnist">Demo de CNN para o MNIST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnn-em-pytorch-demo">CNN em Pytorch: Demo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-em-cnns">Convolução em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Convolução em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Convolução em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolucao-3d">Convolução 3D</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperparametros-da-convolucao">Hyperparâmetros da Convolução</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapa-de-ativacao">Mapa de Ativação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compartilhamento-de-parametros">Compartilhamento de Parâmetros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-ativacao-relu">Função de Ativação (ReLU)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling-subamostragem">Pooling (Subamostragem)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling-exemplo-numerico">Pooling: Exemplo numérico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fully-connected-fc">Fully Connected (FC)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitetura-cnn">Arquitetura CNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treinamento">Treinamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perguntas-e-discussao">Perguntas e Discussão</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Dr. Denis M. L. Martins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

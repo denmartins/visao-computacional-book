@@ -1,0 +1,2204 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Visão Computacional &#8212; Visão Computacional</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcnotebooks/VC-Redes-Neurais-MNIST';</script>
+    <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Redes-Neurais-MNIST.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visão Computacional" href="VC-Redes-Neurais-Convolucionais.html" />
+    <link rel="prev" title="Visão Computacional" href="VC-Processamento-Imagens-Coloridas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Visão Computacional - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Visão Computacional - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/denmartins/visao-computacional-book/blob/master/vcnotebooks/VC-Redes-Neurais-MNIST.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/edit/main/vcnotebooks/VC-Redes-Neurais-MNIST.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/issues/new?title=Issue%20on%20page%20%2Fvcnotebooks/VC-Redes-Neurais-MNIST.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/vcnotebooks/VC-Redes-Neurais-MNIST.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visão Computacional</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-para-classificacao-de-imagens">Redes Neurais para Classificação de imagens</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronio-artificial">Neurônio Artificial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">Perceptron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-learning-rule">Perceptron Learning Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-em-pytorch-demo">Perceptron em Pytorch: Demo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-em-pytorch">Perceptron em Pytorch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treinando-o-modelo">Treinando o Modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avaliando-o-modelo-nos-dados-de-teste">Avaliando o Modelo nos dados de Teste</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizando-a-fronteira-de-decisao">Visualizando a Fronteira de Decisão</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-e-um-modelo-flexivel">Perceptron é um modelo flexível</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaline-adaptive-linear-neuron">Adaline: Adaptive Linear Neuron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradiente-descendente">Gradiente Descendente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradiente-descendente-cont">Gradiente Descendente (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradiente Descendente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitacao-do-perceptron">Limitação do Perceptron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-limitacoes">Perceptron: Limitações</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-de-ativacao-nao-lineares">Funções de Ativação (Não-lineares)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-empilhando-perceptrons">Redes Neurais: Empilhando Perceptrons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-demo-visual">MLP: Demo Visual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Redes Neurais: Empilhando Perceptrons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-treinamento">MLP: Treinamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-feed-forward">MLP: Feed-forward</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-feed-forward-cont">MLP: Feed-Forward (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">MLP: Feed-Forward (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-de-uma-rede-neural">Componentes de uma Rede Neural</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-em-pytorch">MLP em PyTorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-para-o-mnist-dataset">MLP para o MNIST dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-mnist-tutorial-visual-youtube">MLP MNIST: Tutorial Visual (YouTube)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-e-mnist-em-pytorch">MLP e MNIST em Pytorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitetura-da-rede-neural">Arquitetura da Rede Neural</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-custo-loss-para-classificacao">Função de Custo/<em>Loss</em> para Classificação</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-de-treinamento">Loop de Treinamento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verificando-desempenho-no-dataset-de-validacao">Verificando desempenho no dataset de validação</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testando-o-modelo">Testando o Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-ativacao-na-camada-de-saida">Função de Ativação na Camada de Saída</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salvando-o-modelo">Salvando o modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carregando-o-modelo">Carregando o modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
+<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
+<section id="redes-neurais-para-classificacao-de-imagens">
+<h2>Redes Neurais para Classificação de imagens<a class="headerlink" href="#redes-neurais-para-classificacao-de-imagens" title="Link to this heading">#</a></h2>
+<section id="prof-dr-denis-mayr-lima-martins">
+<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
+</section>
+<section id="pontificia-universidade-catolica-de-campinas">
+<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
+<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
+</section>
+</section>
+<section id="objetivos-de-aprendizagem">
+<h2>Objetivos de Aprendizagem<a class="headerlink" href="#objetivos-de-aprendizagem" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Compreender a estrutura e funcionamento do perceptron clássico, incluindo sua relação com a função logística.</p></li>
+<li><p>Analisar o Multi‑Layer Perceptron (MLP) como extensão do perceptron, destacando camadas ocultas, funções de ativação não‑lineares e topologia geral.</p></li>
+<li><p>Descrever o algoritmo de treinamento baseado em <em>back‑propagation</em> e a otimização de pesos via gradiente descendente.</p></li>
+<li><p>Compreender estratégias de validação cruzada (k‑fold) para avaliação robusta de modelos.</p></li>
+<li><p>Discutir os conceitos de viés e variância, suas implicações na generalização e estratégias de mitigação.</p></li>
+<li><p>Entender métodos de regularização (L1/L2, dropout) e suas aplicações práticas em redes neurais.</p></li>
+</ul>
+</section>
+<section id="neuronio-artificial">
+<h2>Neurônio Artificial<a class="headerlink" href="#neuronio-artificial" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:center;border:none;width:30%;">
+<img src='https://historyofinformation.com/images/Screen_Shot_2020-09-09_at_6.46.46_AM_big.png' style="width:300px;"/>
+    <span style='display:block;'>Warren McCulloch e Walter Pitts. Criadores do primeiro modelo de neurônio artificial (1943). Fonte: <a href="https://www.historyofinformation.com/detail.php?entryid=782" target="_blank">History of Information</a>.</span>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:65%;">
+<img src='https://miro.medium.com/v2/resize:fit:2902/1*hkYlTODpjJgo32DoCOWN5w.png' style="width:100%;"/>
+    <span style='display:block;'>Neurônio Artificial. Fonte: <a href="https://medium.com/@mullatahseen_786/understanding-the-perceptron-foundations-of-neural-networks-in-deep-learning-b1b5e98c6657" target="_blank">Tahseen Mulla</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="perceptron">
+<h2>Perceptron<a class="headerlink" href="#perceptron" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:40%;">
+<ul class="simple">
+<li><p>Primeira máquina capaz de aprender a partir de dados.</p></li>
+<li><p>Consiste em um conjunto de pesos <span class="math notranslate nohighlight">\(\mathbf{w}\in\mathbb{R}^{m}\)</span> associados às <span class="math notranslate nohighlight">\(m\)</span> características (<em>features</em>) de entrada <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p></li>
+<li><p>Computa uma saída <span class="math notranslate nohighlight">\(z=\mathbf{w}^{T}\mathbf{x}+b\)</span>, onde <span class="math notranslate nohighlight">\(b\)</span> é um viés escalar.</p></li>
+<li><p>Aplica uma função de ativação <span class="math notranslate nohighlight">\(\sigma\)</span> que transforma <span class="math notranslate nohighlight">\(z\)</span>.
+$<span class="math notranslate nohighlight">\(
+\sigma(z) = \begin{cases} 
+    0 &amp; z\leq 0 \\
+    1 &amp; z \gt 0 
+ \end{cases}
+\)</span>$</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="https://github.com/rasbt/machine-learning-book/blob/main/ch02/figures/02_04.png?raw=true" width="600">
+ <span style='display:block;'>Visão Geral do Perceptron. Image Source: <a href="https://github.com/rasbt/machine-learning-book/blob/main/ch02/figures/02_04.png" target="_blank">Sebastian Raschka</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="perceptron-learning-rule">
+<h2>Perceptron Learning Rule<a class="headerlink" href="#perceptron-learning-rule" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dado um exemplo <span class="math notranslate nohighlight">\((\mathbf{x},y)\)</span>, onde <span class="math notranslate nohighlight">\(y\in\{0,1\}\)</span> é o rótulo verdadeiro, calcula‑se a predição <span class="math notranslate nohighlight">\(\hat{y}=f(z)\)</span>.</p></li>
+<li><p>Se a predição estiver incorreta (<span class="math notranslate nohighlight">\(e=y-\hat{y}\neq 0\)</span>), os pesos e viés são ajustados na direção que reduz o erro.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{w}\leftarrow\mathbf{w}+\eta\,e\,\mathbf{x}\)</span> e <span class="math notranslate nohighlight">\(b\leftarrow b+\eta\,e\)</span>, onde <span class="math notranslate nohighlight">\(\eta&gt;0\)</span> é a taxa de aprendizado.</p></li>
+</ul>
+<!-- - Itera sobre o conjunto de treinamento até que todas as amostras sejam classificadas corretamente ou um número máximo de épocas seja atingido. -->
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:50%;">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Inicializa w ← 0, b ← 0
+para cada época até convergência:
+    para cada (x, d) em D:
+        z   ← w·x + b
+        ŷ  ← (z ≥ 0) ? 1 : 0          // passo unitário
+        se ŷ ≠ d então                // erro de classificação
+            w ← w + η(d - ŷ)x
+            b ← b + η(d - ŷ)
+        fim se
+    fim para
+fim para
+</pre></div>
+</div>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:50%;">
+<img src="https://perceptrondemo.com/assets/rosenblatt-wiring-perceptron-940c6e47.jpg" width="220px">
+ <span style='display:block;'>Frank Rosenblatt em 1960 conectando o Mark 1 Perceptron. Fonte: <a href="https://perceptrondemo.com/" target="_blank">Perceptron Demo</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="perceptron-em-pytorch-demo">
+<h2>Perceptron em Pytorch: Demo<a class="headerlink" href="#perceptron-em-pytorch-demo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparação dos plots</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Set global matplotlib parameters</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.markersize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="c1"># Remove plot edges</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid.axis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">class_sep</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> 
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> \
+    <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">std_scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">std_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span>  <span class="o">=</span> <span class="n">std_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 0&#39;</span><span class="p">,</span> 
+    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 1&#39;</span><span class="p">,</span> 
+    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dados de Treinamento&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 0&#39;</span><span class="p">,</span> 
+    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 1&#39;</span><span class="p">,</span> 
+    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dados de Teste&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/232c3a5350c92bd747d1641c6e55ea290f58c5143601fdc47f3fc0320f6b80c3.png" src="../_images/232c3a5350c92bd747d1641c6e55ea290f58c5143601fdc47f3fc0320f6b80c3.png" />
+</div>
+</div>
+<section id="perceptron-em-pytorch">
+<h3>Perceptron em Pytorch<a class="headerlink" href="#perceptron-em-pytorch" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<p><img alt="Dados" src="vcnotebooks/attachment:2ca8800a-484d-49ce-8356-815e7411eb03.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_device</span><span class="p">(</span><span class="n">on_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">has_mps</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+    <span class="n">has_cuda</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">&quot;mps&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">has_mps</span> <span class="ow">and</span> <span class="n">on_gpu</span><span class="p">)</span> \
+            <span class="k">else</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">has_cuda</span> <span class="ow">and</span> <span class="n">on_gpu</span><span class="p">)</span> \
+            <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">(</span><span class="n">on_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Perceptron</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_features</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span> <span class="o">=</span> <span class="n">num_features</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+            <span class="n">num_features</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ones</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">zeros</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">linear</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">linear</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ones</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zeros</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">predictions</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>  
+        <span class="n">predictions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">predictions</span>
+        <span class="k">return</span> <span class="n">errors</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span>
+                    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">),</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">+=</span> <span class="p">(</span><span class="n">errors</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">+=</span> <span class="n">errors</span>
+                
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">accuracy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="treinando-o-modelo">
+<h3>Treinando o Modelo<a class="headerlink" href="#treinando-o-modelo" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ppn</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">num_features</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">X_train_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">,</span> 
+    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> 
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">y_train_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+    <span class="n">y_train</span><span class="p">,</span> 
+    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> 
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">ppn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X_train_tensor</span><span class="p">,</span> <span class="n">y_train_tensor</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model parameters:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Weights:&#39;</span><span class="p">,</span> <span class="n">ppn</span><span class="o">.</span><span class="n">weights</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Bias: &#39;</span><span class="p">,</span> <span class="n">ppn</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model parameters:
+	Weights: [[-1.0376710891723633], [-1.455593466758728]]
+	Bias:  [0.0]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="avaliando-o-modelo-nos-dados-de-teste">
+<h3>Avaliando o Modelo nos dados de Teste<a class="headerlink" href="#avaliando-o-modelo-nos-dados-de-teste" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+    <span class="n">X_test</span><span class="p">,</span> 
+    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> 
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">y_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+    <span class="n">y_test</span><span class="p">,</span> 
+    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> 
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">test_acc</span> <span class="o">=</span> <span class="n">ppn</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test_tensor</span><span class="p">,</span> <span class="n">y_test_tensor</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test set accuracy: </span><span class="si">{</span><span class="p">(</span><span class="n">test_acc</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set accuracy: 96.67%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizando-a-fronteira-de-decisao">
+<h3>Visualizando a Fronteira de Decisão<a class="headerlink" href="#visualizando-a-fronteira-de-decisao" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<p><img alt="image.png" src="vcnotebooks/attachment:16d39da5-0a47-435d-91ac-31517ff7ebd9.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">ppn</span><span class="o">.</span><span class="n">weights</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span> <span class="n">ppn</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+
+<span class="n">x0_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">x1_min</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x0_min</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+          <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+
+<span class="n">x0_max</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x1_max</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x0_max</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+          <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0_min</span><span class="p">,</span> <span class="n">x0_max</span><span class="p">],</span> <span class="p">[</span><span class="n">x1_min</span><span class="p">,</span> <span class="n">x1_max</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0_min</span><span class="p">,</span> <span class="n">x0_max</span><span class="p">],</span> <span class="p">[</span><span class="n">x1_min</span><span class="p">,</span> <span class="n">x1_max</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+              <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 0&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[</span><span class="n">y_train</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+              <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 1&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Dados de Treinamento&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 0&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="n">y_test</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+              <span class="n">label</span><span class="o">=</span><span class="s1">&#39;class 1&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dados de Teste (Acc.: </span><span class="si">{</span><span class="n">test_acc</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/denismartins/.local/share/virtualenvs/hypernn-G_MaMKSj/lib/python3.11/site-packages/numpy/core/shape_base.py:65: FutureWarning: The input object of type &#39;Tensor&#39; is an array-like implementing one of the corresponding protocols (`__array__`, `__array_interface__` or `__array_struct__`); but not a sequence (or 0-D). In the future, this object will be coerced as if it was first converted using `np.array(obj)`. To retain the old behaviour, you have to either modify the type &#39;Tensor&#39;, or assign to an empty array created with `np.empty(correct_shape, dtype=object)`.
+  ary = asanyarray(ary)
+/Users/denismartins/.local/share/virtualenvs/hypernn-G_MaMKSj/lib/python3.11/site-packages/numpy/core/shape_base.py:65: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+  ary = asanyarray(ary)
+</pre></div>
+</div>
+<img alt="../_images/5e3b8ee3b912dff0596fec2296f1264af9137401c3326322f5cdf27ec3e13b7a.png" src="../_images/5e3b8ee3b912dff0596fec2296f1264af9137401c3326322f5cdf27ec3e13b7a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="perceptron-e-um-modelo-flexivel">
+<h2>Perceptron é um modelo flexível<a class="headerlink" href="#perceptron-e-um-modelo-flexivel" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://paper-attachments.dropbox.com/s_2E4854D97CFCA11CB3874DE15FA048AD21CE628C357A5C14D6A303FEC847FA36_1596967818835_image.png' alt='Perceptrons' style="width:400px;"/>
+    <span style='display:block;'>Perceptrons em outros modelos. Fonte: <a href="https://trokas.github.io/ai_primer/DNN.html" target="_blank"> AI primer by Trokas</a>.</span>
+    <br/>
+</div></section>
+<section id="adaline-adaptive-linear-neuron">
+<h2>Adaline: Adaptive Linear Neuron<a class="headerlink" href="#adaline-adaptive-linear-neuron" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:45%;">
+<ul class="simple">
+<li><p>Introduzido por Widrow e Hoff em 1960.</p></li>
+<li><p>Função de ativação linear <span class="math notranslate nohighlight">\(\sigma\)</span>.</p></li>
+<li><p>Função de custo é o MSE <span class="math notranslate nohighlight">\(\mathcal{L}(w,b) = \frac{1}{m} \sum^m_{i=1} (y^i - \sigma(z^i))^2\)</span>.</p></li>
+<li><p>Perceptron aprimorado: treinamento busca minimizar o MSE em vez de simplesmente corrigir classificações incorretas.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> linear permite o gradiente do erro seja calculado de forma contínua.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> é convexa, permitindo usar o algoritmo de otimização <strong>gradiente descente</strong>.</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:45%;">
+<img src="https://github.com/rasbt/machine-learning-book/blob/main/ch11/figures/11_01.png?raw=true" width="600">
+ <span style='display:block;'>Adaline. Image Source: <a href="https://github.com/rasbt/machine-learning-book/tree/main" target="_blank">Sebastian Raschka</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="gradiente-descendente">
+<h2>Gradiente Descendente<a class="headerlink" href="#gradiente-descendente" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Atualização de parâmetros do modelo utilizando informação do gradiente de uma função de custo (<em>loss</em>) <span class="math notranslate nohighlight">\(\mathcal{L}(w,b)\)</span>: <span class="math notranslate nohighlight">\(\nabla(\mathcal{L}(w,b))\)</span>.</p>
+<p>Ou seja, dar um passo na direção oposta do gradiente.
+$<span class="math notranslate nohighlight">\(\Delta w = - \eta \times \nabla_w(\mathcal{L}(w,b))\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\Delta b = - \eta \times \nabla_b(\mathcal{L}(w,b))\)</span>$</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\eta\)</span>: learning rate (tamanho do passo)
+Gradiente da função de custo com respeito a <span class="math notranslate nohighlight">\(w_j\)</span> e a <span class="math notranslate nohighlight">\(b\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \mathcal{L}}{\partial w_j} = - \frac{1}{m} \sum_i (y^i - \sigma(z^i))x^i_j\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \mathcal{L}}{\partial b} = - \frac{1}{m} \sum_i (y^i - \sigma(z^i))\]</div>
+</section>
+<section id="gradiente-descendente-cont">
+<h2>Gradiente Descendente (cont.)<a class="headerlink" href="#gradiente-descendente-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Podemos escrever a atualização de <em>weights</em> e <em>bias</em> como:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta w_j = - \eta (\frac{\partial \mathcal{L}}{\partial w_j})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta b = - \eta (\frac{\partial \mathcal{L}}{\partial b)}\)</span></p></li>
+</ul>
+<p>Usamos um algoritmo para computar gradientes com base no conjunto completo de dados de treinamento e atualizar os parâmetros do modelo. Essa atualização se dá realizando um pequeno passo na direção oposta do gradiente da <em>loss</em> <span class="math notranslate nohighlight">\(\Delta \mathcal{L}(w,b)\)</span>.</p>
+</section>
+<section id="id1">
+<h2>Gradiente Descendente<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://media.licdn.com/dms/image/D5612AQHEVVxj-OS1og/article-cover_image-shrink_720_1280/0/1695927263310?e=2147483647&v=beta&t=XHFLMNaRVcMTx_EG8twpMJeZNf5dgINmbXmYLzBa49U' alt='Gradiente Descendente' style="width:500px;"/>
+    <span style='display:block;'>Gradiente Descendente. Fonte: <a href="https://www.linkedin.com/pulse/understanding-gradient-descent-python-rany-elhousieny-phd%E1%B4%AC%E1%B4%AE%E1%B4%B0" target="_blank">Rany ElHousieny @LinkedIn</a>.</span>
+    <br/>
+</div></section>
+<section id="limitacao-do-perceptron">
+<h2>Limitação do Perceptron<a class="headerlink" href="#limitacao-do-perceptron" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>Perceptrons podem aprender a representar portas lógicas como AND e OR (como?). 
+<p>Mas e quanto à porta XOR?</p>
+</center>
+<div style='align: left; text-align:center;'>
+    <img src='https://miro.medium.com/v2/resize:fit:720/format:webp/1*Tc8UgR_fjI_h0p3y4H9MwA.png
+    ' alt='MLP' style="width:600px;"/>
+    <span style='display:block;'>Perceptron e Portas Lógicas. Fonte: <a href="https://medium.com/@lucaspereira0612/solving-xor-with-a-single-perceptron-34539f395182" target="_blank"> Lucas Pereira</a>.</span>
+    <br/>
+</div></section>
+<section id="perceptron-limitacoes">
+<h2>Perceptron: Limitações<a class="headerlink" href="#perceptron-limitacoes" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:40%;">
+<ul class="simple">
+<li><p>O modelo unidimensional do Perceptron, focado em regressão ou classificação linear, é fundamentalmente restrito e incapaz de modelar relações de entrada/saída não-lineares. Problemas de classificação que não são linearmente separáveis estão além de sua capacidade</p>
+<ul>
+<li><p>Só pode aprender funções lineares.</p></li>
+<li><p>Problemas como a tarefa XOR são impossíveis de resolver.</p></li>
+</ul>
+</li>
+<li><p>Esta limitação motivou a introdução de camadas ocultas e funções de ativação não‑lineares</p>
+<ul>
+<li><p>Dá origem às redes neurais Multi‑Layer Perceptron (MLP).</p></li>
+</ul>
+</li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;">
+<img src="https://github.com/rasbt/machine-learning-book/blob/main/ch02/figures/02_03.png?raw=true" width="600">
+ <span style='display:block;'>Limitação do Perceptron. Image Source: <a href="https://github.com/rasbt/machine-learning-book/tree/main" target="_blank">Sebastian Raschka</a>.</span>
+</td>
+</tr>
+</table>
+</center>    </section>
+<section id="funcoes-de-ativacao-nao-lineares">
+<h2>Funções de Ativação (Não-lineares)<a class="headerlink" href="#funcoes-de-ativacao-nao-lineares" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:45%;">
+<ul class="simple">
+<li><p>Objetivo é introduzir não-linearidades na saída de um neurônio.</p>
+<ul>
+<li><p>Capacidade de modelar relações complexas entre entradas e saídas.</p></li>
+<li><p>Forma múltiplas regiões de decisão.</p></li>
+</ul>
+</li>
+<li><p>A função deve ser diferenciável para permitir o cálculo dos gradientes.</p></li>
+<li><p>Deve ser eficiente de calcular.</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:45%;">
+ <img src='https://miro.medium.com/v2/resize:fit:1358/1*Cp38pwwuWfJcPid-jbLtYg.png' alt='Activation Functions' style="width:600px;"/>
+    <span style='display:block;'>Funções de Ativação. Fonte: <a href="https://medium.com/@prasanNH/activation-functions-in-neural-networks-b79a2608a106" target="_blank"> Prazan NH</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="redes-neurais-empilhando-perceptrons">
+<h2>Redes Neurais: Empilhando Perceptrons<a class="headerlink" href="#redes-neurais-empilhando-perceptrons" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://paper-attachments.dropbox.com/s_1F3ADB50AE0E9BFFE47A31C329F32861D3C6E5DDE635C337B9BB647E093C8832_1571117686838_image.png' alt='MLP' style="width:600px;"/>
+    <span style='display:block;'>XOR e Perceptron. Fonte: <a href="https://trokas.github.io/ai_primer/DNN.html" target="_blank"> AI primer by Trokas</a>.</span>
+    <br/>
+</div>
+</section>
+<section id="mlp-demo-visual">
+<h2>MLP: Demo Visual<a class="headerlink" href="#mlp-demo-visual" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://miro.medium.com/v2/format:webp/0*36RbXWpfsEh1Fx-E.' alt='Tensorflow Playground' style="width:600px;"/>
+    <span style='display:block;'>Visualizando Redes Neurais no TensorFlow Playground. Fonte: <a href="https://playground.tensorflow.org" target="_blank">Tensorflow Playground</a>.</span>
+    <br/>
+</div></section>
+<section id="id2">
+<h2>Redes Neurais: Empilhando Perceptrons<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Multilayer Perceptron (MLP)</p></li>
+<li><p>Noção de camada (layer): operações parametrizadas sobre tensores.</p></li>
+<li><p>Conceito de arquitetura: Camada de entrada, várias camadas escondidas, uma cada de saída.
+$<span class="math notranslate nohighlight">\(h^{(l)} = \sigma((\mathbf{W}^{(l)})^{T}\mathbf{x}^{(l)}+b^{(l)})\)</span>$</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://substackcdn.com/image/fetch/$s_!bpnT!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe74be6ba-4e83-4f08-aa4a-7144cb95676b_4555x2190.png' alt='MLP' style="width:600px;"/>
+    <span style='display:block;'>Multilayer Perceptron (MLP). Fonte: <a href="https://fetchdecodeexecute.substack.com/p/deep-dips-1-multi-layer-perceptrons" target="_blank">Michael Lones</a>.</span>
+    <br/>
+</div></section>
+<section id="mlp-treinamento">
+<h2>MLP: Treinamento<a class="headerlink" href="#mlp-treinamento" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>O procedimento de treinamento do MLP pode ser resumido em três etapas simples:</p>
+<ol class="arabic simple">
+<li><p>A partir da camada de entrada, propagamos adiante (“feed‑forward”) os padrões dos dados de treinamento através da rede para gerar uma saída.</p></li>
+<li><p>Com base na saída da rede, calculamos a perda (<em>loss</em>) que queremos minimizar usando uma função de perda que descreveremos mais adiante.</p></li>
+<li><p>Propagamos a <em>loss</em> para trás (back‑propagation), determinamos sua derivada em relação a cada peso e viés da rede, e atualizamos o modelo.</p></li>
+</ol>
+<p>Por fim, após repetirmos essas três etapas por múltiplas épocas e aprendermos os parâmetros de peso e viés do MLP, usamos a propagação adiante para calcular a saída da rede e aplicamos uma função de limiar (threshold) para obter as classes previstas.</p>
+</section>
+<section id="mlp-feed-forward">
+<h2>MLP: Feed-forward<a class="headerlink" href="#mlp-feed-forward" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Vamos analisar passo a passo a propagação adiante para gerar uma saída a partir dos padrões presentes nos dados de treinamento. Como cada unidade da camada oculta está conectada a todas as unidades das camadas de entrada, primeiro calculamos a unidade de ativação da camada oculta <span class="math notranslate nohighlight">\(a_1^{(h)}\)</span> da seguinte forma:</p>
+<div class="math notranslate nohighlight">
+\[
+z_1^{(h)} = x_1^{(\text{in})}w_{1,1}^{(h)} + x_2^{(\text{in})}w_{1,2}^{(h)} + \ldots + x_m^{(\text{in})}w_{1,m}^{(h)}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a_1^{(h)} = \sigma(z_1^{(h)})
+\]</div>
+<p>Aqui, <span class="math notranslate nohighlight">\(z_1^{(h)}\)</span> é a entrada líquida (<em>net input</em>) e <span class="math notranslate nohighlight">\(\sigma(.)\)</span> é a função de ativação, que deve ser diferenciável para permitir o aprendizado dos pesos que conectam os neurônios por meio de uma abordagem baseada em gradiente. Para resolver problemas complexos, como classificação de imagens, precisamos de funções de ativação não lineares no nosso modelo MLP; um exemplo comum é a função sigmoide (logística):</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma(z) = \frac{1}{1 + e^{-z}}
+\]</div>
+<p>A função sigmoide é uma curva em forma de S que mapeia a entrada líquida <span class="math notranslate nohighlight">\(z\)</span> para uma distribuição logística no intervalo de 0 a 1, cruzando o eixo <span class="math notranslate nohighlight">\(y\)</span> quando <span class="math notranslate nohighlight">\(z = 0\)</span>.</p>
+</section>
+<section id="mlp-feed-forward-cont">
+<h2>MLP: Feed-Forward (cont.)<a class="headerlink" href="#mlp-feed-forward-cont" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Escrevemos a ativação em uma forma mais compacta e vetorizada (para evitar loops):
+$<span class="math notranslate nohighlight">\(
+z^{(h)} = x^{(\text{in})}W^{(h)T} + b^{(h)}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+a^{(h)} = \sigma(z^{(h)})
+\]</div>
+<p>Aqui, <span class="math notranslate nohighlight">\(x^{(\text{in})}\)</span> é o nosso vetor de características de dimensão <span class="math notranslate nohighlight">\(1\times m\)</span>.<br />
+<span class="math notranslate nohighlight">\(W^{(h)}\)</span> é uma matriz de pesos de dimensão <span class="math notranslate nohighlight">\(d\times m\)</span>, onde <span class="math notranslate nohighlight">\(d\)</span> representa o número de unidades na camada oculta; consequentemente, a matriz transposta <span class="math notranslate nohighlight">\(W^{(h)T}\)</span> tem dimensão <span class="math notranslate nohighlight">\(m\times d\)</span>.<br />
+O vetor de viés <span class="math notranslate nohighlight">\(b^{(h)}\)</span> contém <span class="math notranslate nohighlight">\(d\)</span> unidades de bias (uma para cada nó oculto).</p>
+<p>Após a multiplicação matricial‑vetorial, obtemos o vetor de entrada líquida <span class="math notranslate nohighlight">\(\;z^{(h)}\;\)</span> de dimensão <span class="math notranslate nohighlight">\(1\times d\)</span>, que será usado para calcular a ativação <span class="math notranslate nohighlight">\(a^{(h)} \in \mathbb{R}^{1\times d}\)</span>.</p>
+</section>
+<section id="id3">
+<h2>MLP: Feed-Forward (cont.)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Podemos generalizar este cálculo para os <span class="math notranslate nohighlight">\(n\)</span> exemplos do conjunto de treinamento:</p>
+<div class="math notranslate nohighlight">
+\[
+Z^{(h)} = X^{(\text{in})}W^{(h)T} + b^{(h)}
+\]</div>
+<p>Neste caso, <span class="math notranslate nohighlight">\(X^{(\text{in})}\)</span> passa a ser uma matriz <span class="math notranslate nohighlight">\(n\times m\)</span>; a multiplicação matricial resulta em uma matriz de entrada líquida <span class="math notranslate nohighlight">\(\;Z^{(h)}\;\)</span> de dimensão <span class="math notranslate nohighlight">\(n\times d\)</span>. Por fim, aplicamos a função de ativação <span class="math notranslate nohighlight">\(\sigma(\cdot)\)</span> a cada elemento da matriz de entrada líquida para obter a matriz de ativação <span class="math notranslate nohighlight">\(n\times d\)</span> na camada seguinte (aqui, a camada de saída):</p>
+<div class="math notranslate nohighlight">
+\[
+A^{(h)} = \sigma(Z^{(h)})
+\]</div>
+<p>De maneira análoga, podemos escrever a ativação da camada de saída em forma vetorizada para múltiplos exemplos:</p>
+<div class="math notranslate nohighlight">
+\[
+Z^{(\text{out})} = A^{(h)}W^{(\text{out})T} + b^{(\text{out})}
+\]</div>
+<p>Aqui multiplicamos a transposta da matriz <span class="math notranslate nohighlight">\(t\times d\)</span> <span class="math notranslate nohighlight">\(W^{(\text{out})}\)</span> (onde <span class="math notranslate nohighlight">\(t\)</span> é o número de unidades de saída) pela matriz <span class="math notranslate nohighlight">\(n\times d\)</span> <span class="math notranslate nohighlight">\(A^{(h)}\)</span>, e somamos o vetor de viés de dimensão <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(b^{(\text{out})}\)</span>, obtendo a matriz <span class="math notranslate nohighlight">\(Z^{(\text{out})}\)</span> de dimensão <span class="math notranslate nohighlight">\(n\times t\)</span>. (As linhas desta matriz representam as saídas para cada exemplo.)</p>
+<p>Por fim, aplicamos a função sigmoide para obter o valor contínuo da saída do nosso modelo:</p>
+<div class="math notranslate nohighlight">
+\[
+A^{(\text{out})} = \sigma(Z^{(\text{out})})
+\]</div>
+</section>
+<section id="componentes-de-uma-rede-neural">
+<h2>Componentes de uma Rede Neural<a class="headerlink" href="#componentes-de-uma-rede-neural" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Arquitetura: Camadas, parâmetros, neurônios e conexões</p></li>
+<li><p>Função de ativação</p></li>
+<li><p>Função de custo/perda (<em>loss</em>)</p></li>
+<li><p>Otimizador</p></li>
+</ul>
+</section>
+<section id="mlp-em-pytorch">
+<h2>MLP em PyTorch<a class="headerlink" href="#mlp-em-pytorch" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Vamos criar uma MLP simples para classificar dados do problema XOR.</p></li>
+<li><p>A rede recebe 2 entradas, possui 5 neurônios na camada escondida e 1 neurônio na camada de saída.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_xor_dataset</span><span class="p">(</span><span class="n">n_per_blob</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># Source: https://colab.research.google.com/github/tufts-ml-courses/cs135-25s-assignments/blob/main/labs/day11-NeuralNets.ipynb#scrollTo=gqa0ujlzw_fo</span>
+    <span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="n">cov_22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">stddev</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">x_00</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cov_22</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_per_blob</span><span class="p">)</span>
+    <span class="n">x_01</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">cov_22</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_per_blob</span><span class="p">)</span>
+    <span class="n">x_10</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cov_22</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_per_blob</span><span class="p">)</span>
+    <span class="n">x_11</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">cov_22</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_per_blob</span><span class="p">)</span>
+
+    <span class="n">N</span> <span class="o">=</span> <span class="n">n_per_blob</span> <span class="o">*</span> <span class="mi">4</span>
+    <span class="n">x_N2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x_00</span><span class="p">,</span> <span class="n">x_11</span><span class="p">,</span> <span class="n">x_01</span><span class="p">,</span> <span class="n">x_10</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">x_N2</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">y_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">y_N</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">N</span><span class="p">,)</span>
+
+    <span class="c1"># Shuffle the order</span>
+    <span class="n">perm_ids</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x_N2</span> <span class="o">=</span> <span class="n">x_N2</span><span class="p">[</span><span class="n">perm_ids</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">y_N</span> <span class="o">=</span> <span class="n">y_N</span><span class="p">[</span><span class="n">perm_ids</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">x_N2</span><span class="p">,</span> <span class="n">y_N</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_xor_dataset</span><span class="p">(</span><span class="n">n_per_blob</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">])</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.018523</td>
+      <td>-1.134051</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.988928</td>
+      <td>-0.629781</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.263018</td>
+      <td>-1.451490</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.129139</td>
+      <td>-0.655186</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.053061</td>
+      <td>-1.202237</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bf8e38c3f11f23bfb5460e3bdbe58695f939eef3d378ca77a228a4a5417ad9de.png" src="../_images/bf8e38c3f11f23bfb5460e3bdbe58695f939eef3d378ca77a228a4a5417ad9de.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split data into train and test sets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> 
+                                                    <span class="n">y</span><span class="p">,</span> 
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3200, 800, 3200, 800)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">LinearMLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_2</span><span class="p">(</span><span class="n">hidden</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">logits</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearMLP</span><span class="p">()</span>
+<span class="n">num_parameters</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Num. Parâmetros no modelo:&quot;</span><span class="p">,</span> <span class="n">num_parameters</span><span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num. Parâmetros no modelo: 21
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearMLP(
+  (layer_1): Linear(in_features=2, out_features=5, bias=True)
+  (layer_2): Linear(in_features=5, out_features=1, bias=True)
+)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X_train</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">y_logits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 0.7329],
+        [ 0.0526],
+        [-0.1272],
+        [-0.0342],
+        [ 0.7385]], grad_fn=&lt;SliceBackward0&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sigmoid para transformar logits em probabilidade</span>
+<span class="n">y_pred_probas</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">y_logits</span><span class="p">)</span>
+<span class="n">y_pred_probas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6754],
+        [0.5131],
+        [0.4682],
+        [0.4915],
+        [0.6767]], grad_fn=&lt;SigmoidBackward0&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Round para transformar probas em rótulos (labels)</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y_pred_probas</span><span class="p">)</span>
+<span class="n">y_hat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.],
+        [1.],
+        [0.],
+        [0.],
+        [1.]], grad_fn=&lt;RoundBackward0&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificando se o modelo acertou</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">y_hat</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([ True, False,  True, False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">accuracy_fn</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span> 
+    <span class="k">return</span> <span class="n">acc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">train_model</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="n">loss_function</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+
+    <span class="n">ep_loss</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">epochs</span>
+    <span class="k">with</span> <span class="n">trange</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tepoch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+            <span class="n">y_logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="c1"># Remove dimensão extra</span>
+            <span class="n">y_probas</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">y_logits</span><span class="p">)</span> <span class="c1"># Logits -&gt; Probas</span>
+            <span class="n">y_hat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y_probas</span><span class="p">)</span> <span class="c1"># Probas -&gt; Labels</span>
+            
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">y_probas</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">ep_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            
+            <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_fn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">)</span> 
+
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+            <span class="n">tepoch</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">train_acc</span><span class="o">=</span><span class="n">acc</span><span class="p">)</span>
+            <span class="n">tepoch</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">epoch_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">epoch_ticks</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ep_loss</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Comportamento da Loss&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">train_model</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6dc360f11d954d2ab732994d25e42aed", "version_major": 2, "version_minor": 0}</script><img alt="../_images/409c115adc2ea6680e2c4cd5357cf96c37f83582b6154297ca0da0f94f752a38.png" src="../_images/409c115adc2ea6680e2c4cd5357cf96c37f83582b6154297ca0da0f94f752a38.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()))</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+         0.0       0.49      0.49      0.49       403
+         1.0       0.48      0.48      0.48       397
+
+    accuracy                           0.48       800
+   macro avg       0.48      0.48      0.48       800
+weighted avg       0.48      0.48      0.48       800
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modelo Não-Linear</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NonLinearMLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">z_1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">h_1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">z_1</span><span class="p">)</span>
+        <span class="n">z_2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_2</span><span class="p">(</span><span class="n">h_1</span><span class="p">)</span> 
+        <span class="k">return</span> <span class="n">z_2</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">NonLinearMLP</span><span class="p">()</span>
+<span class="n">num_parameters</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Num. Parâmetros no modelo:&quot;</span><span class="p">,</span> <span class="n">num_parameters</span><span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num. Parâmetros no modelo: 21
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NonLinearMLP(
+  (layer_1): Linear(in_features=2, out_features=5, bias=True)
+  (layer_2): Linear(in_features=5, out_features=1, bias=True)
+  (relu): ReLU()
+)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_model</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()))</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "900fc3133e994420aab5880db2b5dfa6", "version_major": 2, "version_minor": 0}</script><img alt="../_images/090b83659bda5d53cbbf88d67c96031d921f1339f0697d82ac617b579df5f30c.png" src="../_images/090b83659bda5d53cbbf88d67c96031d921f1339f0697d82ac617b579df5f30c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+         0.0       0.65      1.00      0.79       403
+         1.0       0.99      0.47      0.63       397
+
+    accuracy                           0.73       800
+   macro avg       0.82      0.73      0.71       800
+weighted avg       0.82      0.73      0.71       800
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mlp-para-o-mnist-dataset">
+<h2>MLP para o MNIST dataset<a class="headerlink" href="#mlp-para-o-mnist-dataset" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+A MLP que vamos construir vai tomar como entrada os 764 pixels de cada imagem individualmente. Demo: <a href="https://ml4a.github.io/demos/confusion_mnist/" target="_blank">ML4A</a>.</span>
+<div style='align: left; text-align:center;'>
+    <img src='https://ml4a.github.io/images/figures/mnist_1layer.png' alt='MLP MNIST' style="width:400px;"/>
+    <span style='display:block;'>Camada de Entrada da MLP para o MNIST dataset. Dígitos são imagens de 28x28 pixels (ou seja, 784 dimensões). Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank">ML4A</a>.</span>
+    <br/>
+</div>
+</center></section>
+<section id="mlp-mnist-tutorial-visual-youtube">
+<h2>MLP MNIST: Tutorial Visual (YouTube)<a class="headerlink" href="#mlp-mnist-tutorial-visual-youtube" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;aircAruvnKk&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="600"
+            height="350"
+            src="https://www.youtube.com/embed/aircAruvnKk"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+<section id="mlp-e-mnist-em-pytorch">
+<h2>MLP e MNIST em Pytorch<a class="headerlink" href="#mlp-e-mnist-em-pytorch" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision.transforms</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">transforms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">data</span>
+
+<span class="c1"># Número de processos para o dataloader</span>
+<span class="n">NUM_WORKERS</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Quantas amostras (imagens) por batch</span>
+<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="c1"># Converte dados em tensores</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()</span>
+
+<span class="c1"># Carrega dados de treino e teste</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cria dataset de validação</span>
+<span class="n">VALIDATION_SIZE</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">n_train_examples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span> <span class="o">*</span> <span class="n">VALIDATION_SIZE</span><span class="p">)</span>
+<span class="n">n_valid_examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_train_examples</span>
+
+<span class="n">train_data</span><span class="p">,</span> <span class="n">valid_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">random_split</span><span class="p">(</span>
+    <span class="n">train_data</span><span class="p">,</span> <span class="p">[</span><span class="n">n_train_examples</span><span class="p">,</span> <span class="n">n_valid_examples</span><span class="p">])</span>
+
+<span class="c1"># Data Loaders</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+   <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">NUM_WORKERS</span><span class="p">)</span>
+<span class="n">valid_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">valid_data</span><span class="p">,</span>
+   <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">NUM_WORKERS</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> 
+  <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">NUM_WORKERS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="arquitetura-da-rede-neural">
+<h2>Arquitetura da Rede Neural<a class="headerlink" href="#arquitetura-da-rede-neural" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MLPNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MLPNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
+        <span class="c1"># input layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+        <span class="c1"># linear layer (n_hidden -&gt; hidden_2)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+        <span class="c1"># linear layer (n_hidden -&gt; 10)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="funcao-de-custo-loss-para-classificacao">
+<h2>Função de Custo/<em>Loss</em> para Classificação<a class="headerlink" href="#funcao-de-custo-loss-para-classificacao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Cross‑Entropy Loss</strong>: <span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{y},\hat{\mathbf{y}})= -\sum_{k=1}^{K} y_k\,\log(\hat y_k)\)</span></p></li>
+<li><p><strong>Intuição</strong></p>
+<ul>
+<li><p>Mede a divergência entre o vetor de rótulos reais <span class="math notranslate nohighlight">\(y\)</span> (ou <span class="math notranslate nohighlight">\(y_k\)</span>) e a distribuição predita <span class="math notranslate nohighlight">\(\hat{y}\)</span>.</p></li>
+<li><p>Penaliza fortemente previsões que atribuem baixa probabilidade ao verdadeiro rótulo.</p></li>
+</ul>
+</li>
+<li><p><strong>Propriedades importantes</strong></p>
+<ul>
+<li><p><strong>Não‑negatividade</strong>: <span class="math notranslate nohighlight">\(\mathcal{L} \ge 0\)</span>; zero apenas quando <span class="math notranslate nohighlight">\(\hat y = y\)</span>.</p></li>
+<li><p><strong>Derivada simples</strong>: facilita a implementação do algoritmo de backpropagation.</p></li>
+</ul>
+</li>
+<li><p><strong>Quando usar</strong>: Binária ou multiclasse quando as saídas são interpretadas como probabilidades (softmax ou sigmoid).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+
+<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">set_device</span><span class="p">(</span><span class="n">on_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MLPNet</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">loss_function</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+
+<span class="n">num_parameters</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Num. Parâmetros no modelo:&quot;</span><span class="p">,</span> <span class="n">num_parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num. Parâmetros no modelo: 52650
+</pre></div>
+</div>
+</div>
+</div>
+<section id="loop-de-treinamento">
+<h3>Loop de Treinamento<a class="headerlink" href="#loop-de-treinamento" title="Link to this heading">#</a></h3>
+<div style='align: left; text-align:center;'>
+    <img src='https://raw.githubusercontent.com/mrdbourke/pytorch-deep-learning/main/images/01-pytorch-training-loop-annotated.png' style="width:900px;"/>
+    <span style='display:block;'>Pytorch training Loop. Fonte: <a href="https://www.learnpytorch.io" target="_blank">Daniel Bourke</a>.</span>
+    <br/>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;Nutpusq_AFw&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="600"
+            height="350"
+            src="https://www.youtube.com/embed/Nutpusq_AFw"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">predicted_digits</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                            <span class="c1"># Posição com maior valor da saída</span>
+    <span class="n">correct_ones</span> <span class="o">=</span> <span class="p">(</span><span class="n">predicted_digits</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>  <span class="c1"># 1.0 se acertou, 0.0 caso contrário</span>
+    <span class="k">return</span> <span class="n">correct_ones</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>                               <span class="c1"># Conta o número de acertos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_model_mini_batch</span><span class="p">(</span><span class="n">data_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+    <span class="n">num_batches</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="p">)</span>
+    <span class="n">num_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">data_loader</span><span class="p">:</span>
+        <span class="c1"># Copy data and targets to GPU</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        
+        <span class="c1"># Do a forward pass</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate the loss</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span>
+
+        <span class="c1"># Count number of correct digits</span>
+        <span class="n">total_correct</span> <span class="o">+=</span> <span class="n">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        
+        <span class="c1"># Backpropagation</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">total_loss</span><span class="o">/</span><span class="n">num_batches</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">total_correct</span><span class="o">/</span><span class="n">num_items</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s2">7f</span><span class="si">}</span><span class="se">\t</span><span class="s2">|</span><span class="se">\t</span><span class="s2"> </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch</span><span class="se">\t</span><span class="s2">|</span><span class="se">\t</span><span class="s2">Avg. Loss</span><span class="se">\t</span><span class="s2">|</span><span class="se">\t</span><span class="s2">Accuracy&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\t</span><span class="s2">|</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">train_model_mini_batch</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch	|	Avg. Loss	|	Accuracy
+1	|	 2.295317	|	 10.82%
+2	|	 2.246656	|	 23.77%
+3	|	 2.155340	|	 43.27%
+4	|	 1.960779	|	 53.75%
+5	|	 1.612798	|	 62.15%
+6	|	 1.236662	|	 69.22%
+7	|	 0.978333	|	 74.67%
+8	|	 0.813973	|	 79.18%
+9	|	 0.702173	|	 81.78%
+10	|	 0.622700	|	 83.23%
+CPU times: user 3.18 s, sys: 415 ms, total: 3.59 s
+Wall time: 5.79 s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verificando-desempenho-no-dataset-de-validacao">
+<h3>Verificando desempenho no dataset de validação<a class="headerlink" href="#verificando-desempenho-no-dataset-de-validacao" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">trange</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">train_model_mini_batch_with_validation</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">valid_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">tr_loss</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">epochs</span>
+    <span class="n">val_loss</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">epochs</span>
+
+    <span class="k">with</span> <span class="n">trange</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tepoch</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+            <span class="n">train_total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">total_correct</span> <span class="o">=</span> <span class="mf">0.0</span>
+           
+
+            <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+                <span class="c1"># Copia dados para o device (ex.: GPU)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                
+                <span class="c1"># Forward pass</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                
+                <span class="c1"># Calcula loss</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+                <span class="n">train_total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                <span class="c1"># Conta acertos</span>
+                <span class="n">total_correct</span> <span class="o">+=</span> <span class="n">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+                
+                <span class="c1"># Backward pass: Backpropagation</span>
+                <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+            <span class="n">avg_tr_loss</span> <span class="o">=</span> <span class="n">train_total_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+            <span class="n">tr_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_tr_loss</span>
+            <span class="n">training_accuracy</span> <span class="o">=</span> <span class="n">total_correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            
+            <span class="c1"># Validation phase</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># Set the model to evaluation mode</span>
+            <span class="n">val_total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">val_total_correct</span> <span class="o">=</span> <span class="mi">0</span>
+            
+
+            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">valid_loader</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                    <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                    
+                    <span class="c1"># Forward pass</span>
+                    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                    
+                    <span class="c1"># Calcula loss</span>
+                    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+                    <span class="n">val_total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                    <span class="c1"># Conta acertos</span>
+                    <span class="n">val_total_correct</span> <span class="o">+=</span> <span class="n">correct</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+            <span class="n">avg_val_loss</span> <span class="o">=</span> <span class="n">val_total_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_loader</span><span class="p">)</span>
+            <span class="n">val_loss</span><span class="p">[</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_val_loss</span>
+            <span class="n">validation_accuracy</span> <span class="o">=</span> <span class="n">val_total_correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">tepoch</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="n">train_loss</span><span class="o">=</span><span class="n">avg_tr_loss</span><span class="p">,</span> <span class="n">train_acc</span><span class="o">=</span><span class="n">training_accuracy</span><span class="p">,</span> <span class="n">val_loss</span><span class="o">=</span><span class="n">avg_val_loss</span><span class="p">,</span> <span class="n">val_acc</span><span class="o">=</span><span class="n">validation_accuracy</span><span class="p">)</span>
+            <span class="n">tepoch</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">epoch_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">epoch_ticks</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">tr_loss</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train. Loss&quot;</span> <span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">epoch_ticks</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">val_loss</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valid. Loss&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Comportamento da Loss&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_model_mini_batch_with_validation</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">valid_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eaff4e3a6d76463e866eb556e9675196", "version_major": 2, "version_minor": 0}</script><img alt="../_images/9768dcf6407adf1f52542ee4aa742f553d01f8015fc869596e9147cbe7a8c70b.png" src="../_images/9768dcf6407adf1f52542ee4aa742f553d01f8015fc869596e9147cbe7a8c70b.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="testando-o-modelo">
+<h2>Testando o Modelo<a class="headerlink" href="#testando-o-modelo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Avaliar se o modelo <strong>generaliza</strong> bem para dados que não foram vistos pela rede durante o treinamento (<em>unseen data</em>).</p></li>
+<li><p><strong>Importante</strong>: usar <code class="docutils literal notranslate"><span class="pre">model.eval()</span></code> para configurar o modelo em <em>evaluation mode</em>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_predictions</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">images</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iterator</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y_prob</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        
+            <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+            <span class="n">probs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_prob</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">probs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="funcao-de-ativacao-na-camada-de-saida">
+<h2>Função de Ativação na Camada de Saída<a class="headerlink" href="#funcao-de-ativacao-na-camada-de-saida" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Camada de Saída com Softmax: Cabeça de Classificação (<em>Classification Head</em>)</p></li>
+<li><p><strong>Propósito principal</strong>: Converter vetores de <em>logits</em> (saída da última camada escondida) <span class="math notranslate nohighlight">\(z \in \mathbb{R}^{K}\)</span> em uma distribuição de probabilidade sobre <span class="math notranslate nohighlight">\(K\)</span> classes.</p></li>
+<li><p><strong>Definição matemática</strong>: <span class="math notranslate nohighlight">\(\sigma(z)_k = \frac{\exp(z_k)}{\sum_{j=1}^{K} \exp(z_j)}, \qquad k=1,\dots ,K\)</span></p></li>
+<li><p>Cada componente fica no intervalo <span class="math notranslate nohighlight">\((0,1)\)</span> e a soma totaliza <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p><strong>Derivada simples</strong>: <span class="math notranslate nohighlight">\( \frac{\partial \sigma(z)_i}{\partial z_j} = \sigma(z)_i (\delta_{ij} - \sigma(z)_j)\)</span>, onde <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> é a <a class="reference external" href="https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_indicadora">função indicadora</a>.</p></li>
+<li><p>Junto com a loss <strong>Cross‑Entropy</strong>, forma o padrão ouro “Softmax + Cross‑Entropy”.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://adeveloperdiary.com/assets/img/Understanding-and-implementing-Neural-Network-with-SoftMax-in-Python-from-scratch-adeveloperdiary.com-1.webp' style="width:400px;"/>
+    <span style='display:block;'>Função Softmax para classificação. Fonte: <a href="https://adeveloperdiary.com/data-science/deep-learning/neural-network-with-softmax-in-python/" target="_blank">Abhisek Jana</a>.</span>
+</div> <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">get_predictions</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="n">pred_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mtr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">mtr</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">pred_labels</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bone_r&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bbc5933611ba7a5096464ae551533ee5f7812a4c65a6d284d5bf702f587839d0.png" src="../_images/bbc5933611ba7a5096464ae551533ee5f7812a4c65a6d284d5bf702f587839d0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_labels</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([10000])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">dataiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
+<span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">dataiter</span><span class="p">)</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="mi">4</span><span class="p">),</span> <span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()),</span> <span class="nb">str</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">())),</span>
+                 <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;green&quot;</span> <span class="k">if</span> <span class="n">preds</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">==</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;red&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e6f1daee9b1fa5056018b86b39aadabbfe02d78a411f2d2f69a5309ee7f42f33.png" src="../_images/e6f1daee9b1fa5056018b86b39aadabbfe02d78a411f2d2f69a5309ee7f42f33.png" />
+</div>
+</div>
+</section>
+<section id="salvando-o-modelo">
+<h2>Salvando o modelo<a class="headerlink" href="#salvando-o-modelo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">&quot;mlp-mnist-model.pth&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="carregando-o-modelo">
+<h2>Carregando o modelo<a class="headerlink" href="#carregando-o-modelo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">MLPNet</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;mlp-mnist-model.pth&quot;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resumo">
+<h2>Resumo<a class="headerlink" href="#resumo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:65%;">
+<ul class="simple">
+<li><p><strong>Perceptron</strong>: Modelo linear + função de ativação (step/sigmoid).</p></li>
+<li><p>Algoritmo de aprendizagem: ajuste dos pesos com base no erro.</p></li>
+<li><p><strong>Multi‑Layer Perceptron (MLP)</strong>: Estrutura em camadas: entrada → múltiplas camadas ocultas → saída.</p></li>
+<li><p>Ativações não‑lineares (ReLU, tanh, sigmoid) permitem modelar funções complexas.</p></li>
+<li><p><strong>Treinamento de Redes Neurais</strong></p>
+<ul>
+<li><p>Função de perda: Cross‑Entropy (classificação) ou MSE (regressão).</p></li>
+<li><p>Otimizadores: SGD, Adam, RMSProp; ajustes de taxa de aprendizado.</p></li>
+<li><p>Backpropagation: cálculo eficiente de gradientes via cadeia da regra (próxima aula).</p></li>
+</ul>
+</li>
+<li><p><strong>Exercício</strong>: Experimente diferentes arquiteturas (número de camadas, neurônios).</p></li>
+<li><p><strong>Mateiral adicional</strong>: <a class="reference external" href="https://www.youtube.com/watch?v=4Gac5I64LM4">Perceptron - YouTube</a></p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:35%;">
+<div style='align:center; text-align:center;'>
+    <img src='https://hadrienj.github.io/assets/images/deep-learning-book-goodfellow-cover.jpg' style="width:200px;"/>
+    <span style='display:block;'><b>Leitura Recomendada</b>: Capítulo 6.</span>
+</div> 
+</td>
+</tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./vcnotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VC-Processamento-Imagens-Coloridas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VC-Redes-Neurais-Convolucionais.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visão Computacional</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-para-classificacao-de-imagens">Redes Neurais para Classificação de imagens</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronio-artificial">Neurônio Artificial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron">Perceptron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-learning-rule">Perceptron Learning Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-em-pytorch-demo">Perceptron em Pytorch: Demo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-em-pytorch">Perceptron em Pytorch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treinando-o-modelo">Treinando o Modelo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avaliando-o-modelo-nos-dados-de-teste">Avaliando o Modelo nos dados de Teste</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizando-a-fronteira-de-decisao">Visualizando a Fronteira de Decisão</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-e-um-modelo-flexivel">Perceptron é um modelo flexível</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaline-adaptive-linear-neuron">Adaline: Adaptive Linear Neuron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradiente-descendente">Gradiente Descendente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradiente-descendente-cont">Gradiente Descendente (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Gradiente Descendente</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitacao-do-perceptron">Limitação do Perceptron</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptron-limitacoes">Perceptron: Limitações</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-de-ativacao-nao-lineares">Funções de Ativação (Não-lineares)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-empilhando-perceptrons">Redes Neurais: Empilhando Perceptrons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-demo-visual">MLP: Demo Visual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Redes Neurais: Empilhando Perceptrons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-treinamento">MLP: Treinamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-feed-forward">MLP: Feed-forward</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-feed-forward-cont">MLP: Feed-Forward (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">MLP: Feed-Forward (cont.)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-de-uma-rede-neural">Componentes de uma Rede Neural</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-em-pytorch">MLP em PyTorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-para-o-mnist-dataset">MLP para o MNIST dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-mnist-tutorial-visual-youtube">MLP MNIST: Tutorial Visual (YouTube)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mlp-e-mnist-em-pytorch">MLP e MNIST em Pytorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitetura-da-rede-neural">Arquitetura da Rede Neural</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-custo-loss-para-classificacao">Função de Custo/<em>Loss</em> para Classificação</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-de-treinamento">Loop de Treinamento</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verificando-desempenho-no-dataset-de-validacao">Verificando desempenho no dataset de validação</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testando-o-modelo">Testando o Modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcao-de-ativacao-na-camada-de-saida">Função de Ativação na Camada de Saída</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salvando-o-modelo">Salvando o modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carregando-o-modelo">Carregando o modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumo">Resumo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Dr. Denis M. L. Martins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
