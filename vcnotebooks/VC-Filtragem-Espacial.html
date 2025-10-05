@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Visão Computacional &#8212; Visão Computacional</title>
+    <title>Filtragem Espacial &#8212; Visão Computacional</title>
   
   
   
@@ -63,8 +63,8 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Filtragem-Espacial.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visão Computacional" href="VC-Processamento-Imagens-Coloridas.html" />
-    <link rel="prev" title="Visão Computacional" href="VC-Fundamentos-Imagens-Digitais.html" />
+    <link rel="next" title="Processamento de Imagens Coloridas" href="VC-Processamento-Imagens-Coloridas.html" />
+    <link rel="prev" title="Fundamentos de Imagens Digitais em Python" href="VC-Fundamentos-Imagens-Digitais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,19 +175,19 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python</a></li>
 
 
 
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Filtragem Espacial</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
 </ul>
 
     </div>
@@ -421,7 +421,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Visão Computacional</h1>
+    <h1>Filtragem Espacial</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,12 +431,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtragem-espacial">Filtragem Espacial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Filtragem Espacial</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entendendo-convolucao">Entendendo Convolução</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d">Caso 1D: https://antoinebrl.github.io/blog/conv1d/</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">Caso 2D: https://objetos.github.io/docs/demos/image_conv_vis/</a></li>
@@ -489,18 +484,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
-<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
-<section id="filtragem-espacial">
-<h2>Filtragem Espacial<a class="headerlink" href="#filtragem-espacial" title="Link to this heading">#</a></h2>
-<section id="prof-dr-denis-mayr-lima-martins">
-<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
-</section>
-<section id="pontificia-universidade-catolica-de-campinas">
-<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
-<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="filtragem-espacial">
+<h1>Filtragem Espacial<a class="headerlink" href="#filtragem-espacial" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
 <section id="entendendo-convolucao">
 <h2>Entendendo Convolução<a class="headerlink" href="#entendendo-convolucao" title="Link to this heading">#</a></h2>
 <blockquote>
@@ -1059,7 +1045,7 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Fundamentos de Imagens Digitais em Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -1067,7 +1053,7 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Processamento de Imagens Coloridas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1087,12 +1073,7 @@ G_y=\begin{bmatrix}-1&amp;-1&amp;-1\\0&amp;0&amp;0\\1&amp;1&amp;1\end{bmatrix}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtragem-espacial">Filtragem Espacial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Filtragem Espacial</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entendendo-convolucao">Entendendo Convolução</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1d-https-antoinebrl-github-io-blog-conv1d">Caso 1D: https://antoinebrl.github.io/blog/conv1d/</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2d-https-objetos-github-io-docs-demos-image-conv-vis">Caso 2D: https://objetos.github.io/docs/demos/image_conv_vis/</a></li>

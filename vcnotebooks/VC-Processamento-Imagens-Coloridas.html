@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Visão Computacional &#8212; Visão Computacional</title>
+    <title>Processamento de Imagens Coloridas &#8212; Visão Computacional</title>
   
   
   
@@ -63,8 +63,8 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Processamento-Imagens-Coloridas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visão Computacional" href="VC-Redes-Neurais-MNIST.html" />
-    <link rel="prev" title="Visão Computacional" href="VC-Filtragem-Espacial.html" />
+    <link rel="next" title="Redes Neurais MLP para Classificação de imagens" href="VC-Redes-Neurais-MNIST.html" />
+    <link rel="prev" title="Filtragem Espacial" href="VC-Filtragem-Espacial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,19 +175,19 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python</a></li>
 
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Processamento de Imagens Coloridas</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
 </ul>
 
     </div>
@@ -421,7 +421,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Visão Computacional</h1>
+    <h1>Processamento de Imagens Coloridas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,12 +431,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processamento-de-imagens-coloridas">Processamento de Imagens Coloridas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processamento de Imagens Coloridas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-cores">Fundamento de Cores</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-colorida">Imagem Colorida</a></li>
@@ -485,18 +480,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
-<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
-<section id="processamento-de-imagens-coloridas">
-<h2>Processamento de Imagens Coloridas<a class="headerlink" href="#processamento-de-imagens-coloridas" title="Link to this heading">#</a></h2>
-<section id="prof-dr-denis-mayr-lima-martins">
-<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
-</section>
-<section id="pontificia-universidade-catolica-de-campinas">
-<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
-<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="processamento-de-imagens-coloridas">
+<h1>Processamento de Imagens Coloridas<a class="headerlink" href="#processamento-de-imagens-coloridas" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
 <section id="objetivos-de-aprendizagem">
 <h2>Objetivos de Aprendizagem<a class="headerlink" href="#objetivos-de-aprendizagem" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
@@ -1186,7 +1172,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Filtragem Espacial</p>
       </div>
     </a>
     <a class="right-next"
@@ -1194,7 +1180,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Redes Neurais MLP para Classificação de imagens</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1214,12 +1200,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processamento-de-imagens-coloridas">Processamento de Imagens Coloridas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processamento de Imagens Coloridas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-cores">Fundamento de Cores</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-colorida">Imagem Colorida</a></li>

@@ -9,12 +9,14 @@ Neste material, vamos aprofundar os seguintes tópicos:
 *   **Reconhecimento de Objetos/Padrões:** Classificar e identificar objetos em uma imagem.
 *   **Segmentação:** Dividir uma imagem em regiões significativas.
 
-# Bibliografia
+## Bibliografia
  
 - Gonzalez, Rafael C., and Richard C. Woods. Processamento digital de imagens. 3.ed. São Paulo, SP: Pearson, 2010.
 - Goodfellow, Ian, et al. Deep learning. Vol. 1. No. 2. Cambridge: MIT press, 2016: https://www.deeplearningbook.org/
 - Russel, S. J., Norvig, P. Inteligência Artificial: Uma Abordagem Moderna. GEN LTC. 4a. Edição, 2022.
 - The Little Book of Deep Learning: https://fleuret.org/francois/lbdl.html
+
+## Conteúdo
 
 ```{tableofcontents}
 ```

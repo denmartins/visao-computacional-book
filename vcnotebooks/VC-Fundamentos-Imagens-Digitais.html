@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Visão Computacional &#8212; Visão Computacional</title>
+    <title>Fundamentos de Imagens Digitais em Python &#8212; Visão Computacional</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Fundamentos-Imagens-Digitais.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visão Computacional" href="VC-Filtragem-Espacial.html" />
+    <link rel="next" title="Filtragem Espacial" href="VC-Filtragem-Espacial.html" />
     <link rel="prev" title="Visão Computacional em Python" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,19 +173,19 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos de Imagens Digitais em Python</a></li>
 
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
 </ul>
 
     </div>
@@ -419,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Visão Computacional</h1>
+    <h1>Fundamentos de Imagens Digitais em Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,11 +429,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas"><strong>Pontifícia Universidade Católica de Campinas</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins"><strong>Prof. Dr. Denis Mayr Lima Martins</strong></a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fundamentos de Imagens Digitais em Python</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
@@ -452,14 +448,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
-<h1>Visão Computacional<a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
-<section id="pontificia-universidade-catolica-de-campinas">
-<h2><strong>Pontifícia Universidade Católica de Campinas</strong><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h2>
-</section>
-<section id="prof-dr-denis-mayr-lima-martins">
-<h2><strong>Prof. Dr. Denis Mayr Lima Martins</strong><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-de-imagens-digitais-em-python">
+<h1>Fundamentos de Imagens Digitais em Python<a class="headerlink" href="#fundamentos-de-imagens-digitais-em-python" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,7 +519,6 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="plotando-canais">
 <h1>Plotando canais<a class="headerlink" href="#plotando-canais" title="Link to this heading">#</a></h1>
@@ -748,7 +737,7 @@ Min pixel: 3 | Max pixel: 255
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Filtragem Espacial</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -768,11 +757,7 @@ Min pixel: 3 | Max pixel: 255
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas"><strong>Pontifícia Universidade Católica de Campinas</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins"><strong>Prof. Dr. Denis Mayr Lima Martins</strong></a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fundamentos de Imagens Digitais em Python</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
