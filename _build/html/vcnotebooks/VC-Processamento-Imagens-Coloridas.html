@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Visão Computacional &#8212; Visão Computacional</title>
+    <title>Processamento de Imagens Coloridas &#8212; Visão Computacional</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,8 +63,8 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Processamento-Imagens-Coloridas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visão Computacional" href="VC-Redes-Neurais-MNIST.html" />
-    <link rel="prev" title="Visão Computacional" href="VC-Filtragem-Espacial.html" />
+    <link rel="next" title="Redes Neurais MLP para Classificação de imagens" href="VC-Redes-Neurais-MNIST.html" />
+    <link rel="prev" title="Filtragem Espacial" href="VC-Filtragem-Espacial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,19 +175,12 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Processamento de Imagens Coloridas</a></li>
 
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
 </ul>
 
     </div>
@@ -421,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Visão Computacional</h1>
+    <h1>Processamento de Imagens Coloridas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,12 +424,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processamento-de-imagens-coloridas">Processamento de Imagens Coloridas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processamento de Imagens Coloridas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visao-computacional">Visão Computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-cores">Fundamento de Cores</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-colorida">Imagem Colorida</a></li>
@@ -485,17 +475,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
-<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
-<section id="processamento-de-imagens-coloridas">
-<h2>Processamento de Imagens Coloridas<a class="headerlink" href="#processamento-de-imagens-coloridas" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="processamento-de-imagens-coloridas">
+<h1>Processamento de Imagens Coloridas<a class="headerlink" href="#processamento-de-imagens-coloridas" title="Link to this heading">#</a></h1>
+<section id="visao-computacional">
+<h2><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h2>
+</section>
 <section id="prof-dr-denis-mayr-lima-martins">
-<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
-</section>
-<section id="pontificia-universidade-catolica-de-campinas">
-<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
-<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
-</section>
+<h2><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h2>
 </section>
 <section id="objetivos-de-aprendizagem">
 <h2>Objetivos de Aprendizagem<a class="headerlink" href="#objetivos-de-aprendizagem" title="Link to this heading">#</a></h2>
@@ -646,14 +632,138 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">cv2</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.5 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;cv2&#39;
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main
+  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel_launcher.py&quot;, line 17, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/traitlets/config/application.py&quot;, line 992, in launch_instance
+    app.start()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;, line 701, in start
+    self.io_loop.start()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;, line 195, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/opt/anaconda3/lib/python3.11/asyncio/base_events.py&quot;, line 607, in run_forever
+    self._run_once()
+  File &quot;/opt/anaconda3/lib/python3.11/asyncio/base_events.py&quot;, line 1922, in _run_once
+    handle._run()
+  File &quot;/opt/anaconda3/lib/python3.11/asyncio/events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 534, in dispatch_queue
+    await self.process_one()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 523, in process_one
+    await dispatch(*args)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 429, in dispatch_shell
+    await result
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 767, in execute_request
+    reply_content = await reply_content
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 429, in do_execute
+    res = shell.run_cell(
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3051, in run_cell
+    result = self._run_cell(
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3106, in _run_cell
+    result = runner(coro)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3311, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3493, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/var/folders/p7/p37cm2fj10xgjrjj5rzdm66c0000gn/T/ipykernel_55235/488522286.py&quot;, line 3, in &lt;module&gt;
+    import matplotlib.pyplot as plt
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/__init__.py&quot;, line 161, in &lt;module&gt;
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/rcsetup.py&quot;, line 27, in &lt;module&gt;
+    from matplotlib.colors import Colormap, is_color_like
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/colors.py&quot;, line 57, in &lt;module&gt;
+    from matplotlib import _api, _cm, cbook, scale
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/scale.py&quot;, line 22, in &lt;module&gt;
+    from matplotlib.ticker import (
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/ticker.py&quot;, line 143, in &lt;module&gt;
+    from matplotlib import transforms as mtransforms
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/transforms.py&quot;, line 49, in &lt;module&gt;
+    from matplotlib._path import (
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">cv2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">SEED</span> <span class="o">=</span> <span class="mi">1234</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">161</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">parse</span> <span class="k">as</span> <span class="n">parse_version</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="c1"># cbook must import matplotlib only within function</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="c1"># definitions, so it is safe to import from it here.</span>
+<span class="ne">--&gt; </span><span class="mi">161</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_version</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">_docstring</span><span class="p">,</span> <span class="n">rcsetup</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">sanitize_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span> <span class="kn">from</span> <span class="nn">matplotlib._api</span> <span class="kn">import</span> <span class="n">MatplotlibDeprecationWarning</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">rcsetup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">27</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">ls_mapper</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Colormap</span><span class="p">,</span> <span class="n">is_color_like</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="kn">from</span> <span class="nn">matplotlib._fontconfig_pattern</span> <span class="kn">import</span> <span class="n">parse_fontconfig_pattern</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">matplotlib._enums</span> <span class="kn">import</span> <span class="n">JoinStyle</span><span class="p">,</span> <span class="n">CapStyle</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">colors</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">57</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">57</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_cm</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">scale</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="kn">from</span> <span class="nn">._color_data</span> <span class="kn">import</span> <span class="n">BASE_COLORS</span><span class="p">,</span> <span class="n">TABLEAU_COLORS</span><span class="p">,</span> <span class="n">CSS4_COLORS</span><span class="p">,</span> <span class="n">XKCD_COLORS</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="k">class</span> <span class="nc">_ColorMapping</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">scale</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">NullFormatter</span><span class="p">,</span> <span class="n">ScalarFormatter</span><span class="p">,</span> <span class="n">LogFormatterSciNotation</span><span class="p">,</span> <span class="n">LogitFormatter</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">NullLocator</span><span class="p">,</span> <span class="n">LogLocator</span><span class="p">,</span> <span class="n">AutoLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">SymmetricalLogLocator</span><span class="p">,</span> <span class="n">AsinhLocator</span><span class="p">,</span> <span class="n">LogitLocator</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="kn">import</span> <span class="n">Transform</span><span class="p">,</span> <span class="n">IdentityTransform</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">class</span> <span class="nc">ScaleBase</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">ticker</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">143</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="ne">--&gt; </span><span class="mi">143</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">mtransforms</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;TickHelper&#39;</span><span class="p">,</span> <span class="s1">&#39;Formatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FixedFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>            <span class="s1">&#39;NullFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FuncFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FormatStrFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>            <span class="s1">&#39;StrMethodFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;ScalarFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;LogFormatter&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>            <span class="s1">&#39;MultipleLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;MaxNLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoMinorLocator&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>            <span class="s1">&#39;SymmetricalLogLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AsinhLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;LogitLocator&#39;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">transforms</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="kn">from</span> <span class="nn">matplotlib._path</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">affine_transform</span><span class="p">,</span> <span class="n">count_bboxes_overlapping_bbox</span><span class="p">,</span> <span class="n">update_path_extents</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="kn">from</span> <span class="nn">.path</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1296,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Filtragem Espacial</p>
       </div>
     </a>
     <a class="right-next"
@@ -1194,7 +1304,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Redes Neurais MLP para Classificação de imagens</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1214,12 +1324,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processamento-de-imagens-coloridas">Processamento de Imagens Coloridas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Processamento de Imagens Coloridas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visao-computacional">Visão Computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-aprendizagem">Objetivos de Aprendizagem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamento-de-cores">Fundamento de Cores</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-colorida">Imagem Colorida</a></li>

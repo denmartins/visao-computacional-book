@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -61,7 +61,7 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/intro.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Visão Computacional" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html" />
+    <link rel="next" title="Fundamentos de Imagens Digitais em Python (Demo)" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,19 +174,12 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
 
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Filtragem-Espacial.html">Visão Computacional</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
 </ul>
 
     </div>
@@ -399,12 +392,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional em Python</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#o-que-vamos-estudar">O que vamos estudar?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#o-que-esperar-do-curso">O que esperar do curso?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -417,10 +406,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional-em-python">
 <h1>Visão Computacional em Python<a class="headerlink" href="#visao-computacional-em-python" title="Link to this heading">#</a></h1>
-<p>A disciplina de Visão Computacional oferece uma imersão nos fundamentos teóricos e práticos do reconhecimento de padrões em imagens utilizando técnicas de deep learning. A ênfase na aplicação prática, combinada com uma base sólida em aprendizado de máquina, prepara os futuros profissionais para atuarem no crescente mercado de sistemas inteligentes e visão computacional.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="o-que-vamos-estudar">
-<h1>O que vamos estudar?<a class="headerlink" href="#o-que-vamos-estudar" title="Link to this heading">#</a></h1>
+<p>A <a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">disciplina de Visão Computacional</a> oferece uma imersão nos fundamentos teóricos e práticos do reconhecimento de padrões em imagens utilizando técnicas de deep learning. A ênfase na aplicação prática, combinada com uma base sólida em aprendizado de máquina, prepara os futuros profissionais para atuarem no crescente mercado de sistemas inteligentes e visão computacional.</p>
 <p>Neste material, vamos aprofundar os seguintes tópicos:</p>
 <ul class="simple">
 <li><p><strong>Aquisição e Pré-processamento de Imagens:</strong> Como capturamos, representamos e preparamos imagens para análise.</p></li>
@@ -428,39 +414,21 @@ document.write(`
 <li><p><strong>Reconhecimento de Objetos/Padrões:</strong> Classificar e identificar objetos em uma imagem.</p></li>
 <li><p><strong>Segmentação:</strong> Dividir uma imagem em regiões significativas.</p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="o-que-esperar-do-curso">
-<h1>O que esperar do curso?<a class="headerlink" href="#o-que-esperar-do-curso" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Aulas dinâmicas combinando teoria e prática.</p></li>
-<li><p>Exercícios de programação para consolidar o aprendizado.</p></li>
-<li><p>Projetos práticos.</p></li>
-</ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="bibliografia">
-<h1>Bibliografia<a class="headerlink" href="#bibliografia" title="Link to this heading">#</a></h1>
+<section id="bibliografia">
+<h2>Bibliografia<a class="headerlink" href="#bibliografia" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Gonzalez, Rafael C., and Richard C. Woods. Processamento digital de imagens. 3.ed. São Paulo, SP: Pearson, 2010.</p></li>
 <li><p>Goodfellow, Ian, et al. Deep learning. Vol. 1. No. 2. Cambridge: MIT press, 2016: <a class="reference external" href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a></p></li>
 <li><p>Russel, S. J., Norvig, P. Inteligência Artificial: Uma Abordagem Moderna. GEN LTC. 4a. Edição, 2022.</p></li>
 <li><p>The Little Book of Deep Learning: <a class="reference external" href="https://fleuret.org/francois/lbdl.html">https://fleuret.org/francois/lbdl.html</a></p></li>
 </ul>
+<!-- 
+## Conteúdo
+
+```{tableofcontents}
+``` -->
+</section>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html#plotando-canais">Plotando canais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html#zerando-canais">Zerando canais</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html#imagem-negativa">Imagem Negativa</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Fundamentos-Imagens-Digitais.html#crop">Crop</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Filtragem-Espacial.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Filtragem-Espacial.html#filtro-mediana">Filtro Mediana</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Processamento-Imagens-Coloridas.html#convolucao-de-imagens-coloridas">Convolução de Imagens Coloridas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcnotebooks/VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
-</ul>
 </div>
 </section>
 
@@ -499,7 +467,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Fundamentos de Imagens Digitais em Python (Demo)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -519,12 +487,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional em Python</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#o-que-vamos-estudar">O que vamos estudar?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#o-que-esperar-do-curso">O que esperar do curso?</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliografia">Bibliografia</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

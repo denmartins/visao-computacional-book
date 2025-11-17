@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Visão Computacional &#8212; Visão Computacional</title>
+    <title>Redes Neurais Convolucionais (CNNs) &#8212; Visão Computacional</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,7 +63,8 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Redes-Neurais-Convolucionais.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Visão Computacional" href="VC-Redes-Neurais-MNIST.html" />
+    <link rel="next" title="Class Activation Map (CAM)" href="VC-Class-Activation-Map.html" />
+    <link rel="prev" title="Redes Neurais MLP para Classificação de imagens" href="VC-Redes-Neurais-MNIST.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,19 +175,12 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
 
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Redes Neurais Convolucionais (CNNs)</a></li>
 </ul>
 
     </div>
@@ -420,7 +414,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Visão Computacional</h1>
+    <h1>Redes Neurais Convolucionais (CNNs)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -430,11 +424,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-convolucionais-cnns">Redes Neurais Convolucionais (CNNs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visao-computacional">Visão Computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-mlp-para-o-mnist-dataset">Recap: MLP para o MNIST dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronio-da-camada-escondida">Neurônio da Camada Escondida</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Neurônio da Camada Escondida</a></li>
@@ -471,17 +462,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
-<h1><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
-<section id="redes-neurais-convolucionais-cnns">
-<h2>Redes Neurais Convolucionais (CNNs)<a class="headerlink" href="#redes-neurais-convolucionais-cnns" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="redes-neurais-convolucionais-cnns">
+<h1>Redes Neurais Convolucionais (CNNs)<a class="headerlink" href="#redes-neurais-convolucionais-cnns" title="Link to this heading">#</a></h1>
+<section id="visao-computacional">
+<h2><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h2>
+</section>
 <section id="prof-dr-denis-mayr-lima-martins">
-<h3><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h3>
-</section>
-<section id="pontificia-universidade-catolica-de-campinas">
-<h3><a class="reference external" href="https://www.puc-campinas.edu.br/">Pontifícia Universidade Católica de Campinas</a><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h3>
-<img src="https://www.puc-campinas.edu.br/wp-content/uploads/2022/06/logo-puc.png" width="100px"/>
-</section>
+<h2><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h2>
 </section>
 <section id="recap-mlp-para-o-mnist-dataset">
 <h2>Recap: MLP para o MNIST dataset<a class="headerlink" href="#recap-mlp-para-o-mnist-dataset" title="Link to this heading">#</a></h2>
@@ -514,8 +501,7 @@ document.write(`
 <h2>Neurônio da Camada Escondida<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <div style='align: left; text-align:center;'>
-    <img src='
-    https://ml4a.github.io/images/figures/rolled_weights_mnist_0.png' alt='Representação em Imagem de um Neurônio da Camada Escondida de uma MLP para o MNIST dataset.' style="width:800px;"/>
+    <img src='https://ml4a.github.io/images/figures/rolled_weights_mnist_0.png' alt='Representação em Imagem de um Neurônio da Camada Escondida de uma MLP para o MNIST dataset.' style="width:800px;"/>
     <span style='display:block;'>Representação em Imagem de um Neurônio da Camada Escondida de uma MLP para o MNIST dataset. Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank"> ML4a</a>.</span>
     <br/>
 </div></section>
@@ -523,8 +509,7 @@ document.write(`
 <h2>Neurônio da Camada Escondida<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <div style='align: left; text-align:center;'>
-    <img src='
-    https://ml4a.github.io/images/figures/rolled_weights_mnist.png' alt='Visualização dos Neurônios da Camada de Saída de uma MLP para o MNIST dataset.' style="width:800px;"/>
+    <img src='https://ml4a.github.io/images/figures/rolled_weights_mnist.png' alt='Visualização dos Neurônios da Camada de Saída de uma MLP para o MNIST dataset.' style="width:800px;"/>
     <span style='display:block;'>Visualização dos Neurônios da Camada de Saída de uma MLP para o MNIST dataset.. Fonte: <a href="https://ml4a.github.io/ml4a/looking_inside_neural_nets/" target="_blank"> ML4a</a>.</span>
     <br/>
 </div></section>
@@ -536,8 +521,7 @@ document.write(`
 <li><p>O grande número de parâmetros torna o modelo propenso a <strong>overfitting</strong> (superajuste).</p></li>
 </ul>
 <div style='align: left; text-align:center;'>
-    <img src='
-    https://learnopencv.com/wp-content/uploads/2023/01/tensorflow-keras-mlp-parameters-1024x414.png' alt='MLPs têm alta dimensionalidade.' style="width:800px;"/>
+    <img src='https://learnopencv.com/wp-content/uploads/2023/01/tensorflow-keras-mlp-parameters-1024x414.png' alt='MLPs têm alta dimensionalidade.' style="width:800px;"/>
     <span style='display:block;'>Alta dimensionalidade das MLPs para imagens. Frequentemente levando a overfitting. Fonte: <a href="https://learnopencv.com/understanding-convolutional-neural-networks-cnn/" target="_blank"> LearnOpenCV</a>.</span>
     <br/>
 </div>
@@ -596,6 +580,7 @@ document.write(`
 <section id="cnn-em-pytorch-demo">
 <h2>CNN em Pytorch: Demo<a class="headerlink" href="#cnn-em-pytorch-demo" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
+<p>Código completo no site do professor: <a class="reference external" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Redes-Neurais-Convolucionais.html#cnn-em-pytorch-demo">https://denmartins.github.io</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
@@ -606,15 +591,15 @@ document.write(`
         <span class="nb">super</span><span class="p">(</span><span class="n">SimpleCNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sequential</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="c1"># Primeira camada convolucional</span>
-            <span class="c1"># Input: 1 canal (grayscale). Output: 32 filtros. Kernel: 3x3.</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+                      <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
             <span class="c1"># Segunda camada convolucional</span>
-            <span class="c1"># Input: 32 canais. Output: 64 filtros.</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> 
+                      <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
             <span class="c1"># Pooling Max: 2x2</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">stride</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span>
-            <span class="c1"># Camada FC será definida após o cálculo do tamanho de flatten.</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="c1"># Flatten de matriz para vetor.</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
             <span class="c1"># Definindo as camadas FC</span>
             <span class="c1"># Camada Totalmente Conectada 1</span>
@@ -694,7 +679,7 @@ Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 
     if await self.run_code(code, result, async_=asy):
   File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3553, in run_code
     exec(code_obj, self.user_global_ns, self.user_ns)
-  File &quot;/var/folders/p7/p37cm2fj10xgjrjj5rzdm66c0000gn/T/ipykernel_6090/4188437962.py&quot;, line 1, in &lt;module&gt;
+  File &quot;/var/folders/p7/p37cm2fj10xgjrjj5rzdm66c0000gn/T/ipykernel_55254/4188437962.py&quot;, line 1, in &lt;module&gt;
     import matplotlib.pyplot as plt
   File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/__init__.py&quot;, line 161, in &lt;module&gt;
     from . import _api, _version, cbook, _docstring, rcsetup
@@ -943,7 +928,7 @@ Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ac315596bd7f44a09c8efdb37d2dee1d", "version_major": 2, "version_minor": 0}</script><img alt="../_images/8df96d4a3f7a11ff0314192b19acacc767b9041b7505ccd75dd04e1d286f4e0c.png" src="../_images/8df96d4a3f7a11ff0314192b19acacc767b9041b7505ccd75dd04e1d286f4e0c.png" />
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "43b182dd6a4646f987fc24b77b09e759", "version_major": 2, "version_minor": 0}</script><img alt="../_images/8c1f887eee9b23f83c028fe22660e92818faaa511ab1fec38eee70569c79ac8a.png" src="../_images/8c1f887eee9b23f83c028fe22660e92818faaa511ab1fec38eee70569c79ac8a.png" />
 </div>
 </div>
 </section>
@@ -963,7 +948,7 @@ Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 
 </ul>
 </td>
 <td style="vertical-align:middle;text-align:center;border:none;">
-<img src="http://neuralnetworksanddeeplearning.com/images/tikz43.png"/>
+<img src="https://www.tutorialspoint.com/tensorflow/images/convolutional_neural_networks.jpg"/>
  <span style='display:block;'>Convolução na camada escondida. Fonte: <a href="http://neuralnetworksanddeeplearning.com/chap6.html" target="_blank">Michael Nielsen</a>.</span>
 </td>
 </tr>
@@ -984,7 +969,7 @@ Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 
 </ul>
 </td>
 <td style="vertical-align:middle;text-align:center;border:none;">
-<img src="http://neuralnetworksanddeeplearning.com/images/tikz44.png" width="600">
+<img src="https://www.tutorialspoint.com/tensorflow/images/convolutional_neural_networks.jpg" width="600">
  <span style='display:block;'>Convolução no primeiro neurônio da camada escondida. Fonte: <a href="http://neuralnetworksanddeeplearning.com/chap6.html" target="_blank">Michael Nielsen</a>.</span>
 </td>
 </tr>
@@ -995,9 +980,8 @@ Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 
 <h2>Convolução em CNNs<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <ul class="simple">
-<li><p>A operação de convolução (para fins de CNN) é o <strong>produto escalar</strong> (multiplicação elemento a elemento seguida por soma) entre o filtro e a região de entrada correspondente.
-$<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\text{Input}_{i, j} \times \text{Filter}_{i, j}) + \text{Bias} \)</span>$</p></li>
-<li><p>O resultado é um único número que mede o grau de correspondência do filtro com a região de entrada.</p></li>
+<li><p>A operação de convolução (para fins de CNN) é o <strong>produto escalar</strong> (multiplicação elemento a elemento seguida por soma) entre o filtro e a região de entrada correspondente. <span class="math notranslate nohighlight">\(\text{Output} = \sum_{i, j} (\text{Input}_{i, j} \times \text{Filter}_{i, j}) + \text{Bias} \)</span></p></li>
+<li><p>O resultado é um único número que mede o grau de correspondência do filtro com a região de entrada. Veja também: <a class="reference external" href="https://github.com/vdumoulin/conv_arithmetic">Convolution arithmetic</a>.</p></li>
 <li><p>Esse processo é repetido para cada localização onde o filtro desliza.</p></li>
 <li><p>Os resultados são colocados em uma matriz de saída chamada <strong>Mapa de Ativação</strong> (Activation Map) ou <strong>Mapa de Características</strong> (Feature Map).</p></li>
 </ul>
@@ -1018,8 +1002,9 @@ $<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\tex
 </section>
 <section id="hyperparametros-da-convolucao">
 <h2>Hyperparâmetros da Convolução<a class="headerlink" href="#hyperparametros-da-convolucao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
 <ul class="simple">
-<li><p><strong>Kernel Size (<span class="math notranslate nohighlight">\(F\)</span>):</strong> Tamanhos comuns são <span class="math notranslate nohighlight">\(3 \times 3\)</span> ou <span class="math notranslate nohighlight">\(5 \times 5\)</span>. Tamanhos menores são frequentemente melhores para expressar características mais fortes com menos parâmetros.</p></li>
+<li><p><strong>Kernel Size (<span class="math notranslate nohighlight">\(F\)</span>):</strong> Tamanhos comuns são <span class="math notranslate nohighlight">\(3 \times 3\)</span> ou <span class="math notranslate nohighlight">\(5 \times 5\)</span>. Tamanhos menores são frequentemente preferidos para extrair features com menos parâmetros.</p></li>
 <li><p><strong>Número de Filtros:</strong> Aumenta com a profundidade; geralmente começa em 32 e dobra (64, 128, etc.).</p></li>
 <li><p><strong>Stride (<span class="math notranslate nohighlight">\(S\)</span>):</strong> É o número de pixels que o filtro se move (desloca) sobre a entrada a cada iteração.</p>
 <ul>
@@ -1149,7 +1134,7 @@ $<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\tex
 <li><p>Uma CNN de classificação é dividida em duas partes principais:</p>
 <ol class="arabic simple">
 <li><p><strong>Extrator de Características (Feature Extractor):</strong> Composto por blocos Conv + ReLU + Pooling (ou ConvBlocks). É comum empilhar 2 ou 3 camadas Conv/ReLU consecutivas antes de uma camada Pooling.</p></li>
-<li><p><strong>Classificador (Classifier):</strong> Composto por camadas Fully Connected (FC) + Softmax.</p></li>
+<li><p><strong>Classificador (Classifier):</strong> Composto por camadas FC + Softmax.</p></li>
 </ol>
 </li>
 <li><p>O fluxo de dados transforma o volume de entrada, tipicamente reduzindo as dimensões espaciais (H, W) e aumentando a profundidade (Canais/Filtros).</p></li>
@@ -1177,7 +1162,9 @@ $<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\tex
 <li><p><strong>Loss Function (Função de Perda):</strong> Mede o erro entre a previsão da rede e o rótulo verdadeiro (Ground Truth).</p></li>
 <li><p><strong>Otimização:</strong> O algoritmo ajusta iterativamente os pesos (filtros e FC) para minimizar a perda.</p></li>
 </ul>
-</section>
+<div class="alert alert-block alert-info">
+Mais informações sobre o algoritmo de Backpropagation e Gradiente Descendente na próxima aula.
+</div></section>
 <section id="resumo">
 <h2>Resumo<a class="headerlink" href="#resumo" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
@@ -1201,13 +1188,12 @@ $<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\tex
 <li><p><a class="reference external" href="https://cs231n.github.io/convolutional-networks/">ConvNets by Stanford</a></p></li>
 </ul>
 </li>
-<li><p><strong>Mateiral adicional</strong>: <a class="reference external" href="https://www.youtube.com/watch?v=jDe5BAsT2-Y">Convolutional Neural Networks from Scratch</a></p></li>
 </ul>
 </td>
 <td style="vertical-align:middle;text-align:center;border:none;width:35%;">
 <div style='align:center; text-align:center;'>
     <img src='https://hadrienj.github.io/assets/images/deep-learning-book-goodfellow-cover.jpg' style="width:200px;"/>
-    <span style='display:block;'><b>Leitura Recomendada</b>: Capítulo 6.</span>
+    <span style='display:block;'><b>Leitura Recomendada</b>: Capítulo 9.</span>
 </div> 
 </td>
 </tr>
@@ -1261,8 +1247,17 @@ $<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\tex
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Visão Computacional</p>
+        <p class="prev-next-title">Redes Neurais MLP para Classificação de imagens</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="VC-Class-Activation-Map.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class Activation Map (CAM)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1280,11 +1275,8 @@ $<span class="math notranslate nohighlight">\( \text{Output} = \sum_{i, j} (\tex
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#redes-neurais-convolucionais-cnns">Redes Neurais Convolucionais (CNNs)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas">Pontifícia Universidade Católica de Campinas</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visao-computacional">Visão Computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-mlp-para-o-mnist-dataset">Recap: MLP para o MNIST dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neuronio-da-camada-escondida">Neurônio da Camada Escondida</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Neurônio da Camada Escondida</a></li>
