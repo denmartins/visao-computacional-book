@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Class Activation Map (CAM) &#8212; Visão Computacional</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vcnotebooks/VC-Class-Activation-Map';</script>
+    <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Class-Activation-Map.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Redes Neurais Convolucionais (CNNs)" href="VC-Redes-Neurais-Convolucionais.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Visão Computacional - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Visão Computacional - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VC-Fundamentos-Imagens-Digitais.html">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/denmartins/visao-computacional-book/blob/master/vcnotebooks/VC-Class-Activation-Map.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/edit/main/vcnotebooks/VC-Class-Activation-Map.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/denmartins/visao-computacional-book/issues/new?title=Issue%20on%20page%20%2Fvcnotebooks/VC-Class-Activation-Map.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/vcnotebooks/VC-Class-Activation-Map.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class Activation Map (CAM)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visao-computacional">Visão Computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-opacos-x-modelos-transparentes">Modelos Opacos x Modelos Transparentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-necessidade-de-explicabilidade">A Necessidade de Explicabilidade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falta-de-interpretabilidade-em-cnns">Falta de Interpretabilidade em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">A Necessidade de Explicabilidade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Falta de Interpretabilidade em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-activation-maps-cam">Class Activation Maps (CAM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-pooling-gap">Global Average Pooling (GAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-pooling-gap-funcionamento">Global Average Pooling (GAP): Funcionamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gap-versus-global-max-pooling-gmp">GAP versus Global Max Pooling (GMP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-flatten-versus-gap">Comparação Flatten versus GAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Global Average Pooling (GAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Global Average Pooling (GAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-pooling-gap-classificacao">Global Average Pooling (GAP): Classificação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-equacao-do-class-activation-map">A Equação do Class Activation Map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cam-exemplo">CAM: Exemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">CAM: Exemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weakly-supervised-object-localization-wsol">Weakly-supervised object localization (WSOL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cam-implementacao-pytorch">CAM: Implementação Pytorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cam-limitacoes">CAM: Limitações</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucao-e-outras-abordagens-grad-cam">Evolução e Outras Abordagens: Grad-CAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Evolução e Outras Abordagens: Grad-CAM++</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-adicional">Material Adicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarefa-1-geracao-e-visualizacao-do-cam">Tarefa 1: Geração e Visualização do CAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarefa-2-comparacao-cam-vs-grad-cam">Tarefa 2: Comparação CAM vs. Grad-CAM</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-activation-map-cam">
+<h1>Class Activation Map (CAM)<a class="headerlink" href="#class-activation-map-cam" title="Link to this heading">#</a></h1>
+<section id="visao-computacional">
+<h2><a class="reference external" href="https://denmartins.github.io/teaching/2025-visao-computacional">Visão Computacional</a><a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h2>
+</section>
+<section id="prof-dr-denis-mayr-lima-martins">
+<h2><a class="reference external" href="https://denmartins.github.io/">Prof. Dr. Denis Mayr Lima Martins</a><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h2>
+</section>
+<section id="modelos-opacos-x-modelos-transparentes">
+<h2>Modelos Opacos x Modelos Transparentes<a class="headerlink" href="#modelos-opacos-x-modelos-transparentes" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://www.researchgate.net/profile/Javier-Del-Ser/publication/338184751/figure/fig7/AS:841880166223884@1577731281844/Trade-off-between-model-interpretability-and-performance-and-a-representation-of-the.png' style="width:500px;"/>
+    <span style='display:block;'>Trade-off interpretabilidade versus capacidade do modelo. Fonte: <a href="https://arxiv.org/pdf/1910.10045" target="_blank"> Arrieta, Alejandro Barredo, et al. "Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI." Information fusion 58 (2020): 82-115</a>.</span>
+    <br/>
+</div></section>
+<section id="a-necessidade-de-explicabilidade">
+<h2>A Necessidade de Explicabilidade<a class="headerlink" href="#a-necessidade-de-explicabilidade" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>CNNs como “Caixas Pretas”</strong>: Modelos de Deep Learning alcançam alta performance, mas suas previsões são difíceis de interpretar.</p></li>
+<li><p><strong>Interpretabilidade e Explicabilidade (XAI)</strong>: O campo de <a class="reference external" href="https://arxiv.org/pdf/1910.10045">Explainable AI (XAI)</a> busca desvendar o processo de tomada de decisão desses modelos complexos.</p></li>
+<li><p><strong>Confiança e Transparência</strong>: A falta de transparência reduz a confiança, sendo crucial verificar se o modelo está focando nas regiões corretas da imagem.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+<img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqXTzfpMKeTG0eS0uo8nYDMFHzzP8BgLnfuUqzzX_XrpPzLhtniS8tml79v000O_3P2wLp5NlkdlJ8R9xfOmdisrUveRR3UvHMRp4RW10NWj4ut-2h2WYGmk7uoXNs9kxglQHFM_j1TcKS8L27e4iuOAMmi6-8XM2S3QxXjN3TlMZru_5XxvS3Ialh2A/s1282/xai%20explain.png' style="width:500px;"/>
+    <span style='display:block;'>Interpretabilidade em Modelos. Fonte: <a href="https://deeplearningofpython.blogspot.com/2023/05/XAImodels-Interpretability-posthocexplainability.html" target="_blank"> Deep Learning of Python</a>.</span>
+</div></section>
+<section id="falta-de-interpretabilidade-em-cnns">
+<h2>Falta de Interpretabilidade em CNNs<a class="headerlink" href="#falta-de-interpretabilidade-em-cnns" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Perda da Correspondência Espacial</strong>: O uso tradicional de camadas totalmente conectadas (FC) após as convoluções “achata” os mapas de características, agindo como uma caixa preta e perdendo a correspondência direta entre a localização espacial da característica e o <em>output</em> final.</p></li>
+<li><p><strong>Localização Discriminativa</strong>: A capacidade da CNN de localizar objetos (inerente às camadas convolucionais) é perdida antes da classificação final.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://johfischer.com/wp-content/uploads/2022/01/slide3-1-768x235.png' style="width:700px;"/>
+    <span style='display:block;'>Perda de localização por "achatamento" para camadas densas. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</div>
+</section>
+<section id="id1">
+<h2>A Necessidade de Explicabilidade<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+<img src="https://www.mdpi.com/sensors/sensors-21-05813/article_deploy/html/images/sensors-21-05813-g009-550.jpg" width="500px"/>
+    <span style="display:block;">Interpretabilidade em CNNs. Fonte: <a href="https://www.mdpi.com/1424-8220/21/17/5813" target="_blank"> Umair, Muhammad, et al. "Detection of COVID-19 using transfer learning and Grad-CAM visualization on indigenously collected X-ray dataset." Sensors 21.17 (2021): 5813</a>.</span>
+</div></section>
+<section id="id2">
+<h2>Falta de Interpretabilidade em CNNs<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Filtros de Camadas Iniciais</strong>: Filtros próximos à entrada detectam características de baixo nível (bordas, linhas).</p></li>
+<li><p><strong>Filtros de Camadas Profundas</strong>: Em camadas mais profundas, as <em>feature maps</em> (mapas de características) combinam padrões, podendo corresponder a objetos ou conceitos.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://johfischer.com/wp-content/uploads/2022/01/slide2-1-768x341.png' style="width:550px;"/>
+    <span style='display:block;'>Exemplo de ativações de uma rede que reconhece pessoas e cães. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</div></section>
+<section id="class-activation-maps-cam">
+<h2>Class Activation Maps (CAM)<a class="headerlink" href="#class-activation-maps-cam" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>O que é CAM?</strong>: Uma técnica para gerar mapas de ativação que indicam as regiões discriminativas de uma imagem usadas pela CNN para identificar uma categoria específica.</p></li>
+<li><p><strong>Explicabilidade Visual</strong>: O resultado é um mapa de calor (heatmap) que visualiza onde a CNN está “olhando” ao fazer uma previsão.</p></li>
+<li><p>O CAM permite a localização de objetos (desenhar uma caixa delimitadora) usando apenas <strong>rótulos de nível de imagem</strong> (classificação), sem a necessidade de anotações de caixas delimitadoras (bounding boxes) durante o treinamento.</p></li>
+<li><p><strong>Proposta Original</strong>: O método foi introduzido por <a class="reference external" href="https://arxiv.org/pdf/1512.04150">Zhou et al. em 2016</a>.</p></li>
+</ul>
+</section>
+<section id="global-average-pooling-gap">
+<h2>Global Average Pooling (GAP)<a class="headerlink" href="#global-average-pooling-gap" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Restrição Arquitetural</strong>: O método CAM original só pode ser aplicado em modelos com uma arquitetura específica.</p></li>
+<li><p><strong>Estrutura Obrigatória</strong>: O modelo deve ter uma camada de <em>Global Average Pooling</em> (GAP) imediatamente após a última camada convolucional, seguida diretamente pela camada de classificação (Softmax ou FC).</p></li>
+<li><p><strong>Alternativa ao Achamento</strong>: Essa estrutura evita as camadas FC densas que agem como caixas pretas entre o mapa de características e o <em>output</em>.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='http://cnnlocalization.csail.mit.edu/framework.jpg' style="width:500px;"/>
+    <span style='display:block;'>CAM via GAP. Fonte: <a href="http://cnnlocalization.csail.mit.edu/" target="_blank"> Zhou et al. 2016</a>.</span>
+</div>
+</section>
+<section id="global-average-pooling-gap-funcionamento">
+<h2>Global Average Pooling (GAP): Funcionamento<a class="headerlink" href="#global-average-pooling-gap-funcionamento" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Operação GAP</strong>: A camada GAP calcula a média espacial (média de todos os pixels) de cada mapa de características na última camada convolucional.</p></li>
+<li><p><strong>Redução Dimensional</strong>: Transforma cada mapa de característica <span class="math notranslate nohighlight">\(k\)</span> de dimensão <span class="math notranslate nohighlight">\(H \times W\)</span> em um único valor escalar <span class="math notranslate nohighlight">\(F_k\)</span>.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://johfischer.com/wp-content/uploads/2022/01/slide5-1-1024x255.png' style="width:800px;"/>
+    <span style='display:block;'>Operação GAP. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</div>
+</section>
+<section id="gap-versus-global-max-pooling-gmp">
+<h2>GAP versus Global Max Pooling (GMP)<a class="headerlink" href="#gap-versus-global-max-pooling-gmp" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>GAP tende a encorajar a rede a identificar a <em>extensão completa</em> de um objeto, pois a média se beneficia de todas as ativações positivas.</p></li>
+<li><p>GMP, por outro lado, pode se contentar em identificar apenas o ponto mais discriminativo.</p></li>
+</ul>
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:50%;">
+<img src='https://iq.opengenus.org/content/images/2023/06/Max-Pooling.png' style="width:500px;"/>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:50%">
+<img src='https://iq.opengenus.org/content/images/2023/06/Avg-Pooling.png' style="width:500px;"/>
+</td>
+</tr>
+</table>
+</section>
+<section id="comparacao-flatten-versus-gap">
+<h2>Comparação Flatten versus GAP<a class="headerlink" href="#comparacao-flatten-versus-gap" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Flatten perde informação espacial.</p></li>
+<li><p>GAP preserva a informação espacial. Para um tensor <span class="math notranslate nohighlight">\((8, 10, 64)\)</span>, GAP produz um tensor <span class="math notranslate nohighlight">\((1, 1, 64)\)</span>.</p></li>
+</ul>
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:35%;">
+<img src='https://iq.opengenus.org/content/images/2023/06/Flatten_layer-1.png' style="height:300px;"/>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:65%">
+<img src='https://tyami.github.io/assets/images/post/DL/2020-10-27-CNN-visualization-Grad-CAM/2020-10-27-cnn-visualization-grad-cam-6-gap.png' style="width:100%;"/>
+</td>
+</tr>
+</table>
+</section>
+<section id="id3">
+<h2>Global Average Pooling (GAP)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://tyami.github.io/assets/images/post/DL/2020-10-27-CNN-visualization-Grad-CAM/2020-10-27-cnn-visualization-grad-cam-9-cam-1.png' style="width:500px;"/>
+    <span style='display:block;'>Operação GAP. Fonte: <a href="https://tyami.github.io/deep%20learning/CNN-visualization-Grad-CAM/" target="_blank"> Taeyang Yang</a>.</span>
+</div>
+</section>
+<section id="id4">
+<h2>Global Average Pooling (GAP)<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<div style='align: left; text-align:center;'>
+    <img src='https://tyami.github.io/assets/images/post/DL/2020-10-27-CNN-visualization-Grad-CAM/2020-10-27-cnn-visualization-grad-cam-10-cam-2.png' style="width:500px;"/>
+    <span style='display:block;'>Exemplo de CAM. Fonte: <a href="https://tyami.github.io/deep%20learning/CNN-visualization-Grad-CAM/" target="_blank"> Taeyang Yang</a>.</span>
+</div>
+</section>
+<section id="global-average-pooling-gap-classificacao">
+<h2>Global Average Pooling (GAP): Classificação<a class="headerlink" href="#global-average-pooling-gap-classificacao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Entrada para Classificação</strong>: O vetor resultante dos valores <span class="math notranslate nohighlight">\(F_k\)</span> é então alimentado diretamente na camada de classificação (Softmax/FC).</p></li>
+<li><p><strong>Importância do Conceito</strong>: O peso <span class="math notranslate nohighlight">\(w_k^c\)</span> representa a importância do mapa de características <span class="math notranslate nohighlight">\(k\)</span> (ou “conceito” <span class="math notranslate nohighlight">\(k\)</span>) para a previsão da classe <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://johfischer.com/wp-content/uploads/2022/01/slide6-768x166.png' style="width:800px;"/>
+    <span style='display:block;'>Operação GAP. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</div>
+</section>
+<section id="a-equacao-do-class-activation-map">
+<h2>A Equação do Class Activation Map<a class="headerlink" href="#a-equacao-do-class-activation-map" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>O CAM Map <span class="math notranslate nohighlight">\(M_c\)</span> para a classe <span class="math notranslate nohighlight">\(c\)</span> em um local <span class="math notranslate nohighlight">\((x,y)\)</span> é definido pela soma ponderada das ativações de todos os mapas de características:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[M_c(x,y)=\sum_k w_k^c f_k(x,y)\]</div>
+<ul class="simple">
+<li><p><strong>Variáveis da Fórmula</strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(M_c(x,y)\)</span>: Class Activation Map, o valor de importância no local <span class="math notranslate nohighlight">\((x,y)\)</span> para a classe <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_k^c\)</span>: Peso da conexão da camada FC, representando a importância do <span class="math notranslate nohighlight">\(k\)</span>-ésimo mapa de características para a classe <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_k(x,y)\)</span>: Ativação do <span class="math notranslate nohighlight">\(k\)</span>-ésimo mapa de características na última camada convolucional, na posição <span class="math notranslate nohighlight">\((x,y)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span>: Índice sobre todos os mapas de características da última camada convolucional.</p></li>
+</ul>
+</li>
+<li><p><strong>Importância do Conceito</strong>: O peso <span class="math notranslate nohighlight">\(w_k^c\)</span> representa a importância do mapa de características <span class="math notranslate nohighlight">\(k\)</span> (ou “conceito” <span class="math notranslate nohighlight">\(k\)</span>) para a previsão da classe <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+</ul>
+</section>
+<section id="cam-exemplo">
+<h2>CAM: Exemplo<a class="headerlink" href="#cam-exemplo" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Cálculo do CAM</strong>: Realizar a soma ponderada das features pelo peso da classe.</p></li>
+<li><p><strong>Normalização e Redimensionamento</strong>: O CAM resultante é de baixa resolução (e.g., 7x7) e deve ser normalizado (para mapeamento de cores) e redimensionado (upsampled) para as dimensões originais da imagem.</p></li>
+<li><p><strong>Geração do Mapa de Calor</strong>: Usar uma paleta de cores (e.g., <code class="docutils literal notranslate"><span class="pre">jet</span></code>) para criar o mapa de calor.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://johfischer.com/wp-content/uploads/2022/01/sizebyside-1024x348.png' style="width:600px;"/>
+    <span style='display:block;'>Exemplo de CAM. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</div>
+</section>
+<section id="id5">
+<h2>CAM: Exemplo<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Sobreposição</strong>: A sobreposição da imagem original com o mapa de calor visualiza as regiões discriminativas.</p></li>
+<li><p>Note que o CAM foca apenas nas ativações da última camada convolucional, que pode ser mais propensa às características de alto nível, mas ignora as representações localizadas de camadas mais rasas.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://johfischer.com/wp-content/uploads/2022/01/superimpose-768x538.png' style="width:350px;"/>
+    <span style='display:block;'>Exemplo de CAM. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</div>
+</section>
+<section id="weakly-supervised-object-localization-wsol">
+<h2>Weakly-supervised object localization (WSOL)<a class="headerlink" href="#weakly-supervised-object-localization-wsol" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<center>
+<table style="width:100%;border:none;">
+<tr>
+<td style="vertical-align:middle;text-align:left;border:none;width:60%;">
+<ul class="simple">
+<li><p><strong>WSOL</strong>: O CAM foi originalmente proposto como uma forma de realizar Localização de Objeto Supervisionada Fracamente (WSOL).</p></li>
+<li><p><strong>Fluxo de Trabalho de Localização</strong>: Após gerar o mapa de calor, uma técnica de limiarização simples é usada: segmentar regiões com valor acima de 20% do valor máximo do CAM.</p></li>
+<li><p><strong>Geração da Bounding Box</strong>: A caixa delimitadora é desenhada cobrindo o maior componente conectado na região segmentada, localizando o objeto discriminativo.</p></li>
+</ul>
+</td>
+<td style="vertical-align:middle;text-align:center;border:none;width:40%">
+<img src='https://johfischer.com/wp-content/uploads/2022/01/detection-768x538.png' style="width:100%;"/>
+    <span style='display:block;'>Bounding Box via CAM. Fonte: <a href="https://johfischer.com/2022/01/27/class-activation-maps/" target="_blank"> Joh Fischer</a>.</span>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="cam-implementacao-pytorch">
+<h2>CAM: Implementação Pytorch<a class="headerlink" href="#cam-implementacao-pytorch" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Download da imagem de entrada <a class="reference external" href="https://unsplash.com/photos/75715CVEJhI/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8Y2F0fGVufDB8fHx8MTc2MzMzNDg2Mnww&amp;amp;force=true&amp;amp;w=640">aqui</a> | Créditos: <a class="reference external" href="https://unsplash.com/&#64;sadmax">https://unsplash.com/&#64;sadmax</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;amber-kipp-75715CVEJhI-unsplash.jpg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.5 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main
+  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel_launcher.py&quot;, line 17, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/traitlets/config/application.py&quot;, line 992, in launch_instance
+    app.start()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;, line 701, in start
+    self.io_loop.start()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;, line 195, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/opt/anaconda3/lib/python3.11/asyncio/base_events.py&quot;, line 607, in run_forever
+    self._run_once()
+  File &quot;/opt/anaconda3/lib/python3.11/asyncio/base_events.py&quot;, line 1922, in _run_once
+    handle._run()
+  File &quot;/opt/anaconda3/lib/python3.11/asyncio/events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 534, in dispatch_queue
+    await self.process_one()
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 523, in process_one
+    await dispatch(*args)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 429, in dispatch_shell
+    await result
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 767, in execute_request
+    reply_content = await reply_content
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 429, in do_execute
+    res = shell.run_cell(
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3051, in run_cell
+    result = self._run_cell(
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3106, in _run_cell
+    result = runner(coro)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3311, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3493, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3553, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/var/folders/p7/p37cm2fj10xgjrjj5rzdm66c0000gn/T/ipykernel_55171/2629158500.py&quot;, line 1, in &lt;module&gt;
+    import matplotlib.pyplot as plt
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/__init__.py&quot;, line 161, in &lt;module&gt;
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/rcsetup.py&quot;, line 27, in &lt;module&gt;
+    from matplotlib.colors import Colormap, is_color_like
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/colors.py&quot;, line 57, in &lt;module&gt;
+    from matplotlib import _api, _cm, cbook, scale
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/scale.py&quot;, line 22, in &lt;module&gt;
+    from matplotlib.ticker import (
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/ticker.py&quot;, line 143, in &lt;module&gt;
+    from matplotlib import transforms as mtransforms
+  File &quot;/opt/anaconda3/lib/python3.11/site-packages/matplotlib/transforms.py&quot;, line 49, in &lt;module&gt;
+    from matplotlib._path import (
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;amber-kipp-75715CVEJhI-unsplash.jpg&quot;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">161</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">parse</span> <span class="k">as</span> <span class="n">parse_version</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="c1"># cbook must import matplotlib only within function</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="c1"># definitions, so it is safe to import from it here.</span>
+<span class="ne">--&gt; </span><span class="mi">161</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_version</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">_docstring</span><span class="p">,</span> <span class="n">rcsetup</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">sanitize_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span> <span class="kn">from</span> <span class="nn">matplotlib._api</span> <span class="kn">import</span> <span class="n">MatplotlibDeprecationWarning</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">rcsetup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">27</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">ls_mapper</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Colormap</span><span class="p">,</span> <span class="n">is_color_like</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="kn">from</span> <span class="nn">matplotlib._fontconfig_pattern</span> <span class="kn">import</span> <span class="n">parse_fontconfig_pattern</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">matplotlib._enums</span> <span class="kn">import</span> <span class="n">JoinStyle</span><span class="p">,</span> <span class="n">CapStyle</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">colors</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">57</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">57</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_cm</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">scale</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="kn">from</span> <span class="nn">._color_data</span> <span class="kn">import</span> <span class="n">BASE_COLORS</span><span class="p">,</span> <span class="n">TABLEAU_COLORS</span><span class="p">,</span> <span class="n">CSS4_COLORS</span><span class="p">,</span> <span class="n">XKCD_COLORS</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="k">class</span> <span class="nc">_ColorMapping</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">scale</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">NullFormatter</span><span class="p">,</span> <span class="n">ScalarFormatter</span><span class="p">,</span> <span class="n">LogFormatterSciNotation</span><span class="p">,</span> <span class="n">LogitFormatter</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">NullLocator</span><span class="p">,</span> <span class="n">LogLocator</span><span class="p">,</span> <span class="n">AutoLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">SymmetricalLogLocator</span><span class="p">,</span> <span class="n">AsinhLocator</span><span class="p">,</span> <span class="n">LogitLocator</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="kn">import</span> <span class="n">Transform</span><span class="p">,</span> <span class="n">IdentityTransform</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">class</span> <span class="nc">ScaleBase</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">ticker</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">143</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="ne">--&gt; </span><span class="mi">143</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">mtransforms</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;TickHelper&#39;</span><span class="p">,</span> <span class="s1">&#39;Formatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FixedFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>            <span class="s1">&#39;NullFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FuncFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FormatStrFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>            <span class="s1">&#39;StrMethodFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;ScalarFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;LogFormatter&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span>            <span class="s1">&#39;MultipleLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;MaxNLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoMinorLocator&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>            <span class="s1">&#39;SymmetricalLogLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AsinhLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;LogitLocator&#39;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">transforms</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="kn">from</span> <span class="nn">matplotlib._path</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">affine_transform</span><span class="p">,</span> <span class="n">count_bboxes_overlapping_bbox</span><span class="p">,</span> <span class="n">update_path_extents</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="kn">from</span> <span class="nn">.path</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span> <span class="nn">torchvision.models</span> <span class="k">as</span> <span class="nn">models</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+
+<span class="c1"># O ResNet é já contém a estrutura GAP antes de FC.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">ResNet18_Weights</span><span class="o">.</span><span class="n">IMAGENET1K_V1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<span class="c1"># Armazenar ativações da última camada convolucional (&#39;layer4&#39;)</span>
+<span class="n">activation</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">def</span> <span class="nf">get_activation</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hook</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="n">activation</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">hook</span>
+
+<span class="c1"># Registrar o hook na camada alvo (layer4)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">layer4</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">get_activation</span><span class="p">(</span><span class="s1">&#39;final_conv&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.hooks.RemovableHandle at 0x150ca9a50&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define transformações no padrão da ResNet (224x224)</span>
+<span class="n">preprocess</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">((</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span>
+        <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> 
+        <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
+<span class="p">])</span>
+
+<span class="n">transformada_img</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="c1"># Adiciona dimensão de batch</span>
+<span class="n">model_img</span> <span class="o">=</span> <span class="n">transformada_img</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([1, 3, 224, 224])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Faz o forward pass</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">model_img</span><span class="p">)</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">class_idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="c1"># Gera a saída do modelo</span>
+<span class="n">output_shape</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">transformada_img</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Classe Prevista: </span><span class="si">{</span><span class="n">class_idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classe Prevista: 282
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extrai Feature Maps</span>
+<span class="n">conv_layer_output</span> <span class="o">=</span> <span class="n">activation</span><span class="p">[</span><span class="s2">&quot;final_conv&quot;</span><span class="p">]</span>
+<span class="n">conv_layer_output</span> <span class="o">=</span> <span class="n">conv_layer_output</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Recuperar Pesos da Camada FC</span>
+<span class="n">fc_weights</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">weight</span>
+<span class="n">cat_class_idx</span> <span class="o">=</span> <span class="n">class_idx</span>  <span class="c1"># Índice da classe &#39;cat&#39; na ResNet-18</span>
+<span class="c1"># Isola os Pesos para a Classe Prevista</span>
+<span class="n">cat_fc_weights</span> <span class="o">=</span> <span class="n">fc_weights</span><span class="p">[</span><span class="n">cat_class_idx</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Computa a soma ponderada para gerar o CAM</span>
+<span class="n">final_conv_layer_output</span> <span class="o">=</span> <span class="n">cat_fc_weights</span> <span class="o">*</span> <span class="n">conv_layer_output</span>
+<span class="n">class_activation_map</span> <span class="o">=</span> <span class="n">final_conv_layer_output</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">class_activation_map</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/06f793d1c44e35248d1ad9365133eb9ee01fd39f7a4e870a13dc4b1f0c9a33ae.png" src="../_images/06f793d1c44e35248d1ad9365133eb9ee01fd39f7a4e870a13dc4b1f0c9a33ae.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Faz o resize do CAM para o tamanho da imagem de entrada</span>
+<span class="n">cam_resized</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
+    <span class="n">class_activation_map</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+      <span class="n">size</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">model_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]),</span> 
+      <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">,</span> 
+      <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Converte CAM para NumPy array</span>
+<span class="n">cam_np</span> <span class="o">=</span> <span class="n">cam_resized</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">cam_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">cam_np</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Converte imagem de entrada para NumPy array</span>
+<span class="n">img_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mostra CAM + Imagem</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_np</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cam_expanded</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/96573b061640d46cf33cd575bc328a7a1892c696ed09af5b84572c704a13a0e5.png" src="../_images/96573b061640d46cf33cd575bc328a7a1892c696ed09af5b84572c704a13a0e5.png" />
+</div>
+</div>
+<p>O cálculo é a implementação direta da fórmula <span class="math notranslate nohighlight">\(M_c(x,y)=\sum_k w_k^c f_k(x,y)\)</span>. O redimensionamento é crucial porque os mapas de características são menores do que a imagem original. Uma vez redimensionado, aplicamos um <em>colormap</em> de alto contraste como <code class="docutils literal notranslate"><span class="pre">jet</span></code> (cores quentes para importância) e o misturamos com a imagem de entrada.</p>
+</section>
+<section id="cam-limitacoes">
+<h2>CAM: Limitações<a class="headerlink" href="#cam-limitacoes" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Restrição de Arquitetura</strong>: A principal limitação é a exigência de ter GAP seguido diretamente pelo Softmax, o que força modificações arquiteturais em modelos que não o possuem (e.g., AlexNet original ou VGG).</p></li>
+<li><p><strong>Necessidade de Re-treinamento/Ajuste Fino</strong>: Se um modelo popular não se adequar à arquitetura CAM, ele deve ser modificado (removendo camadas FC) e então ajustado (<em>fine-tuning</em>).</p></li>
+<li><p><strong>Baixa Resolução</strong>: O mapa de calor é inicialmente gerado na baixa resolução dos feature maps da última convolução (e.g., 7x7 ou 14x14).</p></li>
+<li><p><strong>Dependência da Última Camada</strong>: O CAM foca apenas nas ativações da última camada convolucional, que pode ser mais propensa a características de alto nível, mas ignora as representações localizadas de camadas mais rasas.</p></li>
+</ul>
+</section>
+<section id="evolucao-e-outras-abordagens-grad-cam">
+<h2>Evolução e Outras Abordagens: Grad-CAM<a class="headerlink" href="#evolucao-e-outras-abordagens-grad-cam" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Grad-CAM (Generalização)</strong>: O <a class="reference external" href="https://arxiv.org/pdf/1610.02391">Grad-CAM (Gradient-weighted Class Activation Mapping)</a> foi proposto para superar essa restrição, tornando a localização visual aplicável a <em>qualquer</em> arquitetura de CNN.</p></li>
+<li><p>Em vez de usar os pesos <span class="math notranslate nohighlight">\(w_k^c\)</span> da camada FC (como no CAM), o Grad-CAM usa os gradientes da pontuação da classe alvo em relação aos feature maps da última convolução para calcular os coeficientes de importância <span class="math notranslate nohighlight">\(\alpha_k^c\)</span>.</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://adataodyssey.com/wp-content/uploads/2025/01/relu_and_interpolation-1024x430.png' style="width:450px;"/>
+    <span style='display:block;'>Exemplo de Grad-CAM. Fonte: <a href="https://adataodyssey.com/grad-cam/" target="_blank"> A Data Odyssey</a>.</span>
+</div>
+</section>
+<section id="id6">
+<h2>Evolução e Outras Abordagens: Grad-CAM++<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p><strong>Grad-CAM++</strong>: Uma melhoria do Grad-CAM que calcula uma média ponderada <em>verdadeira</em> dos gradientes, oferecendo melhores explicações visuais, especialmente em imagens com múltiplas ocorrências do mesmo objeto.</p>
+<ul class="simple">
+<li><p><strong>Métodos Sem Gradiente (Gradient-Free)</strong>: Surgiram métodos que eliminam a dependência de gradientes para evitar problemas como saturação de gradiente.</p></li>
+<li><p><strong>Score-CAM</strong>: Utiliza o score de forward pass de cada mapa de característica para determinar sua importância, superando as questões de gradiente.</p></li>
+<li><p><strong>Recipro-CAM</strong>: Um método mais recente, considerado <em>state-of-the-art</em> em eficiência computacional e precisão em certas métricas (ADCC).</p></li>
+</ul>
+<div style='align: left; text-align:center;'>
+    <img src='https://miro.medium.com/v2/resize:fit:720/format:webp/1*DbDnt7eVXcv07jZgc4hBrw.png' style="width:500px;"/>
+    <span style='display:block;'>Exemplo de Grad-CAM. Fonte: <a href="https://www.kaggle.com/code/tanishqsardana/cam-gradcam-and-gradcam/notebook" target="_blank"> Tanishq Sardana</a>.</span>
+</div>
+</section>
+<section id="conclusao">
+<h2>Conclusão<a class="headerlink" href="#conclusao" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Fundamento de XAI</strong>: CAM é um método pioneiro e eficaz para visualizar as decisões de classificação em CNNs.</p></li>
+<li><p><strong>Interpretabilidade por Design</strong>: Explora uma arquitetura de rede específica (GAP) que mantém a capacidade de localização.</p></li>
+<li><p><strong>Localização Poderosa</strong>: Permite a localização de objetos (WSOL) com alta precisão, utilizando apenas rótulos de nível de imagem.</p></li>
+<li><p><strong>Insight em Pesos</strong>: Liga diretamente a importância do conceito (pesos FC) com a presença espacial (feature maps).</p></li>
+<li><p><strong>Evolução</strong>: Embora limitado arquiteturalmente, ele pavimentou o caminho para métodos mais flexíveis e generalizados como Grad-CAM.</p></li>
+</ul>
+</section>
+<section id="material-adicional">
+<h2>Material Adicional<a class="headerlink" href="#material-adicional" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><a class="reference external" href="https://zilliz.com/learn/class-activation-mapping-CAM">Class Activation Mapping (CAM): Better Interpretability in Deep Learning Models</a></p></li>
+<li><p><a class="reference external" href="https://zilliz.com/learn/class-activation-mapping-CAM">Implementation of Class Activation Map (CAM) with PyTorch</a></p></li>
+<li><p><a class="reference external" href="https://distill.pub/2018/building-blocks/">Building Blocks of Interpretability</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/WX750egxeck">Understanding Class Activation Maps (CAMs) for Deep Learning Interpretability</a></p></li>
+</ul>
+</section>
+<section id="tarefa-1-geracao-e-visualizacao-do-cam">
+<h2>Tarefa 1: Geração e Visualização do CAM<a class="headerlink" href="#tarefa-1-geracao-e-visualizacao-do-cam" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Gere CAM em um modelo popular (exemplo, VGG16) para localizar a região discriminativa que justifica a previsão de uma classe ImageNet.</p>
+<p><strong>Instruções Passo a Passo</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Configuração e Imports:</strong> Importar bibliotecas essenciais (<code class="docutils literal notranslate"><span class="pre">torch</span></code>, <code class="docutils literal notranslate"><span class="pre">torchvision</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">cv2</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>).</p></li>
+<li><p><strong>Carregar Modelo:</strong> Carregar o modelo pré-treinado <code class="docutils literal notranslate"><span class="pre">models.resnet50(pretrained=True)</span></code> e colocá-lo em modo de avaliação (<code class="docutils literal notranslate"><span class="pre">.eval()</span></code>).</p></li>
+<li><p><strong>Definir Hook:</strong> Implementar e registrar um <em>forward hook</em> na última camada convolucional (similar à <code class="docutils literal notranslate"><span class="pre">model.layer4</span></code> do ResNet-18) para capturar os mapas de características (<code class="docutils literal notranslate"><span class="pre">conv_features</span></code>).</p></li>
+<li><p><strong>Carregar e Pré-processar Imagem:</strong></p>
+<ul class="simple">
+<li><p>Escolher uma imagem do ImageNet (e.g., de um animal, carro, ou comida).</p></li>
+<li><p>Carregar a imagem usando PIL ou OpenCV.</p></li>
+<li><p>Aplicar as transformações necessárias (redimensionamento para 224x224, conversão para tensor e normalização ImageNet).</p></li>
+</ul>
+</li>
+<li><p><strong>Forward Pass e Pesos:</strong></p>
+<ul class="simple">
+<li><p>Executar o <em>forward pass</em> para obter as previsões e as ativações.</p></li>
+<li><p>Identificar a classe prevista (<code class="docutils literal notranslate"><span class="pre">class_idx</span></code>).</p></li>
+<li><p>Extrair os pesos da camada <code class="docutils literal notranslate"><span class="pre">model.fc</span></code> correspondentes a <code class="docutils literal notranslate"><span class="pre">class_idx</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Cálculo e Upsampling:</strong></p>
+<ul class="simple">
+<li><p>Calcular o CAM: soma ponderada dos feature maps e pesos da classe.</p></li>
+<li><p>Normalizar o CAM para o intervalo.</p></li>
+<li><p>Redimensionar o CAM para o tamanho da imagem de entrada (e.g., 224x224).</p></li>
+</ul>
+</li>
+<li><p><strong>Visualização:</strong></p>
+<ul class="simple">
+<li><p>Usar <code class="docutils literal notranslate"><span class="pre">cv2.applyColorMap</span></code> com <code class="docutils literal notranslate"><span class="pre">cv2.COLORMAP_JET</span></code> (ou <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.cm.jet</span></code>) para criar o mapa de calor colorido.</p></li>
+<li><p>Sobrepor o mapa de calor na imagem original (usando uma mistura ponderada, e.g., <span class="math notranslate nohighlight">\(0.5 \times \text{Imagem} + 0.5 \times \text{Heatmap}\)</span>).</p></li>
+<li><p><strong>Salvar a imagem de sobreposição final como <code class="docutils literal notranslate"><span class="pre">resnet50_cam_overlay.png</span></code>.</strong></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Resultado Esperado:</strong> Um arquivo PNG mostrando a imagem de entrada com um mapa de calor de alto contraste sobreposto, destacando a região do objeto que levou à classificação.</p>
+</section>
+<section id="tarefa-2-comparacao-cam-vs-grad-cam">
+<h2>Tarefa 2: Comparação CAM vs. Grad-CAM<a class="headerlink" href="#tarefa-2-comparacao-cam-vs-grad-cam" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Compare visualmente e analiticamente a localização fornecida pelo CAM (restrito à arquitetura GAP) e pelo Grad-CAM (abordagem mais generalizada) em diferentes cenários.</p>
+<p><strong>Instruções Passo a Passo</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Ferramentas:</strong> Utilize a implementação de CAM da Tarefa 1 e uma implementação de Grad-CAM (usando uma biblioteca como <code class="docutils literal notranslate"><span class="pre">pytorch-grad-cam</span></code> ou implementando a lógica do Grad-CAM) no ResNet-50.</p></li>
+<li><p><strong>Seleção de Imagens:</strong> Escolha duas imagens:</p>
+<ul class="simple">
+<li><p><strong>Imagem A (Simples):</strong> Contém um único objeto central (e.g., um cachorro em um gramado).</p></li>
+<li><p><strong>Imagem B (Complexa/Múltiplos Objetos):</strong> Contém dois objetos diferentes de classes distintas (e.g., uma pessoa e um cavalo, ou dois objetos da mesma classe).</p></li>
+</ul>
+</li>
+<li><p><strong>Geração de Mapas:</strong></p>
+<ul class="simple">
+<li><p>Para a Imagem A: Gerar CAM e Grad-CAM para a classe principal.</p></li>
+<li><p>Para a Imagem B: Gerar CAM e Grad-CAM para <em>cada uma</em> das classes presentes.</p></li>
+</ul>
+</li>
+<li><p><strong>Análise Comparativa:</strong> Observar a forma, a nitidez e a distribuição do calor em ambos os métodos para as duas imagens.</p></li>
+<li><p><strong>Análise Escrita:</strong> Escreva um parágrafo curto (aproximadamente 5-7 linhas) no notebook comparando:</p>
+<ul class="simple">
+<li><p>A diferença de foco entre CAM e Grad-CAM na Imagem A (simples).</p></li>
+<li><p>Qual método (CAM ou Grad-CAM) parece ser mais eficaz na Imagem B (múltiplos objetos) para isolar as regiões discriminativas para cada classe.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Resultado Esperado:</strong> Um parágrafo de análise concluindo sobre as vantagens e desvantagens de cada método em cenários simples versus complexos (e.g., Grad-CAM++ ou Grad-CAM podem ser melhores para isolar múltiplos objetos, uma melhoria abordada pela literatura).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./vcnotebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VC-Redes-Neurais-Convolucionais.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Redes Neurais Convolucionais (CNNs)</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visao-computacional">Visão Computacional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins">Prof. Dr. Denis Mayr Lima Martins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-opacos-x-modelos-transparentes">Modelos Opacos x Modelos Transparentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-necessidade-de-explicabilidade">A Necessidade de Explicabilidade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falta-de-interpretabilidade-em-cnns">Falta de Interpretabilidade em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">A Necessidade de Explicabilidade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Falta de Interpretabilidade em CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-activation-maps-cam">Class Activation Maps (CAM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-pooling-gap">Global Average Pooling (GAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-pooling-gap-funcionamento">Global Average Pooling (GAP): Funcionamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gap-versus-global-max-pooling-gmp">GAP versus Global Max Pooling (GMP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacao-flatten-versus-gap">Comparação Flatten versus GAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Global Average Pooling (GAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Global Average Pooling (GAP)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-average-pooling-gap-classificacao">Global Average Pooling (GAP): Classificação</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-equacao-do-class-activation-map">A Equação do Class Activation Map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cam-exemplo">CAM: Exemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">CAM: Exemplo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weakly-supervised-object-localization-wsol">Weakly-supervised object localization (WSOL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cam-implementacao-pytorch">CAM: Implementação Pytorch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cam-limitacoes">CAM: Limitações</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evolucao-e-outras-abordagens-grad-cam">Evolução e Outras Abordagens: Grad-CAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Evolução e Outras Abordagens: Grad-CAM++</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusao">Conclusão</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-adicional">Material Adicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarefa-1-geracao-e-visualizacao-do-cam">Tarefa 1: Geração e Visualização do CAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tarefa-2-comparacao-cam-vs-grad-cam">Tarefa 2: Comparação CAM vs. Grad-CAM</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Dr. Denis M. L. Martins
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
