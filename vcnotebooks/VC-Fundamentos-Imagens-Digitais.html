@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Fundamentos de Imagens Digitais em Python (Demo) &#8212; Visão Computacional</title>
+    <title>Visão Computacional &#8212; Visão Computacional</title>
   
   
   
@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -42,7 +42,7 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -61,7 +61,7 @@
     <link rel="canonical" href="https://denmartins.github.io/visao-computacional-book/vcnotebooks/VC-Fundamentos-Imagens-Digitais.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Filtragem Espacial" href="VC-Filtragem-Espacial.html" />
+    <link rel="next" title="Visão Computacional" href="VC-Filtragem-Espacial.html" />
     <link rel="prev" title="Visão Computacional em Python" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,12 +173,19 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos de Imagens Digitais em Python (Demo)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Filtragem Espacial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Processamento de Imagens Coloridas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visão Computacional</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Redes Neurais MLP para Classificação de imagens</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Redes Neurais Convolucionais (CNNs)</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Filtragem-Espacial.html">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Processamento-Imagens-Coloridas.html">Visão Computacional</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-MNIST.html">Visão Computacional</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VC-Redes-Neurais-Convolucionais.html">Visão Computacional</a></li>
 </ul>
 
     </div>
@@ -412,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fundamentos de Imagens Digitais em Python (Demo)</h1>
+    <h1>Visão Computacional</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,13 +429,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas"><strong>Pontifícia Universidade Católica de Campinas</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins"><strong>Prof. Dr. Denis Mayr Lima Martins</strong></a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -439,15 +452,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-de-imagens-digitais-em-python-demo">
-<h1>Fundamentos de Imagens Digitais em Python (Demo)<a class="headerlink" href="#fundamentos-de-imagens-digitais-em-python-demo" title="Link to this heading">#</a></h1>
+  <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="visao-computacional">
+<h1>Visão Computacional<a class="headerlink" href="#visao-computacional" title="Link to this heading">#</a></h1>
+<section id="pontificia-universidade-catolica-de-campinas">
+<h2><strong>Pontifícia Universidade Católica de Campinas</strong><a class="headerlink" href="#pontificia-universidade-catolica-de-campinas" title="Link to this heading">#</a></h2>
+</section>
+<section id="prof-dr-denis-mayr-lima-martins">
+<h2><strong>Prof. Dr. Denis Mayr Lima Martins</strong><a class="headerlink" href="#prof-dr-denis-mayr-lima-martins" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 <span class="c1"># No Google Colab, use o comando abaixo</span>
 <span class="c1">#from google.colab.patches import cv2_imshow</span>
 </pre></div>
@@ -457,9 +476,9 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">cv2</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;cv2&#39;
 </pre></div>
@@ -468,7 +487,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url_to_image</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">readFlag</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">url_to_image</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">readFlag</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">):</span>
     <span class="c1"># download the image, convert it to a NumPy array, and then read</span>
     <span class="c1"># it into OpenCV format</span>
     <span class="n">resp</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -510,8 +529,10 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </div>
-<section id="plotando-canais">
-<h2>Plotando canais<a class="headerlink" href="#plotando-canais" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotando-canais">
+<h1>Plotando canais<a class="headerlink" href="#plotando-canais" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figure</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
@@ -536,7 +557,7 @@ Min pixel: 3 | Max pixel: 255
 <span class="n">b</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>                 
 
 <span class="c1"># Calcula o histogram por canal</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">histograma_canal</span><span class="p">(</span><span class="n">canal</span><span class="p">,</span> <span class="n">cor</span><span class="p">,</span> <span class="n">nome</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">histograma_canal</span><span class="p">(</span><span class="n">canal</span><span class="p">,</span> <span class="n">cor</span><span class="p">,</span> <span class="n">nome</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcula o histograma de um canal e cria um plot para ele.&quot;&quot;&quot;</span>
     <span class="n">hist</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">calcHist</span><span class="p">([</span><span class="n">canal</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">])</span>   <span class="c1"># 256 bins</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cor</span><span class="p">)</span>
@@ -562,8 +583,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section id="zerando-canais">
-<h2>Zerando canais<a class="headerlink" href="#zerando-canais" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="zerando-canais">
+<h1>Zerando canais<a class="headerlink" href="#zerando-canais" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
@@ -584,8 +605,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section id="zerando-pixels-especificos-na-imagem">
-<h2>Zerando pixels específicos na imagem<a class="headerlink" href="#zerando-pixels-especificos-na-imagem" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="zerando-pixels-especificos-na-imagem">
+<h1>Zerando pixels específicos na imagem<a class="headerlink" href="#zerando-pixels-especificos-na-imagem" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -608,8 +629,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section id="imagem-negativa">
-<h2>Imagem Negativa<a class="headerlink" href="#imagem-negativa" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="imagem-negativa">
+<h1>Imagem Negativa<a class="headerlink" href="#imagem-negativa" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -628,8 +649,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section id="modificando-partes-da-imagem">
-<h2>Modificando partes da imagem<a class="headerlink" href="#modificando-partes-da-imagem" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="modificando-partes-da-imagem">
+<h1>Modificando partes da imagem<a class="headerlink" href="#modificando-partes-da-imagem" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imagem</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -653,8 +674,8 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </section>
-<section id="crop">
-<h2>Crop<a class="headerlink" href="#crop" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="crop">
+<h1>Crop<a class="headerlink" href="#crop" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">url_to_image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png&quot;</span><span class="p">)</span>
@@ -681,7 +702,6 @@ Min pixel: 3 | Max pixel: 255
 </div>
 </div>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -728,7 +748,7 @@ Min pixel: 3 | Max pixel: 255
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Filtragem Espacial</p>
+        <p class="prev-next-title">Visão Computacional</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -748,13 +768,19 @@ Min pixel: 3 | Max pixel: 255
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visão Computacional</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pontificia-universidade-catolica-de-campinas"><strong>Pontifícia Universidade Católica de Campinas</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prof-dr-denis-mayr-lima-martins"><strong>Prof. Dr. Denis Mayr Lima Martins</strong></a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotando-canais">Plotando canais</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-canais">Zerando canais</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#zerando-pixels-especificos-na-imagem">Zerando pixels específicos na imagem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#imagem-negativa">Imagem Negativa</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modificando-partes-da-imagem">Modificando partes da imagem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#crop">Crop</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
