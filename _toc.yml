@@ -9,4 +9,5 @@ chapters:
 - file: vcnotebooks/VC-Processamento-Imagens-Coloridas
 - file: vcnotebooks/VC-Redes-Neurais-MNIST
 - file: vcnotebooks/VC-Redes-Neurais-Convolucionais
+- file: vcnotebooks/VC-Class-Activation-Map
 
